@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     public float moveSpeed;
     public float jumpForce;
+    private float horizontal;
+
 
     private void Awake()
     {
@@ -30,27 +33,28 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnMove(InputAction.CallbackContext context)
     {
         Vector2 moveInput = context.ReadValue<Vector2>();
         moveDirection = new Vector2(moveInput.x, 0f);
+        horizontal = context.ReadValue<Vector2>().x;
+        
         Debug.Log(moveDirection);
+            
     }
 
     private void OnJump(InputAction.CallbackContext context)
     {
+        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         Debug.Log("you pressed jump");
-        rb.AddForce(Vector2.up * jumpForce);
+
     }
 
     private void FixedUpdate()
     {
-        //rb.AddForce(moveDirection * moveSpeed);
-        rb.AddForce(moveDirection * moveSpeed * Time.deltaTime);
-        //rb.AddForce(Vector2.left * moveSpeed * Time.deltaTime);
-
+        rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
     }
 }
