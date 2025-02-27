@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     public float jumpForce;
     private float horizontal;
+    //bool didAttack = false;
 
 
     private void Awake()
@@ -55,10 +56,12 @@ public class PlayerController : MonoBehaviour
     }
     private void OnAttack(InputAction.CallbackContext context)
     {
-        Debug.Log("you pressed attack");
-
+        //if (didAttack == true && collision.gameObject.CompareTag("Player2")) /*&& attack button is clicked*/ ) //checks the tag of the object its colliding with
+        //{
+            Debug.Log("you landed an attack");
+        //}
     }
-
+   
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);

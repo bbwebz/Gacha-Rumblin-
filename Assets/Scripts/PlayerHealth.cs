@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour
         if (collision.gameObject.CompareTag("Player2") /*&& attack button is clicked*/ ) //checks the tag of the object its colliding with
         {
             Debug.Log("player collided!!!");
-            health -= 1;
+            
         }
     }
 
