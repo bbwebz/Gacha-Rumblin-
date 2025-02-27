@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 
+
 public class PlayerController : MonoBehaviour
 {
     PlayerControls controls;
@@ -13,6 +14,9 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     public float jumpForce;
     private float horizontal;
+
+    public TMPro.TextMeshProUGUI TotalHealth;
+    private int health = 5;
 
 
     private void Awake()
@@ -34,6 +38,12 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
+        TotalHealth.text = "Player 1 health: " + health;
+        
+    }
+    public void DecreaseHealth(int amount)
+    {
+        health -= amount;
     }
 
     private void OnMove(InputAction.CallbackContext context)
@@ -41,9 +51,9 @@ public class PlayerController : MonoBehaviour
         Vector2 moveInput = context.ReadValue<Vector2>();
         moveDirection = new Vector2(moveInput.x, 0f);
         horizontal = context.ReadValue<Vector2>().x;
-        
-        Debug.Log(moveDirection);
-            
+
+        //Debug.Log(moveDirection);
+
     }
 
     private void OnJump(InputAction.CallbackContext context)
