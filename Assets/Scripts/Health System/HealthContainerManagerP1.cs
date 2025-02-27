@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthManager : MonoBehaviour
+public class HealthContainerManagerP1 : MonoBehaviour
 {
     public GameObject heartPrefab;
-    public PlayerHealth playerHealth;
+    public Player1Health player1Health;
     List<Heart> hearts = new List<Heart>();
 
     private void Start()
@@ -16,7 +16,7 @@ public class HealthManager : MonoBehaviour
     public void drawHearts()
     {
         clearHearts();
-        float heartsToMake = playerHealth.health;
+        float heartsToMake = player1Health.health;
 
         for (int i = 0; i < heartsToMake; i++)
         {
