@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
@@ -14,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     private float horizontal;
     //bool didAttack = false;
+    bool isFacingLeft = false;
+
 
 
     private void Awake()
@@ -35,7 +38,16 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(moveDirection.x < 0)
+        {
+            isFacingLeft = true;
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else
+        {
+            isFacingLeft = false;
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
     }
 
     private void OnMove(InputAction.CallbackContext context)
@@ -44,6 +56,7 @@ public class PlayerController : MonoBehaviour
         moveDirection = new Vector2(moveInput.x, 0f);
         horizontal = context.ReadValue<Vector2>().x;
         
+
         Debug.Log(moveDirection);
             
     }
