@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
         controls.Gameplay.Enable();
         controls.Gameplay.Move.performed += OnMove;
         controls.Gameplay.Jump.performed += OnJump;
+        controls.Gameplay.Attack.performed += OnAttack;
         rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;
     }
@@ -50,6 +51,11 @@ public class PlayerController : MonoBehaviour
     {
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         Debug.Log("you pressed jump");
+
+    }
+    private void OnAttack(InputAction.CallbackContext context)
+    {
+        Debug.Log("you pressed attack");
 
     }
 

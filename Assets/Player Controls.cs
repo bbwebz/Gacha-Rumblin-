@@ -44,6 +44,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""e14889a4-ec93-4490-9c7e-e9ccdae2adf4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -123,6 +132,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""88c28c61-e2ec-44c1-884f-74be8d4e1e9f"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -133,6 +153,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
         m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
+        m_Gameplay_Attack = m_Gameplay.FindAction("Attack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -196,12 +217,14 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
     private readonly InputAction m_Gameplay_Move;
     private readonly InputAction m_Gameplay_Jump;
+    private readonly InputAction m_Gameplay_Attack;
     public struct GameplayActions
     {
         private @PlayerControls m_Wrapper;
         public GameplayActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Gameplay_Move;
         public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
+        public InputAction @Attack => m_Wrapper.m_Gameplay_Attack;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -217,6 +240,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @Attack.started += instance.OnAttack;
+            @Attack.performed += instance.OnAttack;
+            @Attack.canceled += instance.OnAttack;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -227,6 +253,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @Attack.started -= instance.OnAttack;
+            @Attack.performed -= instance.OnAttack;
+            @Attack.canceled -= instance.OnAttack;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -248,5 +277,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
     }
 }
