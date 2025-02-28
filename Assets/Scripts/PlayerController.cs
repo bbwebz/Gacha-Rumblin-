@@ -9,6 +9,8 @@ using UnityEngine.InputSystem.Controls;
 public class PlayerController : MonoBehaviour
 {
     PlayerControls controls;
+    Player1Health Player1HealthAccess;
+
     Vector2 moveDirection;
     Rigidbody2D rb;
     public float moveSpeed;
@@ -17,9 +19,7 @@ public class PlayerController : MonoBehaviour
 
     public bool didAttack = false;
     bool isFacingLeft = false;
-    public bool didPlayersCollide = false;
-
-
+    public bool arePlayersColliding = false;
 
     private void Awake()
     {
@@ -33,7 +33,10 @@ public class PlayerController : MonoBehaviour
         controls.Gameplay.Move.performed += OnMove;
         controls.Gameplay.Jump.performed += OnJump;
         controls.Gameplay.Attack.performed += OnAttack;
+
         rb = GetComponent<Rigidbody2D>();
+        Player1HealthAccess = GetComponent<Player1Health>();
+
         rb.freezeRotation = true;
     }
 
@@ -65,13 +68,15 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         Debug.Log("you pressed jump");
     }
-    private void OnAttack(InputAction.CallbackContext context)
+
+    public void OnAttack(InputAction.CallbackContext context)
     {
         Debug.Log("you pressed attack");
-        if (didPlayersCollide == true)
+        if (arePlayersColliding == true)
         {
             didAttack = true;
             Debug.Log("you landed an attack");
+            Player1HealthAccess.dealDamage();
         }
         else
         {
@@ -83,17 +88,19 @@ public class PlayerController : MonoBehaviour
     {
         rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player2")) //checks the tag of the object its colliding with
         {
-            Debug.Log("players collided");
-            didPlayersCollide = true;
+            Debug.Log("players are colliding");
+            arePlayersColliding = true;
         }
         else
         {
-            didPlayersCollide = false;
+            arePlayersColliding = false;
         }
     }
+
+
 }
