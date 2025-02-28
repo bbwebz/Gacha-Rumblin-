@@ -4,25 +4,39 @@ using UnityEngine;
 
 public class TimerController : MonoBehaviour
 {
-
     [SerializeField] TMPro.TextMeshProUGUI timerDisplay;
-    float elapsedTime;
-    float gameTime = 4; //4 minutes gameplay
+    float gameTime = 4 * 60 + 1; // 4 minutes converted to seconds (240 seconds)
+    float timeLeft; 
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        timeLeft = gameTime; 
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if(elapsedTime < gameTime) {             
-            elapsedTime += Time.deltaTime; //calculates all of the time passed since game started
-            int minutes = Mathf.FloorToInt(elapsedTime / 60);
-            int seconds = Mathf.FloorToInt(elapsedTime % 60);
+        if (timeLeft > 0)
+        {
+            timeLeft -= Time.deltaTime;
 
-            //formats the minutes and seconds to display as 00:00
+            if (timeLeft < 0)
+            {
+                timeLeft = 0;
+            }
+
+            //calculate minutes and seconds from timeLeft
+            int minutes = Mathf.FloorToInt(timeLeft / 60);
+            int seconds = Mathf.FloorToInt(timeLeft % 60);
+
+            //displays the time in the format 00:00
             timerDisplay.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-        
-            //elapsedTime = 0;
-            //timerDisplay.text = "00:00";
         }
-
+        else
+        {
+            //clears the timer
+            timerDisplay.text = "00:00";
+        }
     }
 }
