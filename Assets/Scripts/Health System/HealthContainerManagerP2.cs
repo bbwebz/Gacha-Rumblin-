@@ -5,7 +5,7 @@ using UnityEngine;
 public class HealthContainerManagerP2 : MonoBehaviour
 {
     public GameObject heartPrefab;
-    public Player1Health player2Health;
+    public Player2Health player2Health;
     List<Heart> hearts = new List<Heart>();
 
     private void Start()
