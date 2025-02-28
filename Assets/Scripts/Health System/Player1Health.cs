@@ -4,27 +4,31 @@ using UnityEngine;
 
 public class Player1Health : MonoBehaviour
 {
-    public float health, maxHealth;
+    public float health;
+    public float maxHealth;
+    public PlayerController playerControllerAccess;
 
     // Start is called before the first frame update
     void Start()
     {
+        maxHealth = 5;
         health = maxHealth;
-    }
-
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player2") /*&& attack button is clicked*/ ) //checks the tag of the object its colliding with
-        {
-            Debug.Log("player collided!!!");
-            
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        dealDamage();
+    }
 
+    public void dealDamage()
+    {
+        if(playerControllerAccess.didPlayersCollide == true && playerControllerAccess.didAttack == true)
+        {
+            if (health > 0)
+            {
+                health -= 1;
+            }
+        }
     }
 }

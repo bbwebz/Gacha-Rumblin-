@@ -14,8 +14,10 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     public float jumpForce;
     private float horizontal;
-    //bool didAttack = false;
+
+    public bool didAttack = false;
     bool isFacingLeft = false;
+    public bool didPlayersCollide = false;
 
 
 
@@ -55,28 +57,43 @@ public class PlayerController : MonoBehaviour
         Vector2 moveInput = context.ReadValue<Vector2>();
         moveDirection = new Vector2(moveInput.x, 0f);
         horizontal = context.ReadValue<Vector2>().x;
-        
-
-        Debug.Log(moveDirection);
-            
+        //Debug.Log(moveDirection);
     }
 
     private void OnJump(InputAction.CallbackContext context)
     {
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         Debug.Log("you pressed jump");
-
     }
     private void OnAttack(InputAction.CallbackContext context)
     {
-        //if (didAttack == true && collision.gameObject.CompareTag("Player2")) /*&& attack button is clicked*/ ) //checks the tag of the object its colliding with
-        //{
+        Debug.Log("you pressed attack");
+        if (didPlayersCollide == true)
+        {
+            didAttack = true;
             Debug.Log("you landed an attack");
-        //}
+        }
+        else
+        {
+            didAttack = false;
+        }
     }
    
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player2")) //checks the tag of the object its colliding with
+        {
+            Debug.Log("players collided");
+            didPlayersCollide = true;
+        }
+        else
+        {
+            didPlayersCollide = false;
+        }
     }
 }
