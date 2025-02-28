@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     private float horizontal;
 
     public TMPro.TextMeshProUGUI TotalHealth;
-    private int health = 5;
+    public int health = 5;
 
 
     private void Awake()
@@ -41,9 +41,14 @@ public class PlayerController : MonoBehaviour
         TotalHealth.text = "Player 1 health: " + health;
         
     }
-    public void DecreaseHealth(int amount)
+    public void DecreaseHealth(int decrease)
     {
-        health -= amount;
+        health -= decrease;
+    }
+
+    public void IncreaseHealth(int increase)
+    {
+        health += increase;
     }
 
     private void OnMove(InputAction.CallbackContext context)
