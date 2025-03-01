@@ -1,28 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using Unity.VisualScripting;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
-using UnityEngine.InputSystem.Utilities;
 
-
-public class PlayerController : MonoBehaviour
+public class Player2Controller : MonoBehaviour
 {
     PlayerControls controls;
-    Player1Health Player1HealthAccess;
-
     Vector2 moveDirection;
     Rigidbody2D rb;
     public float moveSpeed;
     public float jumpForce;
     private float horizontal;
-
-    public bool didAttack = false;
+    //bool didAttack = false;
     bool isFacingLeft = false;
-    public bool arePlayersColliding = false;
 
 
 
@@ -38,10 +31,7 @@ public class PlayerController : MonoBehaviour
         controls.Gameplay.Move.performed += OnMove;
         controls.Gameplay.Jump.performed += OnJump;
         controls.Gameplay.Attack.performed += OnAttack;
-
         rb = GetComponent<Rigidbody2D>();
-        Player1HealthAccess = GetComponent<Player1Health>();
-
         rb.freezeRotation = true;
     }
 
@@ -58,55 +48,35 @@ public class PlayerController : MonoBehaviour
             isFacingLeft = false;
             GetComponent<SpriteRenderer>().flipX = false;
         }
-
     }
 
-    public void OnMove(InputAction.CallbackContext context)
+    private void OnMove(InputAction.CallbackContext context)
     {
         Vector2 moveInput = context.ReadValue<Vector2>();
         moveDirection = new Vector2(moveInput.x, 0f);
         horizontal = context.ReadValue<Vector2>().x;
-        //Debug.Log(moveDirection);
+        
+
+        Debug.Log(moveDirection);
+            
     }
 
-    public void OnJump(InputAction.CallbackContext context)
+    private void OnJump(InputAction.CallbackContext context)
     {
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         Debug.Log("you pressed jump");
-    }
 
-    public void OnAttack(InputAction.CallbackContext context)
+    }
+    private void OnAttack(InputAction.CallbackContext context)
     {
-        Debug.Log("you pressed attack");
-        if (arePlayersColliding == true)
-        {
-            didAttack = true;
+        //if (didAttack == true && collision.gameObject.CompareTag("Player2")) /*&& attack button is clicked*/ ) //checks the tag of the object its colliding with
+        //{
             Debug.Log("you landed an attack");
-            Player1HealthAccess.dealDamage();
-        }
-        else
-        {
-            didAttack = false;
-        }
+        //}
     }
    
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
     }
-    
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player2")) //checks the tag of the object its colliding with
-        {
-            Debug.Log("players are colliding");
-            arePlayersColliding = true;
-        }
-        else
-        {
-            arePlayersColliding = false;
-        }
-    }
-
-
 }
