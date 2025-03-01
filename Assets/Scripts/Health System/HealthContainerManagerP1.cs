@@ -15,14 +15,14 @@ public class HealthContainerManagerP1 : MonoBehaviour
 
     public void drawHearts()
     {
-        clearHearts(); // Clear previous hearts
+        clearHearts(); 
         float heartsToMake = player1Health.health;
         for (int i = 0; i < heartsToMake; i++)
         {
-            createFullHeart(); // Create full hearts for current health
+            createFullHeart();
         }
 
-        // Draw empty hearts for the remaining health
+        //draw empty hearts for the remaining health
         float heartsToTake = player1Health.maxHealth - player1Health.health;
         for (int i = 0; i < heartsToTake; i++)
         {

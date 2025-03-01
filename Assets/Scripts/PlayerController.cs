@@ -9,7 +9,9 @@ using UnityEngine.InputSystem.Controls;
 public class PlayerController : MonoBehaviour
 {
     PlayerControls controls;
-    Player1Health Player1HealthAccess;
+    public Player1Health Player1HealthAccess;
+    public Player2Health Player2HealthAccess;
+
 
     Vector2 moveDirection;
     Rigidbody2D rb;
@@ -36,6 +38,7 @@ public class PlayerController : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         Player1HealthAccess = GetComponent<Player1Health>();
+        Player2HealthAccess = GetComponent<Player2Health>();
 
         rb.freezeRotation = true;
     }
@@ -76,7 +79,7 @@ public class PlayerController : MonoBehaviour
         {
             didAttack = true;
             Debug.Log("you landed an attack");
-            Player1HealthAccess.dealDamage();
+            Player1HealthAccess.dealDamageToP2();
         }
         else
         {
@@ -87,11 +90,16 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
+        //avoids sliding
+        if(horizontal < 0.1f && horizontal > -0.1f)
+        {
+            rb.velocity = new Vector2(0f, rb.velocity.y);
+        }
     }
     
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player2")) //checks the tag of the object its colliding with
+        if (collision.gameObject.CompareTag("Player2") || collision.gameObject.CompareTag("Player1")) //checks the tag of the object its colliding with
         {
             Debug.Log("players are colliding");
             arePlayersColliding = true;
@@ -101,6 +109,5 @@ public class PlayerController : MonoBehaviour
             arePlayersColliding = false;
         }
     }
-
 
 }
