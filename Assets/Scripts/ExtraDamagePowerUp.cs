@@ -30,6 +30,7 @@ public class ExtraDamagePowerUp : MonoBehaviour
     }
 
 
+   //Change to OnPower up button pressed
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerController pc = collision.GetComponent<PlayerController>();
