@@ -16,8 +16,8 @@ public class AssignPowerUps : MonoBehaviour
 
     void Start()
     {
-        itemId = Random.Range(1, 4);//numbers from 1-3
-        //itemId = 2;
+        //itemId = Random.Range(1, 4);//numbers from 1-3
+        itemId = 1;
         Debug.Log("num: "+ itemId);
 
         switch (itemId)

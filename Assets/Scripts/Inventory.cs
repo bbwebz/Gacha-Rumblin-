@@ -18,7 +18,7 @@ public class Inventory : MonoBehaviour
         {
             if (itemSlot[i].isFull == false)
             {
-                itemSlot[i].AddItem(itemName, quantity, image);//add item o inventory if not already full
+                itemSlot[i].AddItem(itemName, quantity, image);//add item to inventory if not already full
                 return;
             }
         }

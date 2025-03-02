@@ -11,11 +11,11 @@ public class Pickup : MonoBehaviour
     [SerializeField]
     private Sprite image;
 
-    private Inventory inventoryManager;
+    public Inventory inventoryManager;
 
     private void Start()
     {
-        inventoryManager = GameObject.Find("InventoryBox").GetComponent<Inventory>();
+
     }
 
 
