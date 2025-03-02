@@ -1,21 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public bool[] isFull;
-    public GameObject[] slots;
+    //public GameObject InventoryBox;
+    public powerUpSlot[] itemSlot;
 
 
 
-   
+    public void AddItem(string itemName, int quantity, Sprite image)
+    {
+        Debug.Log("itemName: " + itemName + "quantity: " + quantity + "sprite:" + image);
 
-
-
-
-
+        for (int i = 0; i < itemSlot.Length; i++)
+        {
+            if (itemSlot[i].isFull == false)
+            {
+                itemSlot[i].AddItem(itemName, quantity, image);//add item o inventory if not already full
+                return;
+            }
+        }
+    
+    }
 
 
 

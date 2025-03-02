@@ -10,7 +10,7 @@ using UnityEngine;
 public class ExtraDamagePowerUp : MonoBehaviour
 {
 
-    [SerializeField]
+    [SerializeField]//makes it editable in unity but still private
     private float extraDamage = 5;
     [SerializeField]
     private int healthDecrease = 2;

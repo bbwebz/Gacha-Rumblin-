@@ -9,11 +9,15 @@ public class AssignPowerUps : MonoBehaviour
     private int itemId;
     public Pickup powerUp1;
     public Pickup powerUp2;
+    public Pickup powerUp3;
+
+
+
 
     void Start()
     {
-        //itemId = Random.Range(1, 4);//numbers from 1-3
-        itemId = 1;
+        itemId = Random.Range(1, 4);//numbers from 1-3
+        //itemId = 2;
         Debug.Log("num: "+ itemId);
 
         switch (itemId)
