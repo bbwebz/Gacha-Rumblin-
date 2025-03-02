@@ -1125,7 +1125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSlot:
-  - {fileID: 2021089090}
+  - {fileID: 2021089094}
 --- !u!1 &674465423
 GameObject:
   m_ObjectHideFlags: 0
@@ -2688,16 +2688,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e95cd03d42509d24589c00a169f3d25e, type: 3}
---- !u!1 &2021089090 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2051045002016658469, guid: 96c0d0e8276a3ba4b9e7d209d108a002, type: 3}
-  m_PrefabInstance: {fileID: 4669874817592357265}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2021089091 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5666536245393545741, guid: 96c0d0e8276a3ba4b9e7d209d108a002, type: 3}
   m_PrefabInstance: {fileID: 4669874817592357265}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2021089094 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8868152066978856750, guid: 96c0d0e8276a3ba4b9e7d209d108a002, type: 3}
+  m_PrefabInstance: {fileID: 4669874817592357265}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39a51c0ac1a7f6e47b05f1e1f83c9799, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4669874817592357265
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2789,6 +2795,18 @@ PrefabInstance:
     - target: {fileID: 5666536245393545741, guid: 96c0d0e8276a3ba4b9e7d209d108a002, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8234653934372968062, guid: 96c0d0e8276a3ba4b9e7d209d108a002, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8234653934372968062, guid: 96c0d0e8276a3ba4b9e7d209d108a002, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8234653934372968062, guid: 96c0d0e8276a3ba4b9e7d209d108a002, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
