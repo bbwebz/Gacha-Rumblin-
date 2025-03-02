@@ -4,8 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - Player2
   - Player1
+=======
+  - Player1
+  - Player2
+>>>>>>> 18b2eb71f4be25909b935717b8e550398fbd70aa
   layers:
   - Default
   - TransparentFX

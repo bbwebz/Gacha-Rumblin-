@@ -103,43 +103,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mini-heart_0
+      name: heart_sample_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 5
-        width: 8
-        height: 7
+        x: 0
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02305410000000000800000000000000
-      internalID: 21300000
+      spriteID: 509d9807191b1c34c911ff5600c52cf6
+      internalID: -897371881
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mini-heart_1
+      name: heart_sample_1
       rect:
         serializedVersion: 2
-        x: 20
-        y: 5
-        width: 8
-        height: 7
+        x: 16
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22305410000000000800000000000000
-      internalID: 21300002
+      spriteID: a86abc620a5d7914393d65b16d7bb22a
+      internalID: 1682860761
       vertices: []
       indices: 
       edges: []
@@ -155,8 +155,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      mini-heart_0: 21300000
-      mini-heart_1: 21300002
+      heart_sample_0: -897371881
+      heart_sample_1: 1682860761
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

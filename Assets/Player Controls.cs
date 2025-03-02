@@ -44,6 +44,51 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""e14889a4-ec93-4490-9c7e-e9ccdae2adf4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Use Powerup"",
+                    ""type"": ""Button"",
+                    ""id"": ""980a3a77-f759-4d6c-b8f8-f0a6b4140907"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Hot Bar Select (left direction)"",
+                    ""type"": ""Button"",
+                    ""id"": ""f4a7ec4b-619e-48c9-bacd-715f09ab31a7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Hot Bar Select (right direction)"",
+                    ""type"": ""Button"",
+                    ""id"": ""777a10bd-bfb0-4ef7-9d29-fcf533ebc10c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Crouch"",
+                    ""type"": ""Button"",
+                    ""id"": ""de8f70ba-026b-4c03-99ad-e6afabc44728"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -116,23 +161,95 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""06cd2d2e-188c-4b57-baec-5c1d345c8c45"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""88c28c61-e2ec-44c1-884f-74be8d4e1e9f"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""62335686-8fac-4a29-b702-36eb96faf14d"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Use Powerup"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ad733406-446c-4887-aaef-e10366f87a9b"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Hot Bar Select (left direction)"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""46330bf8-a2dc-403c-b726-7d6e02117bc3"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Hot Bar Select (right direction)"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e579cb7f-e133-4c77-9f09-dc761f984463"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Crouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
     ],
-    ""controlSchemes"": []
+    ""controlSchemes"": [
+        {
+            ""name"": ""Gamepad"",
+            ""bindingGroup"": ""Gamepad"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Gamepad>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        }
+    ]
 }");
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
         m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
+        m_Gameplay_Attack = m_Gameplay.FindAction("Attack", throwIfNotFound: true);
+        m_Gameplay_UsePowerup = m_Gameplay.FindAction("Use Powerup", throwIfNotFound: true);
+        m_Gameplay_HotBarSelectleftdirection = m_Gameplay.FindAction("Hot Bar Select (left direction)", throwIfNotFound: true);
+        m_Gameplay_HotBarSelectrightdirection = m_Gameplay.FindAction("Hot Bar Select (right direction)", throwIfNotFound: true);
+        m_Gameplay_Crouch = m_Gameplay.FindAction("Crouch", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -196,12 +313,22 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
     private readonly InputAction m_Gameplay_Move;
     private readonly InputAction m_Gameplay_Jump;
+    private readonly InputAction m_Gameplay_Attack;
+    private readonly InputAction m_Gameplay_UsePowerup;
+    private readonly InputAction m_Gameplay_HotBarSelectleftdirection;
+    private readonly InputAction m_Gameplay_HotBarSelectrightdirection;
+    private readonly InputAction m_Gameplay_Crouch;
     public struct GameplayActions
     {
         private @PlayerControls m_Wrapper;
         public GameplayActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Gameplay_Move;
         public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
+        public InputAction @Attack => m_Wrapper.m_Gameplay_Attack;
+        public InputAction @UsePowerup => m_Wrapper.m_Gameplay_UsePowerup;
+        public InputAction @HotBarSelectleftdirection => m_Wrapper.m_Gameplay_HotBarSelectleftdirection;
+        public InputAction @HotBarSelectrightdirection => m_Wrapper.m_Gameplay_HotBarSelectrightdirection;
+        public InputAction @Crouch => m_Wrapper.m_Gameplay_Crouch;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -217,6 +344,21 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @Attack.started += instance.OnAttack;
+            @Attack.performed += instance.OnAttack;
+            @Attack.canceled += instance.OnAttack;
+            @UsePowerup.started += instance.OnUsePowerup;
+            @UsePowerup.performed += instance.OnUsePowerup;
+            @UsePowerup.canceled += instance.OnUsePowerup;
+            @HotBarSelectleftdirection.started += instance.OnHotBarSelectleftdirection;
+            @HotBarSelectleftdirection.performed += instance.OnHotBarSelectleftdirection;
+            @HotBarSelectleftdirection.canceled += instance.OnHotBarSelectleftdirection;
+            @HotBarSelectrightdirection.started += instance.OnHotBarSelectrightdirection;
+            @HotBarSelectrightdirection.performed += instance.OnHotBarSelectrightdirection;
+            @HotBarSelectrightdirection.canceled += instance.OnHotBarSelectrightdirection;
+            @Crouch.started += instance.OnCrouch;
+            @Crouch.performed += instance.OnCrouch;
+            @Crouch.canceled += instance.OnCrouch;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -227,6 +369,21 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @Attack.started -= instance.OnAttack;
+            @Attack.performed -= instance.OnAttack;
+            @Attack.canceled -= instance.OnAttack;
+            @UsePowerup.started -= instance.OnUsePowerup;
+            @UsePowerup.performed -= instance.OnUsePowerup;
+            @UsePowerup.canceled -= instance.OnUsePowerup;
+            @HotBarSelectleftdirection.started -= instance.OnHotBarSelectleftdirection;
+            @HotBarSelectleftdirection.performed -= instance.OnHotBarSelectleftdirection;
+            @HotBarSelectleftdirection.canceled -= instance.OnHotBarSelectleftdirection;
+            @HotBarSelectrightdirection.started -= instance.OnHotBarSelectrightdirection;
+            @HotBarSelectrightdirection.performed -= instance.OnHotBarSelectrightdirection;
+            @HotBarSelectrightdirection.canceled -= instance.OnHotBarSelectrightdirection;
+            @Crouch.started -= instance.OnCrouch;
+            @Crouch.performed -= instance.OnCrouch;
+            @Crouch.canceled -= instance.OnCrouch;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -244,9 +401,23 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         }
     }
     public GameplayActions @Gameplay => new GameplayActions(this);
+    private int m_GamepadSchemeIndex = -1;
+    public InputControlScheme GamepadScheme
+    {
+        get
+        {
+            if (m_GamepadSchemeIndex == -1) m_GamepadSchemeIndex = asset.FindControlSchemeIndex("Gamepad");
+            return asset.controlSchemes[m_GamepadSchemeIndex];
+        }
+    }
     public interface IGameplayActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
+        void OnUsePowerup(InputAction.CallbackContext context);
+        void OnHotBarSelectleftdirection(InputAction.CallbackContext context);
+        void OnHotBarSelectrightdirection(InputAction.CallbackContext context);
+        void OnCrouch(InputAction.CallbackContext context);
     }
 }

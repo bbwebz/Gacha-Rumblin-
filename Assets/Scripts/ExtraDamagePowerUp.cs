@@ -49,7 +49,7 @@ public class ExtraDamagePowerUp : MonoBehaviour
         artToDisable.SetActive(false);//sprite is no longer visible
 
         Debug.Log("Decrease Health power up"); 
-        pc.DecreaseHealth(healthDecrease);//decrease health
+        //pc.DecreaseHealth(healthDecrease);//decrease health
         //can now do more damage
 
         yield return new WaitForSeconds(duration);//has powerup for 10 seconds

@@ -15,7 +15,7 @@ public class Damage : MonoBehaviour
 
             Debug.Log("Yipppe collision!");
             PlayerController pc = player.GetComponent<PlayerController>();
-            pc.DecreaseHealth(1);
+            //pc.DecreaseHealth(1);
         }
     }
 
