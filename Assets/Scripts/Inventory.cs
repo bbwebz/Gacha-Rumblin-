@@ -6,7 +6,13 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     //public GameObject InventoryBox;
-    public powerUpSlot[] itemSlot;
+    public powerUpSlot[] powerSlot;
+
+
+    public void UsePowerUp(string powerUpName)
+    {
+
+    }
 
 
 
@@ -14,11 +20,11 @@ public class Inventory : MonoBehaviour
     {
         Debug.Log("itemName: " + itemName + "quantity: " + quantity + "sprite:" + image);
 
-        for (int i = 0; i < itemSlot.Length; i++)
+        for (int i = 0; i < powerSlot.Length; i++)
         {
-            if (itemSlot[i].isFull == false)
+            if (powerSlot[i].isFull == false)
             {
-                itemSlot[i].AddItem(itemName, quantity, image);//add item to inventory if not already full
+                powerSlot[i].AddItem(itemName, quantity, image);//add item to inventory if not already full
                 return;
             }
         }

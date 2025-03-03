@@ -2,12 +2,14 @@ using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class powerUpSlot : MonoBehaviour
+public class powerUpSlot : MonoBehaviour, IPointerClickHandler
 {
     //Item info
-    public string itemName;
+    public string powerUpName;
     public int quantity;
     public Sprite itemSprite;
     public bool isFull;
@@ -16,21 +18,37 @@ public class powerUpSlot : MonoBehaviour
     [SerializeField]
     private UnityEngine.UI.Image itemImage;
 
-    public void AddItem(string itemName, int quantity, Sprite itemSprite)
+
+    Inventory inventory;
+
+    public void AddItem(string powerUpName, int quantity, Sprite itemSprite)
     {
-       this.itemName = itemName;
+       this.powerUpName = powerUpName;
         this.quantity = quantity;
         this.itemSprite = itemSprite;
         isFull = true;
 
         itemImage.sprite = itemSprite;
 
+        //inventory.UsePowerUp(powerUpName);
+        //Debug.Log("item used!");
+
+
 
     }
 
+    public void OnLeftClick()
+    {
+        inventory.UsePowerUp(powerUpName);
+        Debug.Log("item used!");
+    }
 
-
-
-
-
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Left) { 
+        
+            OnLeftClick();
+        
+        }
+    }
 }

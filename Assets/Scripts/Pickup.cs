@@ -22,6 +22,7 @@ public class Pickup : MonoBehaviour
     public void AddToInventory()
     {
         inventoryManager.AddItem(itemName, quantity, image);
+        Debug.Log(itemName +"added to inventory");
 
     }
 
