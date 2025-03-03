@@ -484,9 +484,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b9d492910f15fa40815b434096e811e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: circle
-  quantity: 1
-  image: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  itemName: 
+  quantity: 0
+  image: {fileID: -1712444727, guid: dcb6da0cfc51fb54db90bdc9e8269a76, type: 3}
   inventoryManager: {fileID: 553885308}
 --- !u!212 &522665443
 SpriteRenderer:
@@ -495,7 +495,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 522665441}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -745,8 +745,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerSlot:
   - {fileID: 626801647}
-  allPowerUps:
-  - {fileID: 11400000, guid: 73d221618f83267499ce8c6a24569137, type: 2}
 --- !u!222 &553885310
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1175,7 +1173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player1HealthAccess: {fileID: 674465429}
-  Player2HealthAccess: {fileID: 0}
+  Player2HealthAccess: {fileID: 1493399955}
   moveSpeed: 10
   jumpForce: 10
   didAttack: 0
@@ -1695,7 +1693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   maxHealth: 5
-  p1HealthAccess: {fileID: 0}
+  p1HealthAccess: {fileID: 674465429}
 --- !u!114 &1493399956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1703,13 +1701,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1493399950}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2a5d0dcd38975d43877fb9c584b20f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Player1HealthAccess: {fileID: 674465429}
-  Player2HealthAccess: {fileID: 0}
+  Player2HealthAccess: {fileID: 1493399955}
   moveSpeed: 10
   jumpForce: 10
   didAttack: 0
@@ -1827,7 +1825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88c16b85d422f1b44929cd435ba9d097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heartPrefab: {fileID: 2984777219287918378, guid: 0c10c39dbb386d541a8a5fc548f48454, type: 3}
+  heartPrefab: {fileID: 4149164401581842329, guid: 610afdb64ebe5e146bbb391f4bd7f6f1, type: 3}
   player2Health: {fileID: 1493399955}
 --- !u!1 &1617741629
 GameObject:
@@ -2582,7 +2580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10a54ad2133dcc1498bf109a78096760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heartPrefab: {fileID: 2984777219287918378, guid: 0c10c39dbb386d541a8a5fc548f48454, type: 3}
+  heartPrefab: {fileID: 4149164401581842329, guid: 610afdb64ebe5e146bbb391f4bd7f6f1, type: 3}
   player1Health: {fileID: 674465429}
 --- !u!114 &2108887567
 MonoBehaviour:
