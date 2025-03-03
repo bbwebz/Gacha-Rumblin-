@@ -26,7 +26,10 @@ public class HealthContainerManagerP1 : MonoBehaviour
         float heartsToTake = player1Health.maxHealth - player1Health.health;
         for (int i = 0; i < heartsToTake; i++)
         {
-            createEmptyHeart();
+            if (player1Health.health > 0) //reminder to fix the hearts to stop going into negatives
+            {
+                createEmptyHeart();
+            }
         }
     }
 

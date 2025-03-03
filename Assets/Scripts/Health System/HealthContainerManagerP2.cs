@@ -22,11 +22,14 @@ public class HealthContainerManagerP2 : MonoBehaviour
             createFullHeart(); // Create full hearts for current health
         }
 
-        // Draw empty hearts for the remaining health
+        //draw empty hearts for the remaining health
         float heartsToTake = player2Health.maxHealth - player2Health.health;
         for (int i = 0; i < heartsToTake; i++)
         {
-            createEmptyHeart();
+            if(player2Health.health > 0) //reminder to fix the hearts to stop going into negatives
+            {
+                createEmptyHeart();
+            }
         }
     }
     public void createFullHeart()
