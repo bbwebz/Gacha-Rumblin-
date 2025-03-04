@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level_1.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/EndGame.unity
+    guid: 6bd8a08f27ee7fb4f99089df234c4b25
+  - enabled: 1
+    path: Assets/Scenes/StartGame.unity
+    guid: 9c86eee0588603142b4b47d4a2be2c1a
+  - enabled: 1
+    path: Assets/Scenes/GachaMachine.unity
+    guid: 58aca421d70dea443b204703770648ca
   m_configObjects: {}
