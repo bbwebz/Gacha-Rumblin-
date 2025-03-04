@@ -8,8 +8,12 @@ public class SwitchScenes : MonoBehaviour
 {
     public void switchScenes(string sceneName)
     {
-        SceneManager.LoadScene(sceneName); //changes the scene to the given sceneName
+        SceneManager.LoadScene(sceneName); 
     }
 
+   public void switchScenesOverlay(string sceneName2)
+    {
+        SceneManager.LoadScene(sceneName2, LoadSceneMode.Additive);
+    }
 
 }

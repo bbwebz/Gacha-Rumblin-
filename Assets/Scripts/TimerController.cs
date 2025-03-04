@@ -6,18 +6,17 @@ public class TimerController : MonoBehaviour
 {
     [SerializeField] TMPro.TextMeshProUGUI timerDisplay;
     float gameTime = 4 * 60 + 1; // 4 minutes converted to seconds (240 seconds)
-    float timeLeft; 
+    float timeLeft;
+    bool isGamePaused =  false;
 
-    // Start is called before the first frame update
     void Start()
     {
         timeLeft = gameTime; 
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (timeLeft > 0)
+        if (timeLeft > 0 && isGamePaused == false)
         {
             timeLeft -= Time.deltaTime;
 
@@ -33,10 +32,23 @@ public class TimerController : MonoBehaviour
             //displays the time in the format 00:00
             timerDisplay.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         }
-        else
+        else if (timeLeft <= 0)
         {
             //clears the timer
             timerDisplay.text = "00:00";
         }
     }
+
+    public void pauseTimer()
+    {
+        isGamePaused = true;
+        Time.timeScale = 0f;
+    }
+
+    public void resumeTimer()
+    {
+        isGamePaused = false;
+        Time.timeScale = 1f;
+    }
+
 }
