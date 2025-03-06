@@ -23,6 +23,13 @@ public class PlayerController : MonoBehaviour
     bool isFacingLeft = false;
     public bool arePlayersColliding = false;
 
+    //for animation//
+    private Animator anim;
+    private SpriteRenderer spriteRenderer;
+    public Sprite idlePose;
+    public Sprite jumpPose;
+    public Sprite punchPose;
+
     private void Awake()
     {
         controls = new PlayerControls();
@@ -40,6 +47,9 @@ public class PlayerController : MonoBehaviour
         Player1HealthAccess = GetComponent<Player1Health>();
         Player2HealthAccess = GetComponent<Player2Health>();
 
+        anim = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
         rb.freezeRotation = true;
     }
 
@@ -56,6 +66,14 @@ public class PlayerController : MonoBehaviour
             isFacingLeft = false;
             GetComponent<SpriteRenderer>().flipX = false;
         }
+
+        
+        //falling//
+        if (gameObject.transform.position.y > -3.7)
+        {
+            anim.enabled = false;
+            spriteRenderer.sprite = jumpPose;
+        }
     }
 
     private void OnMove(InputAction.CallbackContext context)
@@ -63,12 +81,18 @@ public class PlayerController : MonoBehaviour
         Vector2 moveInput = context.ReadValue<Vector2>();
         moveDirection = new Vector2(moveInput.x, 0f);
         horizontal = context.ReadValue<Vector2>().x;
-        //Debug.Log(moveDirection);
+        if (gameObject.transform.position.y < -3.7)
+        {
+            anim.enabled = true;
+        }
+            //Debug.Log(moveDirection);
     }
 
     private void OnJump(InputAction.CallbackContext context)
     {
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        anim.enabled = false;
+        spriteRenderer.sprite = jumpPose;
         Debug.Log("you pressed jump");
     }
 
@@ -78,6 +102,8 @@ public class PlayerController : MonoBehaviour
         if (arePlayersColliding == true)
         {
             didAttack = true;
+            anim.enabled = false;
+            spriteRenderer.sprite = punchPose;
             Debug.Log("you landed an attack");
             Player1HealthAccess.dealDamageToP2();
         }
@@ -94,6 +120,12 @@ public class PlayerController : MonoBehaviour
         if (horizontal < 0.1f && horizontal > -0.1f)
         {
             rb.velocity = new Vector2(0f, rb.velocity.y);
+        }
+        //idle// i need this to check if the player is moving
+        if ((rb.velocity == Vector2.zero) && (gameObject.transform.position.y < -3.7))
+        {
+            anim.enabled = false;
+            spriteRenderer.sprite = idlePose;
         }
     }
 

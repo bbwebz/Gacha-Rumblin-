@@ -1330,6 +1330,7 @@ GameObject:
   - component: {fileID: 674465426}
   - component: {fileID: 674465428}
   - component: {fileID: 674465429}
+  - component: {fileID: 674465430}
   m_Layer: 7
   m_Name: Player 1
   m_TagString: Player1
@@ -1393,7 +1394,7 @@ SpriteRenderer:
   m_SortingLayerID: 860698493
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 80c9795a79c8adb4188133776fe5b2f4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8425878c5bea6ff4b84e66b626b0ed5e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1484,6 +1485,9 @@ MonoBehaviour:
   jumpForce: 10
   didAttack: 0
   arePlayersColliding: 0
+  idlePose: {fileID: 21300000, guid: 8425878c5bea6ff4b84e66b626b0ed5e, type: 3}
+  jumpPose: {fileID: 21300000, guid: 722662a1df0e0ec40a447a8f5eefbca2, type: 3}
+  punchPose: {fileID: 21300000, guid: 731d1b79a0b23ab488724af8d11d3ee2, type: 3}
 --- !u!114 &674465429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1499,6 +1503,27 @@ MonoBehaviour:
   health: 5
   maxHealth: 5
   p2HealthAccess: {fileID: 1493399955}
+--- !u!95 &674465430
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674465423}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6383a10b63d03cc4e912f53a274b7563, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1187020243
 GameObject:
   m_ObjectHideFlags: 0
@@ -2234,6 +2259,7 @@ GameObject:
   - component: {fileID: 1493399954}
   - component: {fileID: 1493399955}
   - component: {fileID: 1493399956}
+  - component: {fileID: 1493399957}
   m_Layer: 7
   m_Name: Player 2
   m_TagString: Player2
@@ -2282,7 +2308,7 @@ SpriteRenderer:
   m_SortingLayerID: 860698493
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 80c9795a79c8adb4188133776fe5b2f4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8425878c5bea6ff4b84e66b626b0ed5e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2403,6 +2429,30 @@ MonoBehaviour:
   jumpForce: 10
   didAttack: 0
   arePlayersColliding: 0
+  idlePose: {fileID: 21300000, guid: 8425878c5bea6ff4b84e66b626b0ed5e, type: 3}
+  jumpPose: {fileID: 21300000, guid: 722662a1df0e0ec40a447a8f5eefbca2, type: 3}
+  punchPose: {fileID: 21300000, guid: 731d1b79a0b23ab488724af8d11d3ee2, type: 3}
+--- !u!95 &1493399957
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493399950}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 66506041721aac3409d01332c69c9452, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1601822438
 GameObject:
   m_ObjectHideFlags: 0
