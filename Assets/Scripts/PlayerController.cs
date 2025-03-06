@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEditor.Tilemaps;
 using UnityEngine;
@@ -96,14 +97,25 @@ public class PlayerController : MonoBehaviour
         Debug.Log("you pressed jump");
     }
 
-    public void OnAttack(InputAction.CallbackContext context)
+    public async void OnAttack(InputAction.CallbackContext context)
     {
+        //punch pose//
+        anim.enabled = false;
+        spriteRenderer.sprite = punchPose;
+       // Debug.Log("you punched");
+        //await Task.Delay(100);
+        //StartCoroutine(delaySeconds());
+        //spriteRenderer.sprite = idlePose;
+
+
+
         Debug.Log("you pressed attack");
+
+
         if (arePlayersColliding == true)
         {
             didAttack = true;
-            anim.enabled = false;
-            spriteRenderer.sprite = punchPose;
+            
             Debug.Log("you landed an attack");
             Player1HealthAccess.dealDamageToP2();
         }
@@ -140,6 +152,11 @@ public class PlayerController : MonoBehaviour
         {
             arePlayersColliding = false;
         }
+    }
+
+    IEnumerator delaySeconds()
+    {
+        yield return new WaitForSeconds(2);
     }
 
 }
