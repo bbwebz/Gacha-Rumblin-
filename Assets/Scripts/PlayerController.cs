@@ -28,22 +28,15 @@ public class PlayerController : MonoBehaviour
         controls = new PlayerControls();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         controls.Gameplay.Enable();
-        controls.Gameplay.Move.performed += OnMove;
-        controls.Gameplay.Jump.performed += OnJump;
-        controls.Gameplay.Attack.performed += OnAttack;
 
         rb = GetComponent<Rigidbody2D>();
-        Player1HealthAccess = GetComponent<Player1Health>();
-        Player2HealthAccess = GetComponent<Player2Health>();
 
         rb.freezeRotation = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (moveDirection.x < 0)
@@ -57,8 +50,8 @@ public class PlayerController : MonoBehaviour
             GetComponent<SpriteRenderer>().flipX = false;
         }
     }
-
-    private void OnMove(InputAction.CallbackContext context)
+    
+    public void OnMove(InputAction.CallbackContext context)
     {
         Vector2 moveInput = context.ReadValue<Vector2>();
         moveDirection = new Vector2(moveInput.x, 0f);
@@ -66,7 +59,7 @@ public class PlayerController : MonoBehaviour
         //Debug.Log(moveDirection);
     }
 
-    private void OnJump(InputAction.CallbackContext context)
+    public void OnJump(InputAction.CallbackContext context)
     {
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         Debug.Log("you pressed jump");
@@ -75,11 +68,19 @@ public class PlayerController : MonoBehaviour
     public void OnAttack(InputAction.CallbackContext context)
     {
         Debug.Log("you pressed attack");
-        if (arePlayersColliding == true)
+        if (arePlayersColliding == true && context.performed) 
         {
             didAttack = true;
             Debug.Log("you landed an attack");
-            Player1HealthAccess.dealDamageToP2();
+            
+            if (gameObject.CompareTag("Player1"))
+            {
+                Player1HealthAccess.dealDamageToP2();
+            }
+            else if (gameObject.CompareTag("Player2"))
+            {
+                Player2HealthAccess.dealDamageToP1();
+            }
         }
         else
         {
@@ -101,7 +102,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player2") || collision.gameObject.CompareTag("Player1")) //checks the tag of the object its colliding with
         {
-            Debug.Log("players are colliding");
+            //Debug.Log("players are colliding");
             arePlayersColliding = true;
         }
         else

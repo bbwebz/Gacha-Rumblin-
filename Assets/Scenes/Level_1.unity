@@ -1336,7 +1336,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &674465424
 Transform:
   m_ObjectHideFlags: 0
@@ -1473,13 +1473,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 674465423}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2a5d0dcd38975d43877fb9c584b20f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player1HealthAccess: {fileID: 674465429}
-  Player2HealthAccess: {fileID: 1493399955}
+  Player1HealthAccess: {fileID: 7036764501761375260, guid: 6658d019ac129204bbbb3500ed7323b8, type: 3}
+  Player2HealthAccess: {fileID: -8423416211192385684, guid: 50471b99e00d92c4db15c436914ce783, type: 3}
   moveSpeed: 10
   jumpForce: 10
   didAttack: 0
@@ -1498,7 +1498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   maxHealth: 5
-  p2HealthAccess: {fileID: 1493399955}
+  p2HealthAccess: {fileID: -8423416211192385684, guid: 50471b99e00d92c4db15c436914ce783, type: 3}
 --- !u!1 &1187020243
 GameObject:
   m_ObjectHideFlags: 0
@@ -2154,6 +2154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1465755099}
   - component: {fileID: 1465755098}
+  - component: {fileID: 1465755100}
   m_Layer: 0
   m_Name: PlayerInputManager
   m_TagString: Untagged
@@ -2220,6 +2221,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1465755100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465755097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5957458d550e4874b92a3047c068e25e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1Prefab: {fileID: 1961861736527330357, guid: 6658d019ac129204bbbb3500ed7323b8, type: 3}
+  player2Prefab: {fileID: 1961861736527330357, guid: 50471b99e00d92c4db15c436914ce783, type: 3}
+  player1HealthUI: {fileID: 2108887564}
+  player2HealthUI: {fileID: 1601822438}
 --- !u!1 &1493399950
 GameObject:
   m_ObjectHideFlags: 0
@@ -2240,7 +2257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1493399951
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2397,8 +2414,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2a5d0dcd38975d43877fb9c584b20f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player1HealthAccess: {fileID: 674465429}
-  Player2HealthAccess: {fileID: 1493399955}
+  Player1HealthAccess: {fileID: 7036764501761375260, guid: 6658d019ac129204bbbb3500ed7323b8, type: 3}
+  Player2HealthAccess: {fileID: -8423416211192385684, guid: 50471b99e00d92c4db15c436914ce783, type: 3}
   moveSpeed: 10
   jumpForce: 10
   didAttack: 0
@@ -2517,7 +2534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heartPrefab: {fileID: 4149164401581842329, guid: 610afdb64ebe5e146bbb391f4bd7f6f1, type: 3}
-  player2Health: {fileID: 1493399955}
+  player2Health: {fileID: -8423416211192385684, guid: 50471b99e00d92c4db15c436914ce783, type: 3}
 --- !u!1 &1617741629
 GameObject:
   m_ObjectHideFlags: 0
@@ -3557,7 +3574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heartPrefab: {fileID: 4149164401581842329, guid: 610afdb64ebe5e146bbb391f4bd7f6f1, type: 3}
-  player1Health: {fileID: 674465429}
+  player1Health: {fileID: 7036764501761375260, guid: 6658d019ac129204bbbb3500ed7323b8, type: 3}
 --- !u!114 &2108887567
 MonoBehaviour:
   m_ObjectHideFlags: 0
