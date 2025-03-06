@@ -1,20 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.ShaderGraph;
+//using UnityEditor.ShaderGraph;
 using UnityEngine;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
+//using static UnityEditor.Searcher.SearcherWindow.Alignment;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class TimerController : MonoBehaviour
 {
     [SerializeField] TMPro.TextMeshProUGUI timerDisplay;
-    float gameTime = 1 * 60 + 1; // 4 minutes converted to seconds (240 seconds)
+    float gameTime = 1 * 60 + 1; // 1 minutes converted to seconds (240 seconds)
     float timeLeft;
     bool isGamePaused =  false;
     PlayerControls controls;
     public GameObject PauseMenu;
+
 
     private void Awake()
     {
@@ -26,6 +28,7 @@ public class TimerController : MonoBehaviour
         timeLeft = gameTime;
         controls.Gameplay.Enable();
         controls.Gameplay.PauseGame.performed += OnPause;
+        isGamePaused = false;
     }
 
     void Update()
@@ -51,6 +54,13 @@ public class TimerController : MonoBehaviour
             //clears the timer
             timerDisplay.text = "00:00";
         }
+
+
+        if(timeLeft == 0)
+        {
+            SceneManager.LoadScene("EndGame");
+        }
+
     }
 
     public void resumeTimer()

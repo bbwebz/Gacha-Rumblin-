@@ -16,4 +16,13 @@ public class SwitchScenes : MonoBehaviour
         SceneManager.LoadScene(sceneName2, LoadSceneMode.Additive);
     }
 
+    public void OnExitClick()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
+        Application.Quit();
+
+    }
+
 }
