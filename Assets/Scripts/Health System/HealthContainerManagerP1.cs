@@ -51,7 +51,7 @@ public class HealthContainerManagerP1 : MonoBehaviour
         heartComponent.setHeartImage(heartStatus.Empty);
         hearts.Add(heartComponent);
     }
-    
+
     public void clearHearts()
     {
         foreach(Transform t in transform)

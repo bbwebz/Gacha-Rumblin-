@@ -1330,14 +1330,13 @@ GameObject:
   - component: {fileID: 674465426}
   - component: {fileID: 674465428}
   - component: {fileID: 674465429}
-  - component: {fileID: 674465430}
   m_Layer: 7
   m_Name: Player 1
   m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &674465424
 Transform:
   m_ObjectHideFlags: 0
@@ -1394,7 +1393,7 @@ SpriteRenderer:
   m_SortingLayerID: 860698493
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 8425878c5bea6ff4b84e66b626b0ed5e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 80c9795a79c8adb4188133776fe5b2f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1474,20 +1473,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 674465423}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2a5d0dcd38975d43877fb9c584b20f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player1HealthAccess: {fileID: 674465429}
-  Player2HealthAccess: {fileID: 1493399955}
+  Player1HealthAccess: {fileID: 7036764501761375260, guid: 6658d019ac129204bbbb3500ed7323b8, type: 3}
+  Player2HealthAccess: {fileID: -8423416211192385684, guid: 50471b99e00d92c4db15c436914ce783, type: 3}
   moveSpeed: 10
   jumpForce: 10
   didAttack: 0
   arePlayersColliding: 0
-  idlePose: {fileID: 21300000, guid: 8425878c5bea6ff4b84e66b626b0ed5e, type: 3}
-  jumpPose: {fileID: 21300000, guid: 722662a1df0e0ec40a447a8f5eefbca2, type: 3}
-  punchPose: {fileID: 21300000, guid: 731d1b79a0b23ab488724af8d11d3ee2, type: 3}
 --- !u!114 &674465429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1502,28 +1498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   maxHealth: 5
-  p2HealthAccess: {fileID: 1493399955}
---- !u!95 &674465430
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 674465423}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6383a10b63d03cc4e912f53a274b7563, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  p2HealthAccess: {fileID: -8423416211192385684, guid: 50471b99e00d92c4db15c436914ce783, type: 3}
 --- !u!1 &1187020243
 GameObject:
   m_ObjectHideFlags: 0
@@ -2179,6 +2154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1465755099}
   - component: {fileID: 1465755098}
+  - component: {fileID: 1465755100}
   m_Layer: 0
   m_Name: PlayerInputManager
   m_TagString: Untagged
@@ -2245,6 +2221,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1465755100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465755097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5957458d550e4874b92a3047c068e25e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1Prefab: {fileID: 1961861736527330357, guid: 6658d019ac129204bbbb3500ed7323b8, type: 3}
+  player2Prefab: {fileID: 1961861736527330357, guid: 50471b99e00d92c4db15c436914ce783, type: 3}
+  player1HealthUI: {fileID: 2108887564}
+  player2HealthUI: {fileID: 1601822438}
 --- !u!1 &1493399950
 GameObject:
   m_ObjectHideFlags: 0
@@ -2259,14 +2251,13 @@ GameObject:
   - component: {fileID: 1493399954}
   - component: {fileID: 1493399955}
   - component: {fileID: 1493399956}
-  - component: {fileID: 1493399957}
   m_Layer: 7
   m_Name: Player 2
   m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1493399951
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2308,7 +2299,7 @@ SpriteRenderer:
   m_SortingLayerID: 860698493
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 8425878c5bea6ff4b84e66b626b0ed5e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 80c9795a79c8adb4188133776fe5b2f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2418,41 +2409,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1493399950}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2a5d0dcd38975d43877fb9c584b20f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player1HealthAccess: {fileID: 674465429}
-  Player2HealthAccess: {fileID: 1493399955}
+  Player1HealthAccess: {fileID: 7036764501761375260, guid: 6658d019ac129204bbbb3500ed7323b8, type: 3}
+  Player2HealthAccess: {fileID: -8423416211192385684, guid: 50471b99e00d92c4db15c436914ce783, type: 3}
   moveSpeed: 10
   jumpForce: 10
   didAttack: 0
   arePlayersColliding: 0
-  idlePose: {fileID: 21300000, guid: 8425878c5bea6ff4b84e66b626b0ed5e, type: 3}
-  jumpPose: {fileID: 21300000, guid: 722662a1df0e0ec40a447a8f5eefbca2, type: 3}
-  punchPose: {fileID: 21300000, guid: 731d1b79a0b23ab488724af8d11d3ee2, type: 3}
---- !u!95 &1493399957
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1493399950}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 66506041721aac3409d01332c69c9452, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1601822438
 GameObject:
   m_ObjectHideFlags: 0
@@ -2567,7 +2534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heartPrefab: {fileID: 4149164401581842329, guid: 610afdb64ebe5e146bbb391f4bd7f6f1, type: 3}
-  player2Health: {fileID: 1493399955}
+  player2Health: {fileID: -8423416211192385684, guid: 50471b99e00d92c4db15c436914ce783, type: 3}
 --- !u!1 &1617741629
 GameObject:
   m_ObjectHideFlags: 0
@@ -3607,7 +3574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heartPrefab: {fileID: 4149164401581842329, guid: 610afdb64ebe5e146bbb391f4bd7f6f1, type: 3}
-  player1Health: {fileID: 674465429}
+  player1Health: {fileID: 7036764501761375260, guid: 6658d019ac129204bbbb3500ed7323b8, type: 3}
 --- !u!114 &2108887567
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -70,5 +70,4 @@ public class TimerController : MonoBehaviour
     {
         pauseTimer();
     }
-    
 }

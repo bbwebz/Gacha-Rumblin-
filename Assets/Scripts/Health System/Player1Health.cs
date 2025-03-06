@@ -8,7 +8,6 @@ public class Player1Health : MonoBehaviour
     public float maxHealth;
     public Player2Health p2HealthAccess;
 
-    //start is called before the first frame update
     void Start()
     {
         maxHealth = 5;
@@ -20,7 +19,7 @@ public class Player1Health : MonoBehaviour
         if (health > 0)
         {
             p2HealthAccess.health -= 1;
-            Debug.Log("health minus was run");
+            Debug.Log("damage was done to P2");
         }
     }
 }
