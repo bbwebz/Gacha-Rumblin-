@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 //using static UnityEditor.Progress;
 
 public class AssignPowerUps : MonoBehaviour
 {
+    void  Start()
+    {
+        Debug.Log("do something");
+    }
     //private int itemId;
     //public Pickup powerUp1;
     //public Pickup powerUp2;
