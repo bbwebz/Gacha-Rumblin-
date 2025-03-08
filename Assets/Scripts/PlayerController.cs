@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -68,6 +69,13 @@ public class PlayerController : MonoBehaviour
             anim.enabled = false;
             spriteRenderer.sprite = jumpPose;
         }
+
+        //Game over
+        if (Player1HealthAccess.health == 0 || Player2HealthAccess.health == 0)
+        {
+            SceneManager.LoadScene("EndGame");
+        }
+
     }
     
     public void OnMove(InputAction.CallbackContext context)
