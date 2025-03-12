@@ -19,7 +19,7 @@ public class AllPowerUps : MonoBehaviour
     [SerializeField]
     //private GameObject artToDisable = null;
 
-    AssignPowerUps assignPowerUps;
+    //AssignPowerUps assignPowerUps;
 
 
 
@@ -50,7 +50,7 @@ public class AllPowerUps : MonoBehaviour
         yield return new WaitForSeconds(duration);//has powerup for 10 seconds
         Deactivate();//deactivate power up
 
-        Destroy(gameObject);//destroy power up
+        //Destroy(gameObject);//destroy power up
 
 
     }

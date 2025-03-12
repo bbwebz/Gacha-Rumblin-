@@ -12,6 +12,8 @@ public class InstantiatePlayers : MonoBehaviour
     public GameObject player1HealthUI;
     public GameObject player2HealthUI;
 
+    public GameObject playerInventory;
+
     int playerCount = 0;
 
     private void Update()
@@ -32,14 +34,20 @@ public class InstantiatePlayers : MonoBehaviour
                 player1Inst.GetComponent<Player1Health>().p2HealthAccess = player2Inst.GetComponent<Player2Health>();
                 player2Inst.GetComponent<Player2Health>().p1HealthAccess = player1Inst.GetComponent<Player1Health>();
 
+                //accessing eachothers health
                 player1Inst.GetComponent<PlayerController>().Player1HealthAccess = player1Inst.GetComponent<Player1Health>();
                 player1Inst.GetComponent<PlayerController>().Player2HealthAccess = player2Inst.GetComponent<Player2Health>();
 
                 player2Inst.GetComponent<PlayerController>().Player1HealthAccess = player1Inst.GetComponent<Player1Health>();
                 player2Inst.GetComponent<PlayerController>().Player2HealthAccess = player2Inst.GetComponent<Player2Health>();
 
+                //players health containers
                 player1HealthUI.GetComponent<HealthContainerManagerP1>().player1Health = player1Inst.GetComponent<Player1Health>();
                 player2HealthUI.GetComponent<HealthContainerManagerP2>().player2Health = player2Inst.GetComponent<Player2Health>();
+
+               
+
+
             }
         }
     }

@@ -7,50 +7,46 @@ using UnityEngine.Events;
 
 public class AssignPowerUps : MonoBehaviour
 {
-    void  Start()
+    private int itemId;
+    public Pickup powerUp1;
+    public Pickup powerUp2;
+    public Pickup powerUp3;
+
+
+
+
+    void Start()
     {
-        Debug.Log("do something");
+        //itemId = Random.Range(1, 4);//numbers from 1-3
+        itemId = 1;
+        Debug.Log("num: "+ itemId);
+
+        switch (itemId)
+        {
+            case 1:
+                Debug.Log("Extra damage powerup");
+                powerUp1.AddPowerUp();
+                break;
+
+            case 2:
+                Debug.Log("Second power up");
+                powerUp2.AddPowerUp();
+                break;
+
+            case 3:
+                Debug.Log("Third power up");
+                break;
+        }
+
     }
-    //private int itemId;
-    //public Pickup powerUp1;
-    //public Pickup powerUp2;
-    //public Pickup powerUp3;
-
-
-
-
-    //void Start()
-    //{
-    //    //itemId = Random.Range(1, 4);//numbers from 1-3
-    //    itemId = 1;
-    //    Debug.Log("num: "+ itemId);
-
-    //    switch (itemId)
-    //        {
-    //            case 1:
-    //                Debug.Log("Extra damage powerup");
-    //            powerUp1.AddToInventory();
-    //                break;
-
-    //            case 2:
-    //                Debug.Log("Second power up");
-    //            powerUp2.AddToInventory();
-    //                break;
-
-    //            case 3:
-    //                Debug.Log("Third power up");
-    //                break;
-    //        }
-        
-    //}
 
     //// Update is called once per frame
     //void Update()
     //{
-       
+
 
     //    //if id = 1
     //    //run pickup script of extra damage
-        
+
     //}
 }
