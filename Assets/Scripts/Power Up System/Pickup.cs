@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
-   //Inventory of player 1
-    public InventoryP1 inventoryP1;
+    //Inventory of player 1
+    [SerializeField]
+    private InventoryP1 inventoryP1;
     //Power up button
     public GameObject powerUpButton;
 

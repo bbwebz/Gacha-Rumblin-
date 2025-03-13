@@ -100,9 +100,9 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_PressedColor: {r: 0.91194963, g: 0.8483977, b: 0.21508232, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.8867924, g: 0.08644817, b: 0.8301144, a: 0}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -145,5 +145,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a486e99dc30fb384283c6d322c5a75de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 10
-  assignPowerUps: {fileID: 0}
+  PowerUpButton: {fileID: 6132158018793903123}
+  Player2HealthAccess: {fileID: 0}
