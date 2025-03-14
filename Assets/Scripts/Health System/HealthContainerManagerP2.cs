@@ -17,6 +17,7 @@ public class HealthContainerManagerP2 : MonoBehaviour
     {
         clearHearts(); // Clear previous hearts
         float heartsToMake = player2Health.health;
+
         for (int i = 0; i < heartsToMake; i++)
         {
             createFullHeart(); // Create full hearts for current health

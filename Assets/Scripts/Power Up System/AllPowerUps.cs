@@ -12,8 +12,8 @@ public class AllPowerUps : MonoBehaviour
 {
     public UnityEngine.UI.Button PowerUpButton;
 
-    [SerializeField]
-    Player2Health Player2HealthAccess;
+    //private Player2Health Player2HealthAccess;
+    public GameObject player1Prefab;
 
 
     //------------------------ Glass Canon ---------------------------------
@@ -31,7 +31,9 @@ public class AllPowerUps : MonoBehaviour
        Debug.Log("Decrease Health power up");
         //pc.DecreaseHealth(healthDecrease);//decrease health
         //can now do more damage
-        PowerUpButton.interactable  = false;//diables button so that the player can no longer use the power up
+        //Player2HealthAccess.health = 3;
+
+        PowerUpButton.interactable  = false;//disables button so that the player can no longer use the power up
         yield return new WaitForSeconds(duration);//has powerup for 5 seconds
         DeactivateGlassCanon();//deactivate power up
         Destroy(gameObject);//destroy power up button

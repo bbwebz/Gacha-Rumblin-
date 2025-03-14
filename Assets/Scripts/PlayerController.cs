@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Unity.VisualScripting;
+using UnityEditor.Rendering;
+
 //using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -32,6 +34,15 @@ public class PlayerController : MonoBehaviour
     public Sprite jumpPose;
     public Sprite punchPose;
 
+    public int PlayerIndex;
+
+
+
+    GameObject Player1;
+    GameObject Player2;
+
+
+
     private void Awake()
     {
         controls = new PlayerControls();
@@ -47,10 +58,52 @@ public class PlayerController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         rb.freezeRotation = true;
-    }
 
+
+        //--------------- Player multiplayer -------------------
+
+        PlayerIndex= GetComponent<PlayerInput>().playerIndex;
+        //Set Player Tags    
+        if (PlayerIndex == 0) {
+            Player1HealthAccess = gameObject.GetComponent<Player1Health>();
+            Player2HealthAccess = gameObject.GetComponent<Player2Health>();
+
+            //Player1HealthAccess = Player1.gameObject.GetComponent<Player1Health>();
+           
+
+
+            gameObject.tag = "Player1";//give the first player to enter the player 1 tag
+
+            GetComponent<Player2Health>().enabled = false;// gets rid of player 2 health component form player 1
+            transform.position = new Vector3(-6, 0, 0);//player 1 starting position
+
+
+
+        }
+        else if (PlayerIndex == 1)//player 2
+        {
+            Player1HealthAccess = gameObject.GetComponent<Player1Health>();
+            Player2HealthAccess = gameObject.GetComponent<Player2Health>();
+            gameObject.tag = "Player2";//give the second player to enter the player 2 tag
+            GetComponent<Player1Health>().enabled = false;// gets rid of player 1 health component form player 2
+           
+            transform.position = new Vector3(7, 0, 0);//player 2 starting position
+
+            //need to adjust animation accordingly
+            Quaternion rotation = Quaternion.Euler(0, 180, 0);
+            transform.rotation = rotation;//flips player 2 on start
+
+        }
+
+        //Setting player 1 & 2 health to 5 because otherwise its 0 for some reason????
+        Player1HealthAccess.health = 5;
+        Player2HealthAccess.health = 5;
+        //hopefully will be fixed at some point
+    }
+    
     void Update()
     {
+
         if (moveDirection.x < 0)
         {
             isFacingLeft = true;
@@ -70,11 +123,9 @@ public class PlayerController : MonoBehaviour
             spriteRenderer.sprite = jumpPose;
         }
 
-        //Game over
-        if (Player1HealthAccess.health == 0 || Player2HealthAccess.health == 0)
-        {
-            SceneManager.LoadScene("EndGame");
-        }
+        PlayerDied();//if a player dies game over screen
+
+
 
     }
     
@@ -98,7 +149,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("you pressed jump");
     }
 
-    public async void OnAttack(InputAction.CallbackContext context)
+    public void OnAttack(InputAction.CallbackContext context)
     {
         //punch pose//
         anim.enabled = false;
@@ -110,19 +161,31 @@ public class PlayerController : MonoBehaviour
 
         Debug.Log("you pressed attack");
 
+        //If an attack was landed
         if (arePlayersColliding == true && context.performed) 
         {
             didAttack = true;
-            
             Debug.Log("you landed an attack");
             
             if (gameObject.CompareTag("Player1"))
             {
-                Player1HealthAccess.dealDamageToP2();
+                Debug.Log("og p1 health" + Player1HealthAccess.health);
+
+                Player1HealthAccess.health -= 1;//Take 1 heart from player 2
+
+                //Player1HealthAccess.dealDamageToP2();
+
             }
+
             else if (gameObject.CompareTag("Player2"))
             {
-                Player2HealthAccess.dealDamageToP1();
+                Debug.Log("og p2 health" + Player2HealthAccess.health);
+
+                Player2HealthAccess.health -= 1;//Take 1 heart from player 2
+
+                //Player2HealthAccess.dealDamageToP1();
+
+
             }
         }
         else
@@ -164,5 +227,25 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
     }
+
+
+
+    //Game over
+
+    private void PlayerDied()
+    {
+        //if a player dies game over
+        if (Player1HealthAccess.health == 0 || Player2HealthAccess.health == 0)
+        {
+            Debug.Log("Player died, Game over");
+            SceneManager.LoadScene("EndGame");
+        }
+
+    }
+
+
+
+
+
 
 }

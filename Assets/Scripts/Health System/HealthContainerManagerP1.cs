@@ -1,21 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class HealthContainerManagerP1 : MonoBehaviour
 {
     public GameObject heartPrefab;
     public Player1Health player1Health;
     List<Heart> hearts = new List<Heart>();
+    public PlayerController PlayerControllerAccess;
+    public GameObject player1;
 
-    private void Update()
+
+
+
+    private void Start()
+    {
+
+        //if (PlayerControllerAccess.PlayerIndex==0)
+        //{
+        //    player1Health = gameObject.GetComponent<Player1Health>();
+
+        //    //player1 = gameObject;
+        //    //player1Health = gameObject.GetComponent<Player1Health>();
+
+
+        //}
+    }
+
+
+
+private void Update()
     {
         drawHearts();
+        //player1 =  GameObject.FindGameObjectWithTag("Player1");
+     
     }
 
     public void drawHearts()
     {
-        clearHearts(); 
+        clearHearts();
+        //float heartsToMake = player1.GetComponent<Player1Health>().health;
+        
         float heartsToMake = player1Health.health;
         for (int i = 0; i < heartsToMake; i++)
         {
