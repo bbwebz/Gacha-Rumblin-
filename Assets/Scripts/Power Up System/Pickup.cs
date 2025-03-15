@@ -28,6 +28,7 @@ public class Pickup : MonoBehaviour
             if (inventoryP1.isFull[i] == false)
             {
                 Debug.Log("into true");
+                Debug.Log("button" + powerUpButton);
                 //power up can go to inventory
                 inventoryP1.isFull[i] = true;
                 Instantiate(powerUpButton, inventoryP1.slots[i].transform, false);

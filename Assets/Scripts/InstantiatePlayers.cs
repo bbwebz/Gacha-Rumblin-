@@ -12,7 +12,6 @@ public class InstantiatePlayers : MonoBehaviour
     public GameObject player1HealthUI;
     public GameObject player2HealthUI;
 
-    public GameObject playerInventory;
 
     int playerCount = 0;
 

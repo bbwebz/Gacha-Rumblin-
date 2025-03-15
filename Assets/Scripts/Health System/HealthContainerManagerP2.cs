@@ -10,7 +10,9 @@ public class HealthContainerManagerP2 : MonoBehaviour
 
     private void Update()
     {
-        drawHearts();
+        //Hearts are drawn/ displayed through the assign script
+
+        //drawHearts();
     }
 
     public void drawHearts()

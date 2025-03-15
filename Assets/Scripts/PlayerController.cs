@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
     public int PlayerIndex;
 
-
+    public int DamageDone;
 
     GameObject Player1;
     GameObject Player2;
@@ -59,22 +59,17 @@ public class PlayerController : MonoBehaviour
 
         rb.freezeRotation = true;
 
-
+        DamageDone = 1;//can do 1 damage on default
         //--------------- Player multiplayer -------------------
 
-        PlayerIndex= GetComponent<PlayerInput>().playerIndex;
+        PlayerIndex = GetComponent<PlayerInput>().playerIndex;//get player index
+
         //Set Player Tags    
         if (PlayerIndex == 0) {
-            Player1HealthAccess = gameObject.GetComponent<Player1Health>();
-            Player2HealthAccess = gameObject.GetComponent<Player2Health>();
-
-            //Player1HealthAccess = Player1.gameObject.GetComponent<Player1Health>();
-           
-
-
             gameObject.tag = "Player1";//give the first player to enter the player 1 tag
 
-            GetComponent<Player2Health>().enabled = false;// gets rid of player 2 health component form player 1
+             gameObject.AddComponent<Player1Health>();//Add player 1 health script to player 1
+
             transform.position = new Vector3(-6, 0, 0);//player 1 starting position
 
 
@@ -82,23 +77,22 @@ public class PlayerController : MonoBehaviour
         }
         else if (PlayerIndex == 1)//player 2
         {
-            Player1HealthAccess = gameObject.GetComponent<Player1Health>();
-            Player2HealthAccess = gameObject.GetComponent<Player2Health>();
+
             gameObject.tag = "Player2";//give the second player to enter the player 2 tag
-            GetComponent<Player1Health>().enabled = false;// gets rid of player 1 health component form player 2
-           
+
+             gameObject.AddComponent<Player2Health>();//Add player 2 health script to player 2
+
             transform.position = new Vector3(7, 0, 0);//player 2 starting position
 
             //need to adjust animation accordingly
             Quaternion rotation = Quaternion.Euler(0, 180, 0);
             transform.rotation = rotation;//flips player 2 on start
 
+
+
         }
 
-        //Setting player 1 & 2 health to 5 because otherwise its 0 for some reason????
-        Player1HealthAccess.health = 5;
-        Player2HealthAccess.health = 5;
-        //hopefully will be fixed at some point
+        
     }
     
     void Update()
@@ -123,7 +117,7 @@ public class PlayerController : MonoBehaviour
             spriteRenderer.sprite = jumpPose;
         }
 
-        PlayerDied();//if a player dies game over screen
+        //PlayerDied();//if a player dies game over screen
 
 
 
@@ -171,7 +165,7 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("og p1 health" + Player1HealthAccess.health);
 
-                Player1HealthAccess.health -= 1;//Take 1 heart from player 2
+                Player1HealthAccess.health -= DamageDone;//Take 1 heart from player 2
 
                 //Player1HealthAccess.dealDamageToP2();
 
@@ -181,7 +175,7 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("og p2 health" + Player2HealthAccess.health);
 
-                Player2HealthAccess.health -= 1;//Take 1 heart from player 2
+                Player2HealthAccess.health -= DamageDone;//Take 1 heart from player 2
 
                 //Player2HealthAccess.dealDamageToP1();
 
@@ -231,8 +225,8 @@ public class PlayerController : MonoBehaviour
 
 
     //Game over
-
-    private void PlayerDied()
+    //Called in Assign scripts
+    public void PlayerDied()
     {
         //if a player dies game over
         if (Player1HealthAccess.health == 0 || Player2HealthAccess.health == 0)

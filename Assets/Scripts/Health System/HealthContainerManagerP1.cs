@@ -10,32 +10,14 @@ public class HealthContainerManagerP1 : MonoBehaviour
     public GameObject heartPrefab;
     public Player1Health player1Health;
     List<Heart> hearts = new List<Heart>();
-    public PlayerController PlayerControllerAccess;
-    public GameObject player1;
-
-
-
-
-    private void Start()
-    {
-
-        //if (PlayerControllerAccess.PlayerIndex==0)
-        //{
-        //    player1Health = gameObject.GetComponent<Player1Health>();
-
-        //    //player1 = gameObject;
-        //    //player1Health = gameObject.GetComponent<Player1Health>();
-
-
-        //}
-    }
-
+  
 
 
 private void Update()
     {
-        drawHearts();
-        //player1 =  GameObject.FindGameObjectWithTag("Player1");
+        //Hearts are drawn/displayed through the assign script
+
+        //drawHearts();//display hearts
      
     }
 

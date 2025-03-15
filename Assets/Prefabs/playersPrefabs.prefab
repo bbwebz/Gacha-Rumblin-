@@ -15,8 +15,7 @@ GameObject:
   - component: {fileID: 7257603313979277892}
   - component: {fileID: 6163142180049270193}
   - component: {fileID: 5595479910025041052}
-  - component: {fileID: 5776075658228491364}
-  - component: {fileID: 6605234742981825881}
+  - component: {fileID: 4485765076312648646}
   m_Layer: 7
   m_Name: playersPrefabs
   m_TagString: Player1
@@ -174,6 +173,8 @@ MonoBehaviour:
   idlePose: {fileID: 21300000, guid: 8425878c5bea6ff4b84e66b626b0ed5e, type: 3}
   jumpPose: {fileID: 21300000, guid: 722662a1df0e0ec40a447a8f5eefbca2, type: 3}
   punchPose: {fileID: 21300000, guid: 731d1b79a0b23ab488724af8d11d3ee2, type: 3}
+  PlayerIndex: 0
+  DamageDone: 0
 --- !u!114 &6163142180049270193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,7 +294,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5776075658228491364
+--- !u!114 &4485765076312648646
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -302,24 +303,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1961861736527330357}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb4c5c9e6b25a8f4d8b6d5983ee49bcc, type: 3}
+  m_Script: {fileID: 11500000, guid: 90f1dab751c3a0a4980bbad5e368af83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  maxHealth: 0
-  p2HealthAccess: {fileID: 6605234742981825881}
---- !u!114 &6605234742981825881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1961861736527330357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8222ff4da8d85034e85135b359033e4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  maxHealth: 0
-  p1HealthAccess: {fileID: 5776075658228491364}
+  isFull: 00
+  slots:
+  - {fileID: 2216616461938409117, guid: a47fc4716b264e646a553c9b66c06e9b, type: 3}
