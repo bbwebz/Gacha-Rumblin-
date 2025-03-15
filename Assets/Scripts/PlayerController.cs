@@ -41,7 +41,8 @@ public class PlayerController : MonoBehaviour
     GameObject Player1;
     GameObject Player2;
 
-
+    public GameObject P1InventoryCanvas;
+    public GameObject P2InventoryCanvas;
 
     private void Awake()
     {
@@ -72,6 +73,7 @@ public class PlayerController : MonoBehaviour
 
             transform.position = new Vector3(-6, 0, 0);//player 1 starting position
 
+            P2InventoryCanvas.gameObject.SetActive(false);
 
 
         }
@@ -81,6 +83,9 @@ public class PlayerController : MonoBehaviour
             gameObject.tag = "Player2";//give the second player to enter the player 2 tag
 
              gameObject.AddComponent<Player2Health>();//Add player 2 health script to player 2
+
+            P1InventoryCanvas.gameObject.SetActive(false);
+
 
             transform.position = new Vector3(7, 0, 0);//player 2 starting position
 
@@ -165,7 +170,7 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("og p1 health" + Player1HealthAccess.health);
 
-                Player1HealthAccess.health -= DamageDone;//Take 1 heart from player 2
+                Player2HealthAccess.health -= DamageDone;//Take 1 heart from player 2
 
                 //Player1HealthAccess.dealDamageToP2();
 
@@ -175,7 +180,7 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("og p2 health" + Player2HealthAccess.health);
 
-                Player2HealthAccess.health -= DamageDone;//Take 1 heart from player 2
+                Player1HealthAccess.health -= DamageDone;//Take 1 heart from player 1
 
                 //Player2HealthAccess.dealDamageToP1();
 

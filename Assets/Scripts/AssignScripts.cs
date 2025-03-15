@@ -14,6 +14,8 @@ public class AssignScripts : MonoBehaviour
 
     public GameObject Power;
 
+    public GameObject PowerUpObjects;
+
 
     private int NumOfP1;
     private int NumOfP2;
@@ -55,7 +57,6 @@ public class AssignScripts : MonoBehaviour
             player2Prefab.GetComponent<PlayerController>().Player2HealthAccess = player2Prefab.GetComponent<Player2Health>();
 
 
-
             //draw hearts only when both players are in the game
             player1HealthUI.GetComponent<HealthContainerManagerP1>().drawHearts();//draw hearts only when both players are in the game
             player2HealthUI.GetComponent<HealthContainerManagerP2>().drawHearts();//draw hearts only when both players are in the game
@@ -65,7 +66,7 @@ public class AssignScripts : MonoBehaviour
             //PowerUps.GetComponent<AllPowerUps>().Player1HealthAccess = player1Prefab.GetComponent<Player1Health>();
             //Power.GetComponent<AllPowerUps>().Player2HealthAccess = player2Prefab.GetComponent<Player2Health>();
 
-
+            //PowerUpObjects.GetComponent<Pickup>().inventoryP1 = player1Prefab.GetComponent<InventoryP1>();
 
             //Game Over
             player1Prefab.GetComponent<PlayerController>().PlayerDied();

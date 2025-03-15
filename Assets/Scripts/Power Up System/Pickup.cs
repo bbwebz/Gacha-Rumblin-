@@ -6,7 +6,8 @@ public class Pickup : MonoBehaviour
 {
     //Inventory of player 1
     [SerializeField]
-    private InventoryP1 inventoryP1;
+    public InventoryP1 inventoryP1;
+    //public InventoryP2 inventoryP2;
     //Power up button
     public GameObject powerUpButton;
 

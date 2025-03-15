@@ -1326,6 +1326,8 @@ MonoBehaviour:
   player2Prefab: {fileID: 1961861736527330357, guid: a0942028adbc47447960f7f2b9feed10, type: 3}
   player1HealthUI: {fileID: 2108887564}
   player2HealthUI: {fileID: 1601822438}
+  Power: {fileID: 0}
+  PowerUpObjects: {fileID: 0}
 --- !u!1 &1187020243
 GameObject:
   m_ObjectHideFlags: 0
@@ -1344,7 +1346,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1187020244
 MonoBehaviour:
   m_ObjectHideFlags: 0
