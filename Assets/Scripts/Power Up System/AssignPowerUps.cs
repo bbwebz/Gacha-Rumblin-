@@ -1,8 +1,8 @@
-using System.Collections;
+
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 //using static UnityEditor.Progress;
 
 public class AssignPowerUps : MonoBehaviour
@@ -12,42 +12,41 @@ public class AssignPowerUps : MonoBehaviour
     public Pickup powerUp2;
     public Pickup powerUp3;
 
+    public AllPowerUps allPowerUps;
 
-    private int NumOfP2;
-
-
-    void Start()
+    public void Assign()
     {
-        
+        //adding to assign script
+        AssignScripts.assigner.assignPowerUps = gameObject;
+        //int[] itemIdlist = {0,1,2,3 };
 
-    }
+        List<int> itemIdlist = new List<int> { 1, 2, 3, 4, 5 };
 
-    // Update is called once per frame
-    void Update()
-    {
-
-        NumOfP2 = GameObject.FindGameObjectsWithTag("Player2").Length;
-        //itemId = Random.Range(1, 4);//numbers from 1-3
-        itemId = 1;
+         itemId = Random.Range(0, itemIdlist.Count);//numbers from 1-3
+         //itemId = 1;
         Debug.Log("num: "+ itemId);
-        if (NumOfP2 == 1)//if there is one prefab with the tag of player2 then you can start adding player health as parameter
-        {
+       
             switch (itemId)
             {
                 case 1:
                     Debug.Log("Extra damage powerup");
                     powerUp1.AddPowerUp();
+                    powerUp1.powerUpButton.GetComponent<Button>().Select();//auto selcts this button
                     break;
 
                 case 2:
                     Debug.Log("Second power up");
                     powerUp2.AddPowerUp();
-                    break;
+                powerUp1.powerUpButton.GetComponent<Button>().Select();//auto selcts this button
+
+                break;
 
                 case 3:
                     Debug.Log("Third power up");
                     break;
             }
-        }
+
     }
+
+   
 }

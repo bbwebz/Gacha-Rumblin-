@@ -15,6 +15,10 @@ public class AllPowerUps : MonoBehaviour
     public Player1Health Player1HealthAccess;
     public Player2Health Player2HealthAccess;
 
+    public GameObject ObjectPower;
+
+    public bool Inventory1 = false;
+    public bool Inventory2 = false;
 
     //------------------------ Glass Canon ---------------------------------
     //On button clicked use powerUp
@@ -29,8 +33,18 @@ public class AllPowerUps : MonoBehaviour
     {
         float duration = 5;
        Debug.Log("Decrease Health power up");
+
+
         //can now do more damage
         //Player1HealthAccess.health = 1;
+        if(Inventory1 == true )
+        {
+            Debug.Log("In player 1s inventory");
+        }
+        else if (Inventory2 == true)
+        {
+            Debug.Log("In player 2s inventory");
+        }
 
         PowerUpButton.interactable  = false;//disables button so that the player can no longer use the power up
         yield return new WaitForSeconds(duration);//has powerup for 5 seconds

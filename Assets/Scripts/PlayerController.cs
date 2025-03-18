@@ -41,8 +41,8 @@ public class PlayerController : MonoBehaviour
     GameObject Player1;
     GameObject Player2;
 
-    public GameObject P1InventoryCanvas;
-    public GameObject P2InventoryCanvas;
+   
+
 
     private void Awake()
     {
@@ -73,7 +73,8 @@ public class PlayerController : MonoBehaviour
 
             transform.position = new Vector3(-6, 0, 0);//player 1 starting position
 
-            P2InventoryCanvas.gameObject.SetActive(false);
+
+            AssignScripts.assigner.player1Prefab = gameObject;
 
 
         }
@@ -84,16 +85,13 @@ public class PlayerController : MonoBehaviour
 
              gameObject.AddComponent<Player2Health>();//Add player 2 health script to player 2
 
-            P1InventoryCanvas.gameObject.SetActive(false);
-
-
             transform.position = new Vector3(7, 0, 0);//player 2 starting position
 
             //need to adjust animation accordingly
             Quaternion rotation = Quaternion.Euler(0, 180, 0);
             transform.rotation = rotation;//flips player 2 on start
 
-
+            AssignScripts.assigner.player2Prefab = gameObject;
 
         }
 

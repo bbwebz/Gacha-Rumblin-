@@ -20,7 +20,10 @@ public class Pickup : MonoBehaviour
 
    public void AddPowerUp()
     {
+        AssignScripts.assigner.ObjectToPickup = gameObject;
+
         Debug.Log("into slot");
+        Debug.Log(inventoryP1.slots.Length);
 
         for (int i = 0; i < inventoryP1.slots.Length; i++)
         {
@@ -33,6 +36,7 @@ public class Pickup : MonoBehaviour
                 //power up can go to inventory
                 inventoryP1.isFull[i] = true;
                 Instantiate(powerUpButton, inventoryP1.slots[i].transform, false);
+                Debug.Log("instantiated");
                 break;
             }
 

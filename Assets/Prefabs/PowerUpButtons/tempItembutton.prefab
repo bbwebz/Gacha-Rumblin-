@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -8204102407705432932}
   m_Layer: 5
   m_Name: tempItembutton
-  m_TagString: Untagged
+  m_TagString: GlassCanon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0, g: 1, b: 0.068327904, a: 1}
     m_PressedColor: {r: 0.91194963, g: 0.8483977, b: 0.21508232, a: 1}
     m_SelectedColor: {r: 0.8867924, g: 0.5360944, b: 0.09202553, a: 1}
     m_DisabledColor: {r: 0.8867924, g: 0.08644817, b: 0.8301144, a: 0}
@@ -146,3 +146,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PowerUpButton: {fileID: 6132158018793903123}
+  Player1HealthAccess: {fileID: 0}
+  Player2HealthAccess: {fileID: 0}

@@ -6,11 +6,19 @@ using UnityEngine.InputSystem.Utilities;
 
 public class AssignScripts : MonoBehaviour
 {
+    public static AssignScripts assigner;
+
     public GameObject player1Prefab;
     public GameObject player2Prefab;
    
     public GameObject player1HealthUI;
     public GameObject player2HealthUI;
+
+    public GameObject assignPowerUps;
+    public GameObject P1Inventory;
+
+    public GameObject ObjectToPickup;
+
 
     public GameObject Power;
 
@@ -20,6 +28,14 @@ public class AssignScripts : MonoBehaviour
     private int NumOfP1;
     private int NumOfP2;
 
+    private void Awake()
+    {
+        if (assigner == null)
+        {
+            assigner = this;
+        }
+    }
+
     private void Start()
     {
 
@@ -28,17 +44,14 @@ public class AssignScripts : MonoBehaviour
     //adds components into to corect slot once everything is instantiated
     void Update()
     {
-        //Specifying which prefab instace is p1 and p2
-        player1Prefab = GameObject.FindGameObjectWithTag("Player1");
-        player2Prefab = GameObject.FindGameObjectWithTag("Player2");
-
+        
         //Gets number of players with player1 and 2 tags
         NumOfP1 = GameObject.FindGameObjectsWithTag("Player1").Length;
          NumOfP2 = GameObject.FindGameObjectsWithTag("Player2").Length;
 
 
         
-        if (NumOfP2 == 1)//if there is one prefab with the tag of player2 then you can start adding player health as parameter
+        if (player2Prefab != null)//if there is one prefab with the tag of player2 then you can start adding player health as parameter
         {
             //players health containers
             //Add player healths to appropriate containers
@@ -70,6 +83,10 @@ public class AssignScripts : MonoBehaviour
 
             //Game Over
             player1Prefab.GetComponent<PlayerController>().PlayerDied();
+
+            //Assign power ups to each player
+            assignPowerUps.GetComponent<AssignPowerUps>().Assign();
+
 
 
 
