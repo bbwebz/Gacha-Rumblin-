@@ -14,6 +14,7 @@ public class Player1Health : MonoBehaviour
     {
         maxHealth = 5;
         health = maxHealth;
+        Player1DamageAmount = 1;
         Debug.Log("Player 1 Health in script" + health);
 
     }

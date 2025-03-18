@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     public float jumpForce;
     private float horizontal;
+    private float timeAttackBttnPress;
+    private float attackDelay = 3; //seconds for attack cooldown
 
     public bool didAttack = false;
     bool isFacingLeft = false;
@@ -36,10 +38,6 @@ public class PlayerController : MonoBehaviour
 
     public int PlayerIndex;
 
-    public int DamageDone;
-
-    GameObject Player1;
-    GameObject Player2;
 
    
 
@@ -60,7 +58,6 @@ public class PlayerController : MonoBehaviour
 
         rb.freezeRotation = true;
 
-        DamageDone = 1;//can do 1 damage on default
         //--------------- Player multiplayer -------------------
 
         PlayerIndex = GetComponent<PlayerInput>().playerIndex;//get player index
@@ -120,8 +117,6 @@ public class PlayerController : MonoBehaviour
             spriteRenderer.sprite = jumpPose;
         }
 
-        //PlayerDied();//if a player dies game over screen
-
 
 
     }
@@ -135,7 +130,7 @@ public class PlayerController : MonoBehaviour
         {
             anim.enabled = true;
         }
-            //Debug.Log(moveDirection);
+        //Debug.Log(moveDirection);
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -143,51 +138,50 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         anim.enabled = false;
         spriteRenderer.sprite = jumpPose;
-        Debug.Log("you pressed jump");
+        //Debug.Log("you pressed jump");
     }
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        //punch pose//
+        //punch pose
         anim.enabled = false;
         spriteRenderer.sprite = punchPose;
-       // Debug.Log("you punched");
-        //await Task.Delay(100);
-        //StartCoroutine(delaySeconds());
-        //spriteRenderer.sprite = idlePose;
 
-        Debug.Log("you pressed attack");
+        Debug.Log("you pressed attack"); //player's touching + button pressed
 
-        //If an attack was landed
-        if (arePlayersColliding == true && context.performed) 
+        //debugging statements to check the time and attack time
+        /*
+        Debug.Log("Time Now: " + Time.time);
+        Debug.Log("Time Attack Button Pressed: " + timeAttackBttnPress);
+        Debug.Log("Time Difference: " + (Time.time - timeAttackBttnPress));
+        */
+
+        if (arePlayersColliding == true && context.performed) //if players colliding and on first instance of button press
         {
-            didAttack = true;
-            Debug.Log("you landed an attack");
-            
-            if (gameObject.CompareTag("Player1"))
+            //if difference from first button press is more than 5 seconds
+            if (Time.time - timeAttackBttnPress >= attackDelay && !didAttack)
             {
-                Debug.Log("og p1 health" + Player1HealthAccess.health);
+                //only update timeAttackBttnPress if the cooldown condition is met
+                timeAttackBttnPress = Time.time; //capture the time stamp of when the button was pressed
+                didAttack = true;
+                Debug.Log("you landed an attack");
 
-                Player2HealthAccess.health -= DamageDone;//Take 1 heart from player 2
+                if (gameObject.CompareTag("Player1"))
+                {
+                    Player1HealthAccess.dealDamageToP2();
+                }
+                else if (gameObject.CompareTag("Player2"))
+                {
+                    Player2HealthAccess.dealDamageToP1();
+                }
 
-                //Player1HealthAccess.dealDamageToP2();
-
+                //reset to prepare for the next attack press
+                didAttack = false;
             }
-
-            else if (gameObject.CompareTag("Player2"))
+            else
             {
-                Debug.Log("og p2 health" + Player2HealthAccess.health);
-
-                Player1HealthAccess.health -= DamageDone;//Take 1 heart from player 1
-
-                //Player2HealthAccess.dealDamageToP1();
-
-
+                Debug.Log("you're on attack cooldown WAIT");
             }
-        }
-        else
-        {
-            didAttack = false;
         }
     }
 
