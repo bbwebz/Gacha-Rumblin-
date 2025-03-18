@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     public float jumpForce;
     private float horizontal;
+    private float timeAttackBttnPress;
+    private float attackDelay = 3; //seconds for attack cooldown
 
     public bool didAttack = false;
     bool isFacingLeft = false;
@@ -87,7 +89,7 @@ public class PlayerController : MonoBehaviour
         {
             anim.enabled = true;
         }
-            //Debug.Log(moveDirection);
+        //Debug.Log(moveDirection);
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -100,34 +102,45 @@ public class PlayerController : MonoBehaviour
 
     public async void OnAttack(InputAction.CallbackContext context)
     {
-        //punch pose//
+        //punch pose
         anim.enabled = false;
         spriteRenderer.sprite = punchPose;
-       // Debug.Log("you punched");
-        //await Task.Delay(100);
-        //StartCoroutine(delaySeconds());
-        //spriteRenderer.sprite = idlePose;
 
-        Debug.Log("you pressed attack");
+        Debug.Log("you pressed attack"); //player's touching + button pressed
 
-        if (arePlayersColliding == true && context.performed) 
+        //debugging statements to check the time and attack time
+        /*
+        Debug.Log("Time Now: " + Time.time);
+        Debug.Log("Time Attack Button Pressed: " + timeAttackBttnPress);
+        Debug.Log("Time Difference: " + (Time.time - timeAttackBttnPress));
+        */
+
+        if (arePlayersColliding == true && context.performed) //if players colliding and on first instance of button press
         {
-            didAttack = true;
-            
-            Debug.Log("you landed an attack");
-            
-            if (gameObject.CompareTag("Player1"))
+            //if difference from first button press is more than 5 seconds
+            if (Time.time - timeAttackBttnPress >= attackDelay && !didAttack) 
             {
-                Player1HealthAccess.dealDamageToP2();
+                //only update timeAttackBttnPress if the cooldown condition is met
+                timeAttackBttnPress = Time.time; //capture the time stamp of when the button was pressed
+                didAttack = true;
+                Debug.Log("you landed an attack");
+
+                if (gameObject.CompareTag("Player1"))
+                {
+                    Player1HealthAccess.dealDamageToP2();
+                }
+                else if (gameObject.CompareTag("Player2"))
+                {
+                    Player2HealthAccess.dealDamageToP1();
+                }
+
+                //reset to prepare for the next attack press
+                didAttack = false;
             }
-            else if (gameObject.CompareTag("Player2"))
+            else
             {
-                Player2HealthAccess.dealDamageToP1();
+                Debug.Log("you're on attack cooldown WAIT");
             }
-        }
-        else
-        {
-            didAttack = false;
         }
     }
 
