@@ -628,17 +628,61 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3895014429313098147, guid: a47fc4716b264e646a553c9b66c06e9b, type: 3}
   m_PrefabInstance: {fileID: 2059051294}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &484866531 stripped
+--- !u!1 &418204526
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 7088350507046037652, guid: bdc9ddbd31e0ca545af2b30963f8c7a5, type: 3}
-  m_PrefabInstance: {fileID: 1672296224}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 418204528}
+  - component: {fileID: 418204527}
+  m_Layer: 0
+  m_Name: AllPowerUpsScript
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &418204527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418204526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a486e99dc30fb384283c6d322c5a75de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player1HealthAccess: {fileID: 0}
+  Player2HealthAccess: {fileID: 0}
+  assignPowerUps: {fileID: 1483055531}
+  Inventory1: 0
+  Inventory2: 0
+--- !u!4 &418204528
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418204526}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.98554, y: 3.0346863, z: -0.055766948}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &484866532 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5021007917506511088, guid: bdc9ddbd31e0ca545af2b30963f8c7a5, type: 3}
   m_PrefabInstance: {fileID: 1672296224}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 484866531}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e78459b020e18848b0d719e539820a2, type: 3}
@@ -938,6 +982,54 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1617741631}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &535547303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 535547305}
+  - component: {fileID: 535547304}
+  m_Layer: 0
+  m_Name: Beefed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &535547304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535547303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e78459b020e18848b0d719e539820a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryP1: {fileID: 2142036052}
+  inventoryP2: {fileID: 238081928}
+  powerUpButton: {fileID: 7843923230817798948, guid: 9bf1a30f104a96b4bb7dfb0e9375f2cb, type: 3}
+  ButtonClone: {fileID: 0}
+--- !u!4 &535547305
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535547303}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.98554, y: 3.0346863, z: -0.055766948}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &619394800
 GameObject:
@@ -1258,10 +1350,7 @@ MonoBehaviour:
   player1HealthUI: {fileID: 2108887564}
   player2HealthUI: {fileID: 1601822438}
   assignPowerUps: {fileID: 1483055530}
-  P1Inventory: {fileID: 0}
-  ObjectToPickup: {fileID: 484866531}
-  Power: {fileID: 0}
-  PowerUpObjects: {fileID: 0}
+  AllPowerUpsAccess: {fileID: 0}
 --- !u!224 &1214166000 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3895014429313098147, guid: a47fc4716b264e646a553c9b66c06e9b, type: 3}
@@ -2059,13 +2148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5957458d550e4874b92a3047c068e25e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1Prefab: {fileID: 1961861736527330357, guid: 6658d019ac129204bbbb3500ed7323b8, type: 3}
-  player2Prefab: {fileID: 3930716088226708061, guid: cac9b0b9ed2b5d74aa1f4686b9db0400, type: 3}
-  player1Inst: {fileID: 0}
-  player2Inst: {fileID: 0}
-  player1HealthUI: {fileID: 2108887564}
-  player2HealthUI: {fileID: 1601822438}
-  playerCount: 0
 --- !u!1 &1483055530
 GameObject:
   m_ObjectHideFlags: 0
@@ -2095,9 +2177,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c3f4b6bdd66734ea7e7ebbfc6e1288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUp1: {fileID: 484866532}
-  powerUp2: {fileID: 484866532}
-  powerUp3: {fileID: 484866532}
+  itemIdP1: 0
+  itemIdP2: 0
+  powerUps:
+  - {fileID: 484866532}
+  - {fileID: 535547304}
+  - {fileID: 484866532}
   allPowerUps: {fileID: 0}
 --- !u!4 &1483055532
 Transform:
@@ -2456,6 +2541,10 @@ PrefabInstance:
       propertyPath: inventoryP1
       value: 
       objectReference: {fileID: 2142036052}
+    - target: {fileID: 5021007917506511088, guid: bdc9ddbd31e0ca545af2b30963f8c7a5, type: 3}
+      propertyPath: inventoryP2
+      value: 
+      objectReference: {fileID: 238081928}
     - target: {fileID: 7088350507046037652, guid: bdc9ddbd31e0ca545af2b30963f8c7a5, type: 3}
       propertyPath: m_Name
       value: GlassCanon
@@ -3468,15 +3557,17 @@ SceneRoots:
   - {fileID: 1291214247}
   - {fileID: 519420032}
   - {fileID: 619394802}
+  - {fileID: 847838666}
+  - {fileID: 1465755099}
   - {fileID: 740840876}
+  - {fileID: 418204528}
+  - {fileID: 1483055532}
   - {fileID: 1279990581}
   - {fileID: 1815362777}
-  - {fileID: 1465755099}
-  - {fileID: 847838666}
-  - {fileID: 1617741631}
   - {fileID: 1672296224}
+  - {fileID: 535547305}
   - {fileID: 1732467119}
   - {fileID: 1392216501}
-  - {fileID: 1483055532}
   - {fileID: 2142036053}
   - {fileID: 238081929}
+  - {fileID: 1617741631}

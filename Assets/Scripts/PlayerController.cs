@@ -29,6 +29,12 @@ public class PlayerController : MonoBehaviour
     bool isFacingLeft = false;
     public bool arePlayersColliding = false;
 
+    //For using power ups
+    public AssignPowerUps assignPowerAccess;
+    public AllPowerUps allPowers;
+
+
+
     //for animation//
     private Animator anim;
     private SpriteRenderer spriteRenderer;
@@ -88,6 +94,7 @@ public class PlayerController : MonoBehaviour
             Quaternion rotation = Quaternion.Euler(0, 180, 0);
             transform.rotation = rotation;//flips player 2 on start
 
+            //Assigns player2prefab ins assignscripts as the player 2 game object
             AssignScripts.assigner.player2Prefab = gameObject;
 
         }
@@ -121,6 +128,8 @@ public class PlayerController : MonoBehaviour
 
     }
     
+
+    // ------------------------------------ Player Button actions ----------------------------------------
     public void OnMove(InputAction.CallbackContext context)
     {
         Vector2 moveInput = context.ReadValue<Vector2>();
@@ -185,7 +194,58 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+
+    //Activating the power up
+    public void OnUsePowerup(InputAction.CallbackContext context)
+    {
+        Debug.Log("Trigger pressed used");
+
+        float current;
+        int oponent;
+
+        if (PlayerIndex == 0)//if player 1 triggers power up 
+        {
+             current = Player1HealthAccess.health;
+             oponent = Player1HealthAccess.Player1DamageAmount;
+
+            Debug.Log("Player 1 trigger");
+            switch (assignPowerAccess.itemIdP1)
+            {
+                //if player 1 triggerd it player 1 trigger = true
+                case 0:
+                    //Player1HealthAccess.health -= 1;
+                    allPowers.UseGlassCanon(current, oponent);
+                    Debug.Log("Current: " + current);
+                    Debug.Log("Oponent: " + oponent);
+                    //Player1HealthAccess.dealDamageToP2();
+
+
+                    break;
+
+                case 1:
+                    allPowers.UseBeefed();
+                    break;
+
+            }
+
+        }
+        else if (PlayerIndex == 1)//if player 2 triggers power up 
+        {
+            Debug.Log("Player 2 trigger");
+
+        }
+
+    }
+
+
+
+//----------------------------------------------------------------------------//
+
+
+
+
+
+private void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
         //avoids sliding

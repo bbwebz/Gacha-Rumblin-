@@ -15,18 +15,9 @@ public class AssignScripts : MonoBehaviour
     public GameObject player2HealthUI;
 
     public GameObject assignPowerUps;
-    public GameObject P1Inventory;
 
-    public GameObject ObjectToPickup;
+    public GameObject AllPowerUpsAccess;
 
-
-    public GameObject Power;
-
-    public GameObject PowerUpObjects;
-
-
-    private int NumOfP1;
-    private int NumOfP2;
 
     private void Awake()
     {
@@ -44,12 +35,6 @@ public class AssignScripts : MonoBehaviour
     //adds components into to corect slot once everything is instantiated
     void Update()
     {
-        
-        //Gets number of players with player1 and 2 tags
-        NumOfP1 = GameObject.FindGameObjectsWithTag("Player1").Length;
-         NumOfP2 = GameObject.FindGameObjectsWithTag("Player2").Length;
-
-
         
         if (player2Prefab != null)//if there is one prefab with the tag of player2 then you can start adding player health as parameter
         {
@@ -88,6 +73,11 @@ public class AssignScripts : MonoBehaviour
             assignPowerUps.GetComponent<AssignPowerUps>().Assign();
 
 
+            player1Prefab.GetComponent<PlayerController>().allPowers = AllPowerUpsAccess.GetComponent<AllPowerUps>();
+            player2Prefab.GetComponent<PlayerController>().allPowers = AllPowerUpsAccess.GetComponent<AllPowerUps>();
+
+            player1Prefab.GetComponent<PlayerController>().assignPowerAccess = assignPowerUps.GetComponent<AssignPowerUps>();
+            player2Prefab.GetComponent<PlayerController>().assignPowerAccess = assignPowerUps.GetComponent<AssignPowerUps>();
 
 
 
