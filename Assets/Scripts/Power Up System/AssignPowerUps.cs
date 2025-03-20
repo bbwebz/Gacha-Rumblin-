@@ -1,9 +1,11 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 using static UnityEditor.Progress;
 //using static UnityEditor.Progress;
 
@@ -14,7 +16,6 @@ public class AssignPowerUps : MonoBehaviour
     public Pickup[] powerUps;
 
     public AllPowerUps allPowerUps;
-
 
 
     void Start()
@@ -31,6 +32,7 @@ public class AssignPowerUps : MonoBehaviour
         //    result0 += item.ToString() + ", ";
         //}
         //Debug.Log("OG List: "+ result0);
+
 
 
         //itemIdP1 = Random.Range(0, itemIdlist.Count);//picks random num
