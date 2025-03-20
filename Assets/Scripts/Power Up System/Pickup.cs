@@ -51,7 +51,6 @@ public class Pickup : MonoBehaviour
     {
 
         Debug.Log("into slot");
-        Debug.Log(inventoryP2.slots.Length);
 
         for (int i = 0; i < inventoryP2.slots.Length; i++)
         {

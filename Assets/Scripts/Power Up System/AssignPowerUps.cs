@@ -18,7 +18,6 @@ public class AssignPowerUps : MonoBehaviour
 
     void Start()
     {
-
         AssignScripts.assigner.assignPowerUps = gameObject;
 
     }
@@ -27,11 +26,11 @@ public class AssignPowerUps : MonoBehaviour
     {
         //adding to assign script
 
-        List<int> itemIdlist = new List<int> { 0,1 };//list of number of powerups
+        List<int> itemIdlist = new List<int> { 0,1, 2 };//list of number of powerups
 
         //Adding power ups to player 1s inventory
-        //itemIdP1 = Random.Range(0, itemIdlist.Count);//picks random num
-        itemIdP1 = 0;
+        itemIdP1 = Random.Range(0, itemIdlist.Count);//picks random num
+        //itemIdP1 = 0;
         Debug.Log("itemIdP1: "+ itemIdP1);
 
         string result = " ";
@@ -46,7 +45,7 @@ public class AssignPowerUps : MonoBehaviour
                 case 0:
                     Debug.Log("Extra damage powerup");
                 powerUps[0].AddPowerUpP1();
-                //itemIdlist.Remove(itemIdP1);//remove this option form the list
+                itemIdlist.Remove(itemIdP1);//remove this option form the list
 
                 break;
 
@@ -60,6 +59,7 @@ public class AssignPowerUps : MonoBehaviour
                 case 2:
                     Debug.Log("Third power up");
                 powerUps[2].AddPowerUpP1();
+                itemIdlist.Remove(itemIdP1);//remove this option form the list
 
                 break;
             }
@@ -73,10 +73,9 @@ public class AssignPowerUps : MonoBehaviour
 
         //Adding power ups to player 2s inventory
         itemIdP2 = Random.Range(0, itemIdlist.Count);//picks random num
-        //itemIdP2 = 0;
+        //itemIdP2 = 1;
         Debug.Log("itemIdP2: "+ itemIdP2);
 
-        itemIdlist.Remove(itemIdP2);//remove this option form the list
 
         switch (itemIdP2)
         {

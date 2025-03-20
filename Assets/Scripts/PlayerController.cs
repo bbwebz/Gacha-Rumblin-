@@ -233,9 +233,19 @@ public class PlayerController : MonoBehaviour
         else if (PlayerIndex == 1)//if player 2 triggers power up 
         {
             Player2Trig = true;
+            switch (assignPowerAccess.itemIdP2)
+            {
+                case 0:
+                    allPowers.UseGlassCanon();
+                    break;
 
-            allPowers.UseGlassCanon();
+                case 1:
+                    allPowers.UseBeefed();
+                    break;
+
+            }
             Debug.Log("Player 2 trigger");
+
             assignPowerAccess.itemIdP2 = -1;//set item id to -1 so that power up fucntion will no longer be called
 
             for (int i = 0; i < inventoryP2.slots.Length; i++)
