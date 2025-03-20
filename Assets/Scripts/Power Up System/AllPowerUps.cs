@@ -15,6 +15,8 @@ public class AllPowerUps : MonoBehaviour
 
     public Player1Health Player1HealthAccess;
     public Player2Health Player2HealthAccess;
+    public PlayerController Player1ControllerAccess;
+    public PlayerController Player2ControllerAccess;
 
     //public Pickup[] powerUps;
     public AssignPowerUps assignPowerUps;
@@ -33,50 +35,63 @@ public class AllPowerUps : MonoBehaviour
             AssignScripts.assigner.AllPowerUpsAccess = gameObject;
 
     }
-    public void UseGlassCanon(float current, int opponent)//activate power up
+    public void UseGlassCanon()//activate power up
     {
-            StartCoroutine(GlassCanonSequence(current, opponent));
+            StartCoroutine(GlassCanonSequence());
             Debug.Log("GlassCanon used");
     }
 
   
-    IEnumerator GlassCanonSequence(float Current, int Opponent)
+    IEnumerator GlassCanonSequence()
     {
         float duration = 5;
        Debug.Log("Decrease Health power up");
 
-        //if playercontroller.player1trigger = true
-        //minus form player health
-        //
+        if (Player1ControllerAccess.Player1Trig == true)//If player 1 has the power up and is using it
+        {
+            Player1HealthAccess.health -= 1;//take away 1 health from p1
+            Player1HealthAccess.Player1DamageAmount += 1;//Player 1 can now do an extra amount of damage
 
-        Current -=1;
-        Debug.Log("minus 1 health");
+            Debug.Log("Player 1 damage amount: " + Player1HealthAccess.Player1DamageAmount);
 
-        Opponent +=2;
-        Debug.Log("Plus 2 damage");
+            Destroy(assignPowerUps.powerUps[0].ButtonClone);//destroy power up button of the first item in the array
+            yield return new WaitForSeconds(duration);//has powerup for 5 seconds
+            DeactivateGlassCanon();//deactivate power up
 
-        //if(Inventory1 == true )
-        //{
-        //    Debug.Log("In player 1s inventory");
-        //}
-        //else if (Inventory2 == true)
-        //{
-        //    Debug.Log("In player 2s inventory");
-        //}
+        }
+        else if (Player2ControllerAccess.Player2Trig == true)//If player 2 has the power up and is using it
+        {
+            Player2HealthAccess.health -= 1;//take away 1 health form p2
+            Player2HealthAccess.Player2DamageAmount += 1;//Player 2 can now do an extra amount of damage
 
 
+            Destroy(assignPowerUps.powerUps[0].ButtonClone);//destroy power up button of the first item in the array
+            yield return new WaitForSeconds(duration);//has powerup for 5 seconds
+            DeactivateGlassCanon();//deactivate power up
 
-        Destroy(assignPowerUps.powerUps[0].ButtonClone);//destroy power up button of the first item in the array
-        yield return new WaitForSeconds(duration);//has powerup for 5 seconds
 
-        DeactivateGlassCanon();//deactivate power up
+        }
+
+
     }
+
 
     //Deactivates any buffs given to the player
     private void DeactivateGlassCanon()
     {
-        Debug.Log("deactivate");
         //return damage that player can do back to normal
+
+        Player1ControllerAccess.Player1Trig = false;
+        Player2ControllerAccess.Player2Trig = false;
+
+        //set player damage amount back to normal
+        Player1HealthAccess.Player1DamageAmount = 1;
+        Player2HealthAccess.Player2DamageAmount = 1;
+
+
+        Debug.Log("deactivated");
+
+
     }
 
 
@@ -95,17 +110,7 @@ public class AllPowerUps : MonoBehaviour
         float duration = 5;
         Debug.Log("Decrease Health power up");
 
-        //can now do more damage
-        //Player1HealthAccess.health = 1;
-        //if(Inventory1 == true )
-        //{
-        //    Debug.Log("In player 1s inventory");
-        //}
-        //else if (Inventory2 == true)
-        //{
-        //    Debug.Log("In player 2s inventory");
-        //}
-
+     
         Destroy(assignPowerUps.powerUps[0].ButtonClone);//destroy power up button of the first item in the array
         yield return new WaitForSeconds(duration);//has powerup for 5 seconds
 
@@ -115,7 +120,9 @@ public class AllPowerUps : MonoBehaviour
     //Deactivates any buffs given to the player
     private void DeactivateBeefed()
     {
+       
         Debug.Log("deactivate");
+
         //return damage that player can do back to normal
     }
 

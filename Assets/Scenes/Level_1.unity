@@ -659,6 +659,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player1HealthAccess: {fileID: 0}
   Player2HealthAccess: {fileID: 0}
+  Player1ControllerAccess: {fileID: 0}
+  Player2ControllerAccess: {fileID: 0}
   assignPowerUps: {fileID: 1483055531}
   Inventory1: 0
   Inventory2: 0
@@ -1349,6 +1351,8 @@ MonoBehaviour:
   player2Prefab: {fileID: 0}
   player1HealthUI: {fileID: 2108887564}
   player2HealthUI: {fileID: 1601822438}
+  player1Inventory: {fileID: 2142036051}
+  player2Inventory: {fileID: 238081927}
   assignPowerUps: {fileID: 1483055530}
   AllPowerUpsAccess: {fileID: 0}
 --- !u!224 &1214166000 stripped
@@ -2069,7 +2073,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1465755099}
   - component: {fileID: 1465755098}
-  - component: {fileID: 1465755100}
   m_Layer: 0
   m_Name: PlayerInputManager
   m_TagString: Untagged
@@ -2136,18 +2139,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1465755100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1465755097}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5957458d550e4874b92a3047c068e25e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1483055530
 GameObject:
   m_ObjectHideFlags: 0
@@ -2183,7 +2174,7 @@ MonoBehaviour:
   - {fileID: 484866532}
   - {fileID: 535547304}
   - {fileID: 484866532}
-  allPowerUps: {fileID: 0}
+  allPowerUps: {fileID: 418204527}
 --- !u!4 &1483055532
 Transform:
   m_ObjectHideFlags: 0

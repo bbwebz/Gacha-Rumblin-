@@ -14,24 +14,13 @@ public class Player2Health : MonoBehaviour
         maxHealth = 5;
         health = maxHealth;
         Player2DamageAmount = 1;
-        Debug.Log("Player 2 Health in script" + health);
 
     }
-    private void Update()
-    {
-        Debug.Log("Player 2 health" + health);
-
-    }
-
-
+    
     public void dealDamageToP1()
     {
-        //if (health > 0)
-        //{
-            p1HealthAccess.health -= Player2DamageAmount;
-            Debug.Log("damage was done to P1");
-            //Debug.Log("Deal damage to Player 1 Health in script" + health);
 
-        //}
+            p1HealthAccess.health -= Player2DamageAmount;
+            
     }
 }

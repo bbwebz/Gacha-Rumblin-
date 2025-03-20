@@ -14,10 +14,15 @@ public class AssignScripts : MonoBehaviour
     public GameObject player1HealthUI;
     public GameObject player2HealthUI;
 
+    public GameObject player1Inventory;
+    public GameObject player2Inventory;
+
+
     public GameObject assignPowerUps;
 
     public GameObject AllPowerUpsAccess;
 
+    bool onetime = false;
 
     private void Awake()
     {
@@ -27,10 +32,6 @@ public class AssignScripts : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-
-    }
 
     //adds components into to corect slot once everything is instantiated
     void Update()
@@ -38,6 +39,15 @@ public class AssignScripts : MonoBehaviour
         
         if (player2Prefab != null)//if there is one prefab with the tag of player2 then you can start adding player health as parameter
         {
+            //Calls function only once
+            if (!onetime)
+            {
+                //Assign power ups to each player
+                assignPowerUps.GetComponent<AssignPowerUps>().Assign();
+                Debug.Log("AllpowerUps assigning");
+                onetime = true;
+            }
+
             //players health containers
             //Add player healths to appropriate containers
             player1HealthUI.GetComponent<HealthContainerManagerP1>().player1Health = player1Prefab.GetComponent<Player1Health>();
@@ -60,26 +70,31 @@ public class AssignScripts : MonoBehaviour
             player2HealthUI.GetComponent<HealthContainerManagerP2>().drawHearts();//draw hearts only when both players are in the game
 
 
-            //Adding player 1 and 2 health components to app power ups scripts
-            //PowerUps.GetComponent<AllPowerUps>().Player1HealthAccess = player1Prefab.GetComponent<Player1Health>();
-            //Power.GetComponent<AllPowerUps>().Player2HealthAccess = player2Prefab.GetComponent<Player2Health>();
-
-            //PowerUpObjects.GetComponent<Pickup>().inventoryP1 = player1Prefab.GetComponent<InventoryP1>();
-
-            //Game Over
-            player1Prefab.GetComponent<PlayerController>().PlayerDied();
-
-            //Assign power ups to each player
-            assignPowerUps.GetComponent<AssignPowerUps>().Assign();
-
-
+            //Giving player controller acces to  all powerups script
             player1Prefab.GetComponent<PlayerController>().allPowers = AllPowerUpsAccess.GetComponent<AllPowerUps>();
             player2Prefab.GetComponent<PlayerController>().allPowers = AllPowerUpsAccess.GetComponent<AllPowerUps>();
 
+            //Giving player controller acces to  assign powerups script
             player1Prefab.GetComponent<PlayerController>().assignPowerAccess = assignPowerUps.GetComponent<AssignPowerUps>();
             player2Prefab.GetComponent<PlayerController>().assignPowerAccess = assignPowerUps.GetComponent<AssignPowerUps>();
 
 
+            //All power ups health access
+            AllPowerUpsAccess.GetComponent<AllPowerUps>().Player1HealthAccess = player1Prefab.GetComponent<Player1Health>();
+            AllPowerUpsAccess.GetComponent<AllPowerUps>().Player2HealthAccess = player2Prefab.GetComponent<Player2Health>();
+
+            //All power ups PLayer controller access
+            AllPowerUpsAccess.GetComponent<AllPowerUps>().Player1ControllerAccess = player1Prefab.GetComponent<PlayerController>();
+            AllPowerUpsAccess.GetComponent<AllPowerUps>().Player2ControllerAccess = player2Prefab.GetComponent<PlayerController>();
+
+            //Giving PlayerController script access to players inventory
+            player1Prefab.GetComponent<PlayerController>().inventoryP1 =  player1Inventory.GetComponent<InventoryP1>();
+            player2Prefab.GetComponent<PlayerController>().inventoryP2 =  player2Inventory.GetComponent<InventoryP1>();
+
+
+            //Game Over
+            player1Prefab.GetComponent<PlayerController>().PlayerDied();
+            player2Prefab.GetComponent<PlayerController>().PlayerDied();
 
         }
 

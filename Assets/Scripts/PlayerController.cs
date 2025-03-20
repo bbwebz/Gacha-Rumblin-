@@ -32,7 +32,8 @@ public class PlayerController : MonoBehaviour
     //For using power ups
     public AssignPowerUps assignPowerAccess;
     public AllPowerUps allPowers;
-
+    public InventoryP1 inventoryP1;
+    public InventoryP1 inventoryP2;
 
 
     //for animation//
@@ -44,8 +45,9 @@ public class PlayerController : MonoBehaviour
 
     public int PlayerIndex;
 
+    public bool Player1Trig = false;
+    public bool Player2Trig = false;
 
-   
 
 
     private void Awake()
@@ -97,9 +99,11 @@ public class PlayerController : MonoBehaviour
             //Assigns player2prefab ins assignscripts as the player 2 game object
             AssignScripts.assigner.player2Prefab = gameObject;
 
+
+
         }
 
-        
+
     }
     
     void Update()
@@ -200,26 +204,16 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Trigger pressed used");
 
-        float current;
-        int oponent;
-
         if (PlayerIndex == 0)//if player 1 triggers power up 
         {
-             current = Player1HealthAccess.health;
-             oponent = Player1HealthAccess.Player1DamageAmount;
-
+            //if player 1 triggerd it player 1 trigger = true
+            Player1Trig = true;
+       
             Debug.Log("Player 1 trigger");
             switch (assignPowerAccess.itemIdP1)
             {
-                //if player 1 triggerd it player 1 trigger = true
                 case 0:
-                    //Player1HealthAccess.health -= 1;
-                    allPowers.UseGlassCanon(current, oponent);
-                    Debug.Log("Current: " + current);
-                    Debug.Log("Oponent: " + oponent);
-                    //Player1HealthAccess.dealDamageToP2();
-
-
+                    allPowers.UseGlassCanon();
                     break;
 
                 case 1:
@@ -227,11 +221,27 @@ public class PlayerController : MonoBehaviour
                     break;
 
             }
+            assignPowerAccess.itemIdP1 = -1;//set item id to -1 so that power up fucntion will no longer be called
+
+            for (int i = 0; i < inventoryP1.slots.Length; i++)
+            {
+                inventoryP1.isFull[i] = false;//inventory is now empty
+            }
 
         }
+
         else if (PlayerIndex == 1)//if player 2 triggers power up 
         {
+            Player2Trig = true;
+
+            allPowers.UseGlassCanon();
             Debug.Log("Player 2 trigger");
+            assignPowerAccess.itemIdP2 = -1;//set item id to -1 so that power up fucntion will no longer be called
+
+            for (int i = 0; i < inventoryP2.slots.Length; i++)
+            {
+                inventoryP2.isFull[i] = false;//inventory is now empty
+            }
 
         }
 
