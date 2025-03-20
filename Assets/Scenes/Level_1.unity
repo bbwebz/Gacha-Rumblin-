@@ -1016,7 +1016,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryP1: {fileID: 2142036052}
   inventoryP2: {fileID: 238081928}
-  powerUpIcon: {fileID: 0}
+  powerUpIcon: {fileID: 7843923230817798948, guid: 9bf1a30f104a96b4bb7dfb0e9375f2cb, type: 3}
   IconClone: {fileID: 0}
 --- !u!4 &535547305
 Transform:
@@ -1434,7 +1434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryP1: {fileID: 2142036052}
   inventoryP2: {fileID: 238081928}
-  powerUpIcon: {fileID: 0}
+  powerUpIcon: {fileID: 8451277102805216918, guid: cd0f28b1412907f47bb81fc9fd3c65ac, type: 3}
   IconClone: {fileID: 0}
 --- !u!4 &903758349
 Transform:
@@ -1482,7 +1482,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryP1: {fileID: 2142036052}
   inventoryP2: {fileID: 238081928}
-  powerUpIcon: {fileID: 0}
+  powerUpIcon: {fileID: 8451277102805216918, guid: b3112c7ee1e9aab4bb5e7c57cee631c7, type: 3}
   IconClone: {fileID: 0}
 --- !u!4 &1090177894
 Transform:
@@ -2682,6 +2682,10 @@ PrefabInstance:
       propertyPath: inventoryP2
       value: 
       objectReference: {fileID: 238081928}
+    - target: {fileID: 5021007917506511088, guid: bdc9ddbd31e0ca545af2b30963f8c7a5, type: 3}
+      propertyPath: powerUpIcon
+      value: 
+      objectReference: {fileID: 8451277102805216918, guid: 41c60a158072f654d8b018c825165941, type: 3}
     - target: {fileID: 7088350507046037652, guid: bdc9ddbd31e0ca545af2b30963f8c7a5, type: 3}
       propertyPath: m_Name
       value: GlassCanon
