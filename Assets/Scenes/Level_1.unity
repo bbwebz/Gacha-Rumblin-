@@ -1016,8 +1016,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryP1: {fileID: 2142036052}
   inventoryP2: {fileID: 238081928}
-  powerUpButton: {fileID: 7843923230817798948, guid: 9bf1a30f104a96b4bb7dfb0e9375f2cb, type: 3}
-  ButtonClone: {fileID: 0}
+  powerUpIcon: {fileID: 0}
+  IconClone: {fileID: 0}
 --- !u!4 &535547305
 Transform:
   m_ObjectHideFlags: 0
@@ -1225,6 +1225,54 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2216616461938409117, guid: a47fc4716b264e646a553c9b66c06e9b, type: 3}
   m_PrefabInstance: {fileID: 625471262}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &705535402
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 705535404}
+  - component: {fileID: 705535403}
+  m_Layer: 0
+  m_Name: Speed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &705535403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705535402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e78459b020e18848b0d719e539820a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryP1: {fileID: 2142036052}
+  inventoryP2: {fileID: 238081928}
+  powerUpIcon: {fileID: 7843923230817798948, guid: 76a51b3fc8a688848b4ddcf3a4bf8ae1, type: 3}
+  IconClone: {fileID: 0}
+--- !u!4 &705535404
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705535402}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1571.262, y: 264.60767, z: -7.0136065}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &740840873
 GameObject:
   m_ObjectHideFlags: 0
@@ -1355,6 +1403,54 @@ MonoBehaviour:
   player2Inventory: {fileID: 238081927}
   assignPowerUps: {fileID: 1483055530}
   AllPowerUpsAccess: {fileID: 0}
+--- !u!1 &903758347
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 903758349}
+  - component: {fileID: 903758348}
+  m_Layer: 0
+  m_Name: Snail
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &903758348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903758347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e78459b020e18848b0d719e539820a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryP1: {fileID: 2142036052}
+  inventoryP2: {fileID: 238081928}
+  powerUpIcon: {fileID: 0}
+  IconClone: {fileID: 0}
+--- !u!4 &903758349
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903758347}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1571.262, y: 264.60767, z: -7.0136065}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1090177892
 GameObject:
   m_ObjectHideFlags: 0
@@ -1386,8 +1482,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryP1: {fileID: 2142036052}
   inventoryP2: {fileID: 238081928}
-  powerUpButton: {fileID: 8451277102805216918, guid: b3112c7ee1e9aab4bb5e7c57cee631c7, type: 3}
-  ButtonClone: {fileID: 0}
+  powerUpIcon: {fileID: 0}
+  IconClone: {fileID: 0}
 --- !u!4 &1090177894
 Transform:
   m_ObjectHideFlags: 0
@@ -2222,6 +2318,8 @@ MonoBehaviour:
   - {fileID: 484866532}
   - {fileID: 535547304}
   - {fileID: 1090177893}
+  - {fileID: 705535403}
+  - {fileID: 903758348}
   allPowerUps: {fileID: 418204527}
 --- !u!4 &1483055532
 Transform:
@@ -3606,6 +3704,8 @@ SceneRoots:
   - {fileID: 1672296224}
   - {fileID: 535547305}
   - {fileID: 1090177894}
+  - {fileID: 705535404}
+  - {fileID: 903758349}
   - {fileID: 1732467119}
   - {fileID: 1392216501}
   - {fileID: 2142036053}
