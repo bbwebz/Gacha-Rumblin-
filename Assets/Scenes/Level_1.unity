@@ -1355,6 +1355,54 @@ MonoBehaviour:
   player2Inventory: {fileID: 238081927}
   assignPowerUps: {fileID: 1483055530}
   AllPowerUpsAccess: {fileID: 0}
+--- !u!1 &1090177892
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1090177894}
+  - component: {fileID: 1090177893}
+  m_Layer: 0
+  m_Name: Shield
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1090177893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090177892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e78459b020e18848b0d719e539820a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryP1: {fileID: 2142036052}
+  inventoryP2: {fileID: 238081928}
+  powerUpButton: {fileID: 8451277102805216918, guid: b3112c7ee1e9aab4bb5e7c57cee631c7, type: 3}
+  ButtonClone: {fileID: 0}
+--- !u!4 &1090177894
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090177892}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1571.262, y: 264.60767, z: -7.0136065}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1214166000 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3895014429313098147, guid: a47fc4716b264e646a553c9b66c06e9b, type: 3}
@@ -2173,7 +2221,7 @@ MonoBehaviour:
   powerUps:
   - {fileID: 484866532}
   - {fileID: 535547304}
-  - {fileID: 484866532}
+  - {fileID: 1090177893}
   allPowerUps: {fileID: 418204527}
 --- !u!4 &1483055532
 Transform:
@@ -3557,6 +3605,7 @@ SceneRoots:
   - {fileID: 1815362777}
   - {fileID: 1672296224}
   - {fileID: 535547305}
+  - {fileID: 1090177894}
   - {fileID: 1732467119}
   - {fileID: 1392216501}
   - {fileID: 2142036053}

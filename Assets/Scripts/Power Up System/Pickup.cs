@@ -8,10 +8,11 @@ public class Pickup : MonoBehaviour
     [SerializeField]
     public InventoryP1 inventoryP1;
     public InventoryP1 inventoryP2;
-    //Power up button
-    public GameObject powerUpButton;
 
-    public GameObject ButtonClone;
+    //Power up button
+    public GameObject powerUpIcon;
+
+    public GameObject IconClone;
 
 
     void Start()
@@ -31,10 +32,10 @@ public class Pickup : MonoBehaviour
             if (inventoryP1.isFull[i] == false)
             {
                 Debug.Log("into true");
-                Debug.Log("button" + powerUpButton);
+                Debug.Log("button" + powerUpIcon);
                 //power up can go to inventory
                 inventoryP1.isFull[i] = true;
-                ButtonClone = Instantiate(powerUpButton, inventoryP1.slots[i].transform, false);
+                IconClone = Instantiate(powerUpIcon, inventoryP1.slots[i].transform, false);
                 Debug.Log("instantiated");
                 break;
             }
@@ -59,10 +60,10 @@ public class Pickup : MonoBehaviour
             if (inventoryP2.isFull[i] == false)
             {
                 Debug.Log("into true");
-                Debug.Log("button" + powerUpButton);
+                Debug.Log("button" + powerUpIcon);
                 //power up can go to inventory
                 inventoryP2.isFull[i] = true;
-                ButtonClone = Instantiate(powerUpButton, inventoryP2.slots[i].transform, false);
+                IconClone = Instantiate(powerUpIcon, inventoryP2.slots[i].transform, false);
                 Debug.Log("instantiated");
                 break;
             }

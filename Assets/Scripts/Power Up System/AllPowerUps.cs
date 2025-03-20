@@ -54,7 +54,7 @@ public class AllPowerUps : MonoBehaviour
 
             Debug.Log("Player 1 damage amount: " + Player1HealthAccess.Player1DamageAmount);
 
-            Destroy(assignPowerUps.powerUps[0].ButtonClone);//destroy power up button of the first item in the array
+            Destroy(assignPowerUps.powerUps[0].IconClone);//destroy power up button of the first item in the array
             yield return new WaitForSeconds(duration);//has powerup for 5 seconds
             DeactivateGlassCanon();//deactivate power up
 
@@ -65,7 +65,7 @@ public class AllPowerUps : MonoBehaviour
             Player2HealthAccess.Player2DamageAmount += 1;//Player 2 can now do an extra amount of damage
 
 
-            Destroy(assignPowerUps.powerUps[0].ButtonClone);//destroy power up button of the first item in the array
+            Destroy(assignPowerUps.powerUps[0].IconClone);//destroy power up button of the first item in the array
             yield return new WaitForSeconds(duration);//has powerup for 5 seconds
             DeactivateGlassCanon();//deactivate power up
 
@@ -121,7 +121,7 @@ public class AllPowerUps : MonoBehaviour
 
             Debug.Log("Player 1 damage amount: " + Player1HealthAccess.Player1DamageAmount);
 
-            Destroy(assignPowerUps.powerUps[0].ButtonClone);//destroy power up button of the first item in the array
+            Destroy(assignPowerUps.powerUps[0].IconClone);//destroy power up button of the first item in the array
             yield return new WaitForSeconds(duration);//has powerup for 5 seconds
             DeactivateBeefed();//deactivate power up
 
@@ -135,7 +135,7 @@ public class AllPowerUps : MonoBehaviour
             Player2HealthAccess.Player2DamageAmount -= 1;///Player 2 can now do less damage
 
 
-            Destroy(assignPowerUps.powerUps[0].ButtonClone);//destroy power up button of the first item in the array
+            Destroy(assignPowerUps.powerUps[0].IconClone);//destroy power up button of the first item in the array
             yield return new WaitForSeconds(duration);//has powerup for 5 seconds
             DeactivateBeefed();//deactivate power up
 
@@ -184,7 +184,7 @@ public class AllPowerUps : MonoBehaviour
 
             Debug.Log("Player 1 damage amount: " + Player1HealthAccess.Player1DamageAmount);
 
-            Destroy(assignPowerUps.powerUps[0].ButtonClone);//destroy power up button of the first item in the array
+            Destroy(assignPowerUps.powerUps[0].IconClone);//destroy power up button of the first item in the array
             yield return new WaitForSeconds(duration);//has powerup for 5 seconds
             DeactivateShield();//deactivate power up
 
@@ -194,7 +194,7 @@ public class AllPowerUps : MonoBehaviour
             Player1HealthAccess.Player1DamageAmount = 0;///Disable Player 1's ability to do damage
 
 
-            Destroy(assignPowerUps.powerUps[0].ButtonClone);//destroy power up button of the first item in the array
+            Destroy(assignPowerUps.powerUps[0].IconClone);//destroy power up button of the first item in the array
             yield return new WaitForSeconds(duration);//has powerup for 5 seconds
             DeactivateShield();//deactivate power up
 
@@ -215,7 +215,129 @@ public class AllPowerUps : MonoBehaviour
         Player1HealthAccess.Player1DamageAmount = 1;
         Player2HealthAccess.Player2DamageAmount = 1;
 
-        Debug.Log("deactivate Beefed");
+        Debug.Log("deactivate Shield");
+
+    }
+
+
+
+    //------------------------ Speed ---------------------------------
+
+    public void UseSpeed()//activate power up
+    {
+        StartCoroutine(SpeedSequence());
+        Debug.Log("Speed used");
+    }
+
+
+    IEnumerator SpeedSequence()
+    {
+        Debug.Log("Speed PowerUp");
+
+        float duration = 10;
+        if (Player1ControllerAccess.Player1Trig == true)//If player 1 has the power up and is using it
+        {
+            Player1ControllerAccess.moveSpeed = 20f;//Player is now faster
+            Player2HealthAccess.Player2DamageAmount = 2;//gets more dmage if hit
+
+            Destroy(assignPowerUps.powerUps[0].IconClone);//destroy power up button of the first item in the array
+            yield return new WaitForSeconds(duration);//has powerup for 10 seconds
+            DeactivateSpeed();//deactivate power up
+
+        }
+        else if (Player2ControllerAccess.Player2Trig == true)//If player 2 has the power up and is using it
+        {
+            Player2ControllerAccess.moveSpeed = 20f;//Player is now faster
+            Player1HealthAccess.Player1DamageAmount = 2;//gets more dmage if hit
+
+
+            Destroy(assignPowerUps.powerUps[0].IconClone);//destroy power up button of the first item in the array
+            yield return new WaitForSeconds(duration);//has powerup for 5 seconds
+            DeactivateSpeed();//deactivate power up
+
+
+        }
+
+    }
+
+    //Deactivates any buffs given to the player
+    private void DeactivateSpeed()
+    {
+        //return damage that player can do back to normal
+
+        Player1ControllerAccess.Player1Trig = false;
+        Player2ControllerAccess.Player2Trig = false;
+
+        //set player speed amount back to normal
+        Player1ControllerAccess.moveSpeed = 10f;
+        Player2ControllerAccess.moveSpeed = 10f;
+
+        //set player damage amount back to normal
+        Player1HealthAccess.Player1DamageAmount = 1;
+        Player2HealthAccess.Player2DamageAmount = 1;
+
+        Debug.Log("deactivate Speed");
+
+    }
+
+
+
+    //------------------------ Snail ---------------------------------
+
+    public void UseSnail()//activate power up
+    {
+        StartCoroutine(SnailSequence());
+        Debug.Log("Snail used");
+    }
+
+
+    IEnumerator SnailSequence()
+    {
+        Debug.Log("Snail PowerUp");
+
+        float duration = 7;
+        if (Player1ControllerAccess.Player1Trig == true)//If player 1 has the power up and is using it
+        {
+            Player1ControllerAccess.moveSpeed = 5f;//Player is now slower
+            Player1HealthAccess.Player1DamageAmount = 2;// does more damage
+
+            Destroy(assignPowerUps.powerUps[0].IconClone);//destroy power up button of the first item in the array
+            yield return new WaitForSeconds(duration);//has powerup for 10 seconds
+            DeactivateSnail();//deactivate power up
+
+        }
+        else if (Player2ControllerAccess.Player2Trig == true)//If player 2 has the power up and is using it
+        {
+            Player2ControllerAccess.moveSpeed = 5f;//Player is now slower
+            Player2HealthAccess.Player2DamageAmount = 2;//  does more damage
+
+
+            Destroy(assignPowerUps.powerUps[0].IconClone);//destroy power up button of the first item in the array
+            yield return new WaitForSeconds(duration);//has powerup for 5 seconds
+            DeactivateSnail();//deactivate power up
+
+
+        }
+
+    }
+
+    //Deactivates any buffs given to the player
+    private void DeactivateSnail()
+    {
+        //return damage that player can do back to normal
+
+        Player1ControllerAccess.Player1Trig = false;
+        Player2ControllerAccess.Player2Trig = false;
+
+        //set player speed amount back to normal
+        Player1ControllerAccess.moveSpeed = 10f;
+        Player2ControllerAccess.moveSpeed = 10f;
+
+        //set player damage amount back to normal
+        Player1HealthAccess.Player1DamageAmount = 1;
+        Player2HealthAccess.Player2DamageAmount = 1;
+
+        Debug.Log("deactivate Snail");
 
     }
 

@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
     Vector2 moveDirection;
     Rigidbody2D rb;
-    public float moveSpeed;
+    public float moveSpeed = 10f;
     public float jumpForce;
     private float horizontal;
     private float timeAttackBttnPress;
@@ -131,7 +131,6 @@ public class PlayerController : MonoBehaviour
 
 
     }
-    
 
     // ------------------------------------ Player Button actions ----------------------------------------
     public void OnMove(InputAction.CallbackContext context)
@@ -220,6 +219,17 @@ public class PlayerController : MonoBehaviour
                     allPowers.UseBeefed();
                     break;
 
+                case 2:
+                    allPowers.UseShield();
+                    break;
+
+                case 3:
+                    allPowers.UseSpeed();
+                    break;
+
+                case 4:
+                    allPowers.UseSnail();
+                    break;
             }
             assignPowerAccess.itemIdP1 = -1;//set item id to -1 so that power up fucntion will no longer be called
 
@@ -243,6 +253,17 @@ public class PlayerController : MonoBehaviour
                     allPowers.UseBeefed();
                     break;
 
+                case 2:
+                    allPowers.UseShield();
+                    break;
+                case 3:
+                    allPowers.UseSpeed();
+                    break;
+
+                case 4:
+                    allPowers.UseSnail();
+                    break;
+
             }
             Debug.Log("Player 2 trigger");
 
@@ -257,15 +278,13 @@ public class PlayerController : MonoBehaviour
 
     }
 
-
-
-//----------------------------------------------------------------------------//
-
+    //----------------------------------------------------------------------------//
 
 
 
 
-private void FixedUpdate()
+    //--- Moving horizontally -----
+    private void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
         //avoids sliding
@@ -280,6 +299,8 @@ private void FixedUpdate()
             spriteRenderer.sprite = idlePose;
         }
     }
+
+    //--- Collision -----
 
     private void OnCollisionStay2D(Collision2D collision)
     {
