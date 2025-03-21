@@ -11,8 +11,8 @@ using UnityEngine.SceneManagement;
 public class TimerController : MonoBehaviour
 {
     [SerializeField] TMPro.TextMeshProUGUI timerDisplay;
-    float gameTime = 1 * 60 + 1; // 1 minutes converted to seconds (240 seconds)
-    float timeLeft;
+    float gameTime = 1 * 60 + 1; //1 minutes converted to seconds (240 seconds)
+    public float timeLeft;
     bool isGamePaused =  false;
     PlayerControls controls;
     public GameObject PauseMenu;

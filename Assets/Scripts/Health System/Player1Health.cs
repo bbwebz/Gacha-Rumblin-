@@ -19,7 +19,6 @@ public class Player1Health : MonoBehaviour
         health = maxHealth;
         Player1DamageAmount = 1;
         rb = GetComponent<Rigidbody2D>();
-        
 
     }
 

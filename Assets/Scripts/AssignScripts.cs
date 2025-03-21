@@ -17,10 +17,12 @@ public class AssignScripts : MonoBehaviour
     public GameObject player1Inventory;
     public GameObject player2Inventory;
 
-
     public GameObject assignPowerUps;
 
     public GameObject AllPowerUpsAccess;
+
+    public GameObject RoundManagerAccess;
+
 
     bool onetime = false;
 
@@ -93,8 +95,12 @@ public class AssignScripts : MonoBehaviour
 
 
             //Game Over
-            player1Prefab.GetComponent<PlayerController>().PlayerDied();
-            player2Prefab.GetComponent<PlayerController>().PlayerDied();
+            //player1Prefab.GetComponent<PlayerController>().PlayerDied();
+            //player2Prefab.GetComponent<PlayerController>().PlayerDied();
+
+            //Next Round and Round Manager
+            RoundManagerAccess.GetComponent<RoundManager>().player1HealthAccess = player1Prefab.GetComponent<Player1Health>();
+            RoundManagerAccess.GetComponent<RoundManager>().player2HealthAccess = player2Prefab.GetComponent<Player2Health>();
 
         }
 

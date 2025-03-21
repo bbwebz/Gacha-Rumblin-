@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private float horizontal;
     private float timeAttackBttnPress;
     private float attackDelay = 3; //seconds for attack cooldown
+    private float roundNum;
 
     public bool didAttack = false;
     bool isFacingLeft = false;
@@ -332,20 +333,15 @@ public class PlayerController : MonoBehaviour
 
     //Game over
     //Called in Assign scripts
-    public void PlayerDied()
-    {
-        //if a player dies game over
-        if (Player1HealthAccess.health == 0 || Player2HealthAccess.health == 0)
-        {
-            Debug.Log("Player died, Game over");
-            SceneManager.LoadScene("EndGame");
-        }
-
-    }
-
-
-
-
+    //public void PlayerDied()
+    //{
+    //    //if a player dies game over
+    //    if (Player1HealthAccess.health == 0 || Player2HealthAccess.health == 0)
+    //    {
+    //        Debug.Log("Player died, Game over");
+    //        SceneManager.LoadScene("EndGame");
+    //    }
+    //}
 
 
 }
