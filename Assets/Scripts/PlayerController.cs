@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     public bool didAttack = false;
     bool isFacingLeft = false;
     public bool arePlayersColliding = false;
+    public bool isDoingKnockback = false;
 
     //For using power ups
     public AssignPowerUps assignPowerAccess;
@@ -181,10 +182,12 @@ public class PlayerController : MonoBehaviour
                 if (gameObject.CompareTag("Player1"))
                 {
                     Player1HealthAccess.dealDamageToP2();
+                    Player2HealthAccess.dealKnockbackToSelf(isFacingLeft);
                 }
                 else if (gameObject.CompareTag("Player2"))
                 {
                     Player2HealthAccess.dealDamageToP1();
+                    Player1HealthAccess.dealKnockbackToSelf(isFacingLeft);
                 }
 
                 //reset to prepare for the next attack press
@@ -286,12 +289,17 @@ public class PlayerController : MonoBehaviour
     //--- Moving horizontally -----
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
+        if (!isDoingKnockback) { 
+            rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
+
+        }
+
         //avoids sliding
-        if (horizontal < 0.1f && horizontal > -0.1f)
+        if (horizontal < 0.1f && horizontal > -0.1f && !isDoingKnockback)
         {
             rb.velocity = new Vector2(0f, rb.velocity.y);
         }
+
         //idle// i need this to check if the player is moving
         if ((rb.velocity == Vector2.zero) && (gameObject.transform.position.y < -3.7))
         {
