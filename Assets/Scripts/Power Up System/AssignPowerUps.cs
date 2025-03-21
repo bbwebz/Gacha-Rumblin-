@@ -15,50 +15,10 @@ public class AssignPowerUps : MonoBehaviour
     public int itemIdP2;
     public Pickup[] powerUps;
 
-    public AllPowerUps allPowerUps;
-
 
     void Start()
     {
         AssignScripts.assigner.assignPowerUps = gameObject;
-
-        //Debuging
-        //List<int> itemIdlist = new List<int> { 0, 1 };//list of number of powerups
-
-        //string result0 = " ";
-
-        //foreach (var item in itemIdlist)
-        //{
-        //    result0 += item.ToString() + ", ";
-        //}
-        //Debug.Log("OG List: "+ result0);
-
-
-
-        //itemIdP1 = Random.Range(0, itemIdlist.Count);//picks random num
-        //Debug.Log("itemIdP1: "+ itemIdP1);
-
-        //itemIdlist.Remove(itemIdP1);
-
-
-        //string result = " ";
-
-        //foreach (var item in itemIdlist)
-        //{
-        //    result += item.ToString() + ", ";
-        //}
-        //Debug.Log("New List1: "+ result);
-
-        //itemIdP2 = Random.Range(0, itemIdlist.Count);//picks random num
-        //Debug.Log("itemIdP2: "+ itemIdP2);
-
-        //string result2 = " ";
-
-        //foreach (var item in itemIdlist)
-        //{
-        //    result2 += item.ToString() + ", ";
-        //}
-        //Debug.Log("New List2: "+ result2);
 
     }
 
@@ -69,16 +29,10 @@ public class AssignPowerUps : MonoBehaviour
         List<int> itemIdlist = new List<int> { 0,1, 2, 3, 4 };//list of number of powerups
 
         //Adding power ups to player 1s inventory
-        itemIdP1 = Random.Range(0, itemIdlist.Count);//picks random num
+        itemIdP1 =itemIdlist[Random.Range(0, itemIdlist.Count)];//picks random num
         //itemIdP1 = 3;
         Debug.Log("itemIdP1: "+ itemIdP1);
 
-        //string result = " ";
-        //foreach (var item in itemIdlist)
-        //{
-        //    Debug.Log("List: "+ item);
-
-        //}
 
         switch (itemIdP1)
             {
@@ -112,15 +66,8 @@ public class AssignPowerUps : MonoBehaviour
         itemIdlist.Remove(itemIdP1);//remove this option form the list
 
 
-        //foreach (var item in itemIdlist)
-        //{
-        //    result += item.ToString() + ", ";
-        //}
-        //Debug.Log("New List1: "+ result);
-
-
         //Adding power ups to player 2s inventory
-        itemIdP2 = Random.Range(0, itemIdlist.Count);//picks random num
+        itemIdP2 = itemIdlist[Random.Range(0, itemIdlist.Count)];//picks random num
         //itemIdP2 = 1;
         Debug.Log("itemIdP2: "+ itemIdP2);
 
@@ -153,13 +100,7 @@ public class AssignPowerUps : MonoBehaviour
                 break;
         }
 
-        //string result2 = " ";
-
-        //foreach (var item in itemIdlist)
-        //{
-        //    result2 += item.ToString() + ", ";
-        //}
-        //Debug.Log("New List2: "+ result2);
+      
 
 
 

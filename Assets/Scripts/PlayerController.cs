@@ -203,7 +203,7 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Trigger pressed used");
 
-        if (PlayerIndex == 0)//if player 1 triggers power up 
+        if (PlayerIndex == 0 && context.performed)//if player 1 triggers power up 
         {
             //if player 1 triggerd it player 1 trigger = true
             Player1Trig = true;
@@ -240,7 +240,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        else if (PlayerIndex == 1)//if player 2 triggers power up 
+        else if (PlayerIndex == 1 && context.performed)//if player 2 triggers power up 
         {
             Player2Trig = true;
             switch (assignPowerAccess.itemIdP2)

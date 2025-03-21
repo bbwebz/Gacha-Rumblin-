@@ -46,8 +46,6 @@ public class Pickup : MonoBehaviour
     }
 
 
-
-
     public void AddPowerUpP2()
     {
 
