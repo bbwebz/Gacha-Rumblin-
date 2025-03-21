@@ -33,7 +33,7 @@ public class AssignScripts : MonoBehaviour
     }
 
 
-    //adds components into to corect slot once everything is instantiated
+    //adds components into to correct slot once everything is instantiated
     void Update()
     {
         
