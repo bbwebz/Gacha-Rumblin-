@@ -84,7 +84,8 @@ public class PlayerController : MonoBehaviour
 
             transform.position = new Vector3(-6, 0, 0);//player 1 starting position
 
-            gameObject.transform.parent = pI.transform;
+            pI = Instantiate(pI, new Vector3(-6, 3, 0), transform.rotation);
+            pI.transform.parent = gameObject.transform;
             indicatorSprite.sprite = p1Sprite;
 
             AssignScripts.assigner.player1Prefab = gameObject;
@@ -100,7 +101,8 @@ public class PlayerController : MonoBehaviour
 
             transform.position = new Vector3(7, 0, 0);//player 2 starting position
 
-            gameObject.transform.parent = pI.transform;
+            pI = Instantiate(pI, new Vector3(7, 3, 0), transform.rotation);
+            pI.transform.parent = gameObject.transform;
             indicatorSprite.sprite = p2Sprite;
 
             //need to adjust animation accordingly
