@@ -101,10 +101,15 @@ public class PlayerController : MonoBehaviour
             //Assigns player2prefab ins assignscripts as the player 2 game object
             AssignScripts.assigner.player2Prefab = gameObject;
 
+           
+            //assignPowerAccess.itemIdP1 = StaticData.itemP1Keep;
+            //assignPowerAccess.itemIdP2 = StaticData.itemP2Keep;
 
 
         }
 
+        Debug.Log("StaticData.itemP1Keep" + StaticData.itemP1Keep);
+        Debug.Log("StaticData.itemP2Keep" + StaticData.itemP2Keep);
 
     }
     
@@ -213,7 +218,7 @@ public class PlayerController : MonoBehaviour
             Player1Trig = true;
        
             Debug.Log("Player 1 trigger");
-            switch (assignPowerAccess.itemIdP1)
+            switch (StaticData.itemP1Keep)
             {
                 case 0:
                     allPowers.UseGlassCanon();
@@ -247,7 +252,7 @@ public class PlayerController : MonoBehaviour
         else if (PlayerIndex == 1)//if player 2 triggers power up 
         {
             Player2Trig = true;
-            switch (assignPowerAccess.itemIdP2)
+            switch (StaticData.itemP2Keep)
             {
                 case 0:
                     allPowers.UseGlassCanon();

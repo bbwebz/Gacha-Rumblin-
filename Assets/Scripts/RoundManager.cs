@@ -12,7 +12,11 @@ public class RoundManager : MonoBehaviour
 
     private void Update()
     {
-        nextRound();
+
+        if (player1HealthAccess != null || player2HealthAccess != null)
+        {
+            nextRound();
+        }
     }
 
     private void nextRound()

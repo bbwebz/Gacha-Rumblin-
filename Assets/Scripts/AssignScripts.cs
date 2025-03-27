@@ -45,6 +45,7 @@ public class AssignScripts : MonoBehaviour
             if (!onetime)
             {
                 //Assign power ups to each player
+                //assignPowerUps.GetComponent<AssignPowerUps>().Generate();
                 assignPowerUps.GetComponent<AssignPowerUps>().Assign();
                 Debug.Log("AllpowerUps assigning");
                 onetime = true;

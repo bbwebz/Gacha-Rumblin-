@@ -1450,7 +1450,7 @@ MonoBehaviour:
   player1Inventory: {fileID: 2142036051}
   player2Inventory: {fileID: 238081927}
   assignPowerUps: {fileID: 1483055530}
-  AllPowerUpsAccess: {fileID: 0}
+  AllPowerUpsAccess: {fileID: 418204526}
   RoundManagerAccess: {fileID: 579418500}
 --- !u!1 &903758347
 GameObject:
@@ -3751,9 +3751,9 @@ SceneRoots:
   - {fileID: 1465755099}
   - {fileID: 740840876}
   - {fileID: 418204528}
-  - {fileID: 1483055532}
   - {fileID: 1279990581}
   - {fileID: 1815362777}
+  - {fileID: 1483055532}
   - {fileID: 1672296224}
   - {fileID: 535547305}
   - {fileID: 1090177894}

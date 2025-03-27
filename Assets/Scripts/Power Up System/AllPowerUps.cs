@@ -121,7 +121,7 @@ public class AllPowerUps : MonoBehaviour
 
             Debug.Log("Player 1 damage amount: " + Player1HealthAccess.Player1DamageAmount);
 
-            Destroy(assignPowerUps.powerUps[0].IconClone);//destroy power up button of the first item in the array
+            Destroy(assignPowerUps.powerUps[1].IconClone);//destroy power up button of the first item in the array
             yield return new WaitForSeconds(duration);//has powerup for 5 seconds
             DeactivateBeefed();//deactivate power up
 
@@ -135,7 +135,7 @@ public class AllPowerUps : MonoBehaviour
             Player2HealthAccess.Player2DamageAmount -= 1;///Player 2 can now do less damage
 
 
-            Destroy(assignPowerUps.powerUps[0].IconClone);//destroy power up button of the first item in the array
+            Destroy(assignPowerUps.powerUps[1].IconClone);//destroy power up button of the first item in the array
             yield return new WaitForSeconds(duration);//has powerup for 5 seconds
             DeactivateBeefed();//deactivate power up
 
@@ -184,7 +184,7 @@ public class AllPowerUps : MonoBehaviour
 
             Debug.Log("Player 1 damage amount: " + Player1HealthAccess.Player1DamageAmount);
 
-            Destroy(assignPowerUps.powerUps[0].IconClone);//destroy power up button of the first item in the array
+            Destroy(assignPowerUps.powerUps[2].IconClone);//destroy power up button of the first item in the array
             yield return new WaitForSeconds(duration);//has powerup for 5 seconds
             DeactivateShield();//deactivate power up
 
@@ -194,7 +194,7 @@ public class AllPowerUps : MonoBehaviour
             Player1HealthAccess.Player1DamageAmount = 0;///Disable Player 1's ability to do damage
 
 
-            Destroy(assignPowerUps.powerUps[0].IconClone);//destroy power up button of the first item in the array
+            Destroy(assignPowerUps.powerUps[2].IconClone);//destroy power up button of the first item in the array
             yield return new WaitForSeconds(duration);//has powerup for 5 seconds
             DeactivateShield();//deactivate power up
 
@@ -240,7 +240,7 @@ public class AllPowerUps : MonoBehaviour
             Player1ControllerAccess.moveSpeed = 20f;//Player is now faster
             Player2HealthAccess.Player2DamageAmount = 2;//gets more dmage if hit
 
-            Destroy(assignPowerUps.powerUps[0].IconClone);//destroy power up button of the first item in the array
+            Destroy(assignPowerUps.powerUps[3].IconClone);//destroy power up button of the first item in the array
             yield return new WaitForSeconds(duration);//has powerup for 10 seconds
             DeactivateSpeed();//deactivate power up
 
@@ -251,7 +251,7 @@ public class AllPowerUps : MonoBehaviour
             Player1HealthAccess.Player1DamageAmount = 2;//gets more dmage if hit
 
 
-            Destroy(assignPowerUps.powerUps[0].IconClone);//destroy power up button of the first item in the array
+            Destroy(assignPowerUps.powerUps[3].IconClone);//destroy power up button of the first item in the array
             yield return new WaitForSeconds(duration);//has powerup for 5 seconds
             DeactivateSpeed();//deactivate power up
 
@@ -301,7 +301,7 @@ public class AllPowerUps : MonoBehaviour
             Player1ControllerAccess.moveSpeed = 5f;//Player is now slower
             Player1HealthAccess.Player1DamageAmount = 2;// does more damage
 
-            Destroy(assignPowerUps.powerUps[0].IconClone);//destroy power up button of the first item in the array
+            Destroy(assignPowerUps.powerUps[4].IconClone);//destroy power up button of the first item in the array
             yield return new WaitForSeconds(duration);//has powerup for 10 seconds
             DeactivateSnail();//deactivate power up
 
@@ -312,7 +312,7 @@ public class AllPowerUps : MonoBehaviour
             Player2HealthAccess.Player2DamageAmount = 2;//  does more damage
 
 
-            Destroy(assignPowerUps.powerUps[0].IconClone);//destroy power up button of the first item in the array
+            Destroy(assignPowerUps.powerUps[4].IconClone);//destroy power up button of the first item in the array
             yield return new WaitForSeconds(duration);//has powerup for 5 seconds
             DeactivateSnail();//deactivate power up
 
