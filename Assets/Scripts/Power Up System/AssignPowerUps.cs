@@ -27,41 +27,51 @@ public class AssignPowerUps : MonoBehaviour
     {
         //AssignScripts.assigner.assignPowerUps = gameObject;
 
-        string result0 = " ";
-
-        foreach (var item in itemIdlist)
-        {
-            result0 += item.ToString() + ", ";
-        }
-        Debug.Log("OG List: "+ result0);
-
     }
 
     public void Generate()
     {
-        //itemIdP1 = Random.Range(0, itemIdlist.Count);//picks random num
-        StaticData.itemP1Keep = itemIdP1;
+        //Debug
+        //foreach (var item in itemIdlist)
+        //{
+        //    result += item.ToString() + ", ";
+        //}
+        //Debug.Log("New List1 After item 1 remove: "+ result);
 
-        itemIdP1 = 2;
-    itemIdlist.Remove(itemIdP1);//remove this option form the list
+
+        //Generate power up for player 1
+        //itemIdP1 = itemIdlist[Random.Range(0, itemIdlist.Count)];//picks random num
+
+        //itemIdlist.Remove(itemIdP1);//remove this option form the list
+
+        Debug.Log("itemIdP1: "+ itemIdP1);
 
         //Generate power up for player 2
-        //itemIdP2 = Random.Range(0, itemIdlist.Count);//picks random num
+        itemIdP2 = itemIdlist[Random.Range(0, itemIdlist.Count)];//picks random num
 
-        itemIdP1 =3;
+        //Debug.Log(" Rand 2 itemIdlist: " + itemIdlist);
 
+       
+        //itemIdlist.Remove(itemIdP2);//remove this option form the list
+        Debug.Log("itemIdP2: "+ itemIdP2);
+
+        itemIdP1 = 2;
+        StaticData.itemP1Keep = itemIdP1;
+        itemIdP2 = 0;
         StaticData.itemP2Keep = itemIdP2;
 
+        //Debug.Log(" Generate function StaticData.itemP1Keep" +  StaticData.itemP1Keep);
+        //Debug.Log(" Generate Function StaticData.itemP2Keep" +  StaticData.itemP2Keep);
 
-        itemIdlist.Remove(itemIdP2);//remove this option form the list
-       
- 
 
-}
+
+    }
 
 
 public void DisplayOnMachine()
     {
+        //Debug.Log("Start  Machine function StaticData.itemP1Keep" +  StaticData.itemP1Keep);
+        //Debug.Log("  Start Machine Function StaticData.itemP2Keep" +  StaticData.itemP2Keep);
         switch (itemIdP1)
         {
             case 0:
@@ -122,6 +132,8 @@ public void DisplayOnMachine()
                 powerUps[4].DisplayOnMachineP2();
                 break;
         }
+        //Debug.Log(" Machine function StaticData.itemP1Keep" +  StaticData.itemP1Keep);
+        //Debug.Log(" Machine Function StaticData.itemP2Keep" +  StaticData.itemP2Keep);
 
     }
 
@@ -133,9 +145,11 @@ public void DisplayOnMachine()
 
         //Adding power ups to player 1s inventory
         //itemIdP1 = 3;
-        Debug.Log("itemIdP1: "+ itemIdP1);
+        //Debug.Log("itemIdP1: "+ itemIdP1);
 
-       
+        //Debug.Log(" Assign function StaticData.itemP1Keep" +  StaticData.itemP1Keep);
+        //Debug.Log(" Asssign Function StaticData.itemP2Keep" +  StaticData.itemP2Keep);
+
 
         switch (StaticData.itemP1Keep)
             {
@@ -168,7 +182,7 @@ public void DisplayOnMachine()
         }
 
 
-        Debug.Log("itemIdP2: "+ itemIdP2);
+        //Debug.Log("itemIdP2: "+ itemIdP2);
 
 
         switch (StaticData.itemP2Keep)

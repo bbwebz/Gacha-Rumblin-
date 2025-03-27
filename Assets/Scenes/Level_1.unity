@@ -665,6 +665,7 @@ MonoBehaviour:
   assignPowerUps: {fileID: 1483055531}
   Inventory1: 0
   Inventory2: 0
+  PhysicalShieldSprite: {fileID: 8955789093480098335, guid: 530ed5ff0529da5449a715ba8c8c392f, type: 3}
 --- !u!4 &418204528
 Transform:
   m_ObjectHideFlags: 0
@@ -1017,6 +1018,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryP1: {fileID: 2142036052}
   inventoryP2: {fileID: 238081928}
+  Player1Machine: {fileID: 0}
+  Player2Machine: {fileID: 0}
   powerUpIcon: {fileID: 7843923230817798948, guid: 9bf1a30f104a96b4bb7dfb0e9375f2cb, type: 3}
   IconClone: {fileID: 0}
 --- !u!4 &535547305
@@ -1304,6 +1307,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryP1: {fileID: 2142036052}
   inventoryP2: {fileID: 238081928}
+  Player1Machine: {fileID: 0}
+  Player2Machine: {fileID: 0}
   powerUpIcon: {fileID: 7843923230817798948, guid: 76a51b3fc8a688848b4ddcf3a4bf8ae1, type: 3}
   IconClone: {fileID: 0}
 --- !u!4 &705535404
@@ -1483,6 +1488,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryP1: {fileID: 2142036052}
   inventoryP2: {fileID: 238081928}
+  Player1Machine: {fileID: 0}
+  Player2Machine: {fileID: 0}
   powerUpIcon: {fileID: 8451277102805216918, guid: cd0f28b1412907f47bb81fc9fd3c65ac, type: 3}
   IconClone: {fileID: 0}
 --- !u!4 &903758349
@@ -1531,6 +1538,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryP1: {fileID: 2142036052}
   inventoryP2: {fileID: 238081928}
+  Player1Machine: {fileID: 0}
+  Player2Machine: {fileID: 0}
   powerUpIcon: {fileID: 8451277102805216918, guid: b3112c7ee1e9aab4bb5e7c57cee631c7, type: 3}
   IconClone: {fileID: 0}
 --- !u!4 &1090177894
@@ -3751,9 +3760,9 @@ SceneRoots:
   - {fileID: 1465755099}
   - {fileID: 740840876}
   - {fileID: 418204528}
+  - {fileID: 1483055532}
   - {fileID: 1279990581}
   - {fileID: 1815362777}
-  - {fileID: 1483055532}
   - {fileID: 1672296224}
   - {fileID: 535547305}
   - {fileID: 1090177894}

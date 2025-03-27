@@ -101,15 +101,11 @@ public class PlayerController : MonoBehaviour
             //Assigns player2prefab ins assignscripts as the player 2 game object
             AssignScripts.assigner.player2Prefab = gameObject;
 
-           
-            //assignPowerAccess.itemIdP1 = StaticData.itemP1Keep;
-            //assignPowerAccess.itemIdP2 = StaticData.itemP2Keep;
-
-
+            Debug.Log("StaticData.itemP1Keep" + StaticData.itemP1Keep);
+            Debug.Log("StaticData.itemP2Keep" + StaticData.itemP2Keep);
         }
 
-        Debug.Log("StaticData.itemP1Keep" + StaticData.itemP1Keep);
-        Debug.Log("StaticData.itemP2Keep" + StaticData.itemP2Keep);
+       
 
     }
     
@@ -240,12 +236,14 @@ public class PlayerController : MonoBehaviour
                     allPowers.UseSnail();
                     break;
             }
-            assignPowerAccess.itemIdP1 = -1;//set item id to -1 so that power up fucntion will no longer be called
+            StaticData.itemP1Keep = -1;//set item id to -1 so that power up fucntion will no longer be called
 
             for (int i = 0; i < inventoryP1.slots.Length; i++)
             {
                 inventoryP1.isFull[i] = false;//inventory is now empty
             }
+
+
 
         }
 
@@ -276,7 +274,7 @@ public class PlayerController : MonoBehaviour
             }
             Debug.Log("Player 2 trigger");
 
-            assignPowerAccess.itemIdP2 = -1;//set item id to -1 so that power up fucntion will no longer be called
+            StaticData.itemP2Keep = -1;//set item id to -1 so that power up fucntion will no longer be called
 
             for (int i = 0; i < inventoryP2.slots.Length; i++)
             {
@@ -327,11 +325,6 @@ public class PlayerController : MonoBehaviour
         {
             arePlayersColliding = false;
         }
-    }
-
-    IEnumerator delaySeconds()
-    {
-        yield return new WaitForSeconds(2);
     }
 
 

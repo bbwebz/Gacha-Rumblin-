@@ -25,11 +25,11 @@ public class AllPowerUps : MonoBehaviour
     public bool Inventory1 = false;
     public bool Inventory2 = false;
 
+    public GameObject PhysicalShieldSprite;
 
-   
     //------------------------ Glass Canon ---------------------------------
     //On button clicked use powerUp
-
+    // id = 0
     public void Start()
     {
             AssignScripts.assigner.AllPowerUpsAccess = gameObject;
@@ -97,7 +97,7 @@ public class AllPowerUps : MonoBehaviour
 
 
     //------------------------ Beefed ---------------------------------
-
+    // id = 1
     public void UseBeefed()//activate power up
     {
         StartCoroutine(BeefedSequence());
@@ -115,6 +115,8 @@ public class AllPowerUps : MonoBehaviour
             if (Player1HealthAccess.health < 5)// add 1 health to p1 if health is < 5
             {
                 Player1HealthAccess.health += 1;
+                Debug.Log("increase player 2 health");
+
             }
 
             Player1HealthAccess.Player1DamageAmount -= 1;//Player 1 can now do less damage
@@ -130,6 +132,7 @@ public class AllPowerUps : MonoBehaviour
         {
             if (Player2HealthAccess.health < 5)// add 1 health to p2 if health is < 5
             {
+                Debug.Log("increase player 2 health");
                 Player2HealthAccess.health += 1;
             }
             Player2HealthAccess.Player2DamageAmount -= 1;///Player 2 can now do less damage
@@ -164,7 +167,8 @@ public class AllPowerUps : MonoBehaviour
 
 
     //------------------------ Shield ---------------------------------
-
+    //Blocks attacks for  5 seconds but player cannot do dammage
+    // id = 2
     public void UseShield()//activate power up
     {
         StartCoroutine(ShieldSequence());
@@ -177,13 +181,14 @@ public class AllPowerUps : MonoBehaviour
         Debug.Log("Shield PowerUp");
 
         float duration = 5;
+        
         if (Player1ControllerAccess.Player1Trig == true)//If player 1 has the power up and is using it
         {
             //Will probably change it to be a barrier around player idk
             Player2HealthAccess.Player2DamageAmount = 0;//Disable Player 2's ability to do damage
 
             Debug.Log("Player 1 damage amount: " + Player1HealthAccess.Player1DamageAmount);
-
+            Instantiate(PhysicalShieldSprite, Player1ControllerAccess.transform, false);
             Destroy(assignPowerUps.powerUps[2].IconClone);//destroy power up button of the first item in the array
             yield return new WaitForSeconds(duration);//has powerup for 5 seconds
             DeactivateShield();//deactivate power up
@@ -222,7 +227,7 @@ public class AllPowerUps : MonoBehaviour
 
 
     //------------------------ Speed ---------------------------------
-
+    // id = 3
     public void UseSpeed()//activate power up
     {
         StartCoroutine(SpeedSequence());
@@ -283,7 +288,7 @@ public class AllPowerUps : MonoBehaviour
 
 
     //------------------------ Snail ---------------------------------
-
+    // id = 4
     public void UseSnail()//activate power up
     {
         StartCoroutine(SnailSequence());
