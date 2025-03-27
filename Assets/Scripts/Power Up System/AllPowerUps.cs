@@ -26,6 +26,8 @@ public class AllPowerUps : MonoBehaviour
     public bool Inventory2 = false;
 
     public GameObject PhysicalShieldSprite;
+    public GameObject PhysicalShieldClone;
+
 
     //------------------------ Glass Canon ---------------------------------
     //On button clicked use powerUp
@@ -188,7 +190,7 @@ public class AllPowerUps : MonoBehaviour
             Player2HealthAccess.Player2DamageAmount = 0;//Disable Player 2's ability to do damage
 
             Debug.Log("Player 1 damage amount: " + Player1HealthAccess.Player1DamageAmount);
-            Instantiate(PhysicalShieldSprite, Player1ControllerAccess.transform, false);
+            PhysicalShieldClone = Instantiate(PhysicalShieldSprite, Player1ControllerAccess.transform, false);
             Destroy(assignPowerUps.powerUps[2].IconClone);//destroy power up button of the first item in the array
             yield return new WaitForSeconds(duration);//has powerup for 5 seconds
             DeactivateShield();//deactivate power up
@@ -219,7 +221,7 @@ public class AllPowerUps : MonoBehaviour
         //set player damage amount back to normal
         Player1HealthAccess.Player1DamageAmount = 1;
         Player2HealthAccess.Player2DamageAmount = 1;
-
+        Destroy(PhysicalShieldClone);//Destroy shield
         Debug.Log("deactivate Shield");
 
     }
