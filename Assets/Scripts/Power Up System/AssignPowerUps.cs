@@ -39,14 +39,16 @@ public class AssignPowerUps : MonoBehaviour
 
     public void Generate()
     {
-        itemIdP1 = Random.Range(0, itemIdlist.Count);//picks random num
+        //itemIdP1 = Random.Range(0, itemIdlist.Count);//picks random num
         StaticData.itemP1Keep = itemIdP1;
 
-
+        itemIdP1 = 2;
     itemIdlist.Remove(itemIdP1);//remove this option form the list
 
         //Generate power up for player 2
-        itemIdP2 = Random.Range(0, itemIdlist.Count);//picks random num
+        //itemIdP2 = Random.Range(0, itemIdlist.Count);//picks random num
+
+        itemIdP1 =3;
 
         StaticData.itemP2Keep = itemIdP2;
 
