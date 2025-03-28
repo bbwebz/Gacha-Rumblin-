@@ -1,6 +1,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -20,6 +21,9 @@ public class AssignPowerUps : MonoBehaviour
 
     public AllPowerUps allPowerUps;
     List<int> itemIdlist = new List<int> { 0, 1, 2, 3, 4 };//list of number of powerups
+
+    public TextMeshProUGUI PowerUPDescriptionP1;
+    public TextMeshProUGUI PowerUPDescriptionP2;
 
 
 
@@ -69,28 +73,35 @@ public class AssignPowerUps : MonoBehaviour
             case 0:
                 Debug.Log("Extra damage powerup");
                 powerUps[0].DisplayOnMachineP1();
+                PowerUPDescriptionP1.text = "Glass Canon";
 
                 break;
 
             case 1:
                 Debug.Log("Second power up");
                 powerUps[1].DisplayOnMachineP1();
+                PowerUPDescriptionP1.text = "Beefed";
 
                 break;
 
             case 2:
                 Debug.Log("Third power up");
                 powerUps[2].DisplayOnMachineP1();
+                PowerUPDescriptionP1.text = "Shield";
                 break;
 
             case 3:
                 Debug.Log("Forth power up");
                 powerUps[3].DisplayOnMachineP1();
+                PowerUPDescriptionP1.text = "Speed";
+
                 break;
 
             case 4:
                 Debug.Log("Fith power up");
                 powerUps[4].DisplayOnMachineP1();
+                PowerUPDescriptionP1.text = "Snail";
+
                 break;
         }
 
@@ -100,28 +111,36 @@ public class AssignPowerUps : MonoBehaviour
             case 0:
                 Debug.Log("Extra damage powerup");
                 powerUps[0].DisplayOnMachineP2();
+                PowerUPDescriptionP2.text = "Glass Canon";
 
                 break;
 
             case 1:
                 Debug.Log("Second power up");
                 powerUps[1].DisplayOnMachineP2();
+                PowerUPDescriptionP2.text = "Beefed";
 
                 break;
 
             case 2:
                 Debug.Log("Third power up");
                 powerUps[2].DisplayOnMachineP2();
+                PowerUPDescriptionP2.text = "Shield";
+
                 break;
 
             case 3:
                 Debug.Log("Forth power up");
                 powerUps[3].DisplayOnMachineP2();
+                PowerUPDescriptionP2.text = "Speed";
+
                 break;
 
             case 4:
                 Debug.Log("Fith power up");
                 powerUps[4].DisplayOnMachineP2();
+                PowerUPDescriptionP2.text = "Snail";
+
                 break;
         }
         //Debug.Log(" Machine function StaticData.itemP1Keep" +  StaticData.itemP1Keep);
