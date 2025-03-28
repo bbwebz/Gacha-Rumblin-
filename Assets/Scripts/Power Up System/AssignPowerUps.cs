@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
+using static UnityEngine.EventSystems.EventTrigger;
 //using static UnityEditor.Progress;
 //using static UnityEditor.Progress;
 
@@ -39,21 +40,21 @@ public class AssignPowerUps : MonoBehaviour
 
 
         //Generate power up for player 1
-        itemIdP1 = itemIdlist[Random.Range(0, itemIdlist.Count)];//picks random num
+        //itemIdP1 = itemIdlist[Random.Range(0, itemIdlist.Count)];//picks random num
 
-        itemIdlist.Remove(itemIdP1);//remove this option form the list
+        //itemIdlist.Remove(itemIdP1);//remove this option form the list
 
 
         //Generate power up for player 2
-        itemIdP2 = itemIdlist[Random.Range(0, itemIdlist.Count)];//picks random num
+        //itemIdP2 = itemIdlist[Random.Range(0, itemIdlist.Count)];//picks random num
 
 
        
         itemIdlist.Remove(itemIdP2);//remove this option form the list
 
-        //itemIdP1 = 2;
+        itemIdP1 = 1;
         StaticData.itemP1Keep = itemIdP1;
-        //itemIdP2 = 0;
+        itemIdP2 = 2;
         StaticData.itemP2Keep = itemIdP2;
 
         Debug.Log(" Generate function StaticData.itemP1Keep" +  StaticData.itemP1Keep);
@@ -87,20 +88,21 @@ public class AssignPowerUps : MonoBehaviour
             case 2:
                 Debug.Log("Third power up");
                 powerUps[2].DisplayOnMachineP1();
-                PowerUPDescriptionP1.text = "Shield";
+                PowerUPDescriptionP1.text = "Poker: Opponent cannot cause damage to you! \n Effect: You loose half a heart.";
                 break;
 
             case 3:
                 Debug.Log("Forth power up");
-                powerUps[3].DisplayOnMachineP1();
-                PowerUPDescriptionP1.text = "Speed";
+                powerUps[3].DisplayOnMachineP1();//speed
+                PowerUPDescriptionP1.text = " 2 Die: You get extra Speed for 10secs! \n Effect: If you're hit you loose 2 Hearts.";
+               
 
                 break;
 
             case 4:
                 Debug.Log("Fith power up");
                 powerUps[4].DisplayOnMachineP1();
-                PowerUPDescriptionP1.text = "Snail";
+                PowerUPDescriptionP1.text = "Snail: You do 4X the damage! Effect: If Hit you are much slower.";
 
                 break;
         }
@@ -111,7 +113,7 @@ public class AssignPowerUps : MonoBehaviour
             case 0:
                 Debug.Log("Extra damage powerup");
                 powerUps[0].DisplayOnMachineP2();
-                PowerUPDescriptionP2.text = "Glass Canon";
+                PowerUPDescriptionP2.text = "Glass Canon: ";
 
                 break;
 
@@ -124,22 +126,22 @@ public class AssignPowerUps : MonoBehaviour
 
             case 2:
                 Debug.Log("Third power up");
-                powerUps[2].DisplayOnMachineP2();
-                PowerUPDescriptionP2.text = "Shield";
+                powerUps[2].DisplayOnMachineP2();//shield
+                PowerUPDescriptionP2.text = "Poker: Opponent cannot cause damage to you for 5 secs!  \n Effect: You loose half a heart ";
 
                 break;
 
             case 3:
                 Debug.Log("Forth power up");
-                powerUps[3].DisplayOnMachineP2();
-                PowerUPDescriptionP2.text = "Speed";
+                powerUps[3].DisplayOnMachineP2();//speed
+                PowerUPDescriptionP2.text = "2 Die: You get extra Speed for 10secs! \n Effect: If you're hit you loose 2 Hearts. ";
 
                 break;
 
             case 4:
                 Debug.Log("Fith power up");
                 powerUps[4].DisplayOnMachineP2();
-                PowerUPDescriptionP2.text = "Snail";
+                PowerUPDescriptionP2.text = "Snail: You do 4X the damage! Effect: If Hit you are much slower.";
 
                 break;
         }

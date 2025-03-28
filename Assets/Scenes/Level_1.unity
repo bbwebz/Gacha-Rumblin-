@@ -665,14 +665,14 @@ MonoBehaviour:
   assignPowerUps: {fileID: 1483055531}
   Inventory1: 0
   Inventory2: 0
-  PhysicalShieldSprite: {fileID: 8955789093480098335, guid: 530ed5ff0529da5449a715ba8c8c392f, type: 3}
-  PhysicalShieldClone: {fileID: 0}
   MoveUp: 0
   PlayerObject: {fileID: 0}
-  GlassCanon: {fileID: 2100000, guid: df0bebd2984b45e45a5c9722fa5866ff, type: 2}
-  Beefed: {fileID: 2100000, guid: 67a6909e4a68ad849855205d79a3c1f0, type: 2}
-  Speed: {fileID: 2100000, guid: 1a0e201a410e9c541a9668a2ae17047b, type: 2}
-  Snail: {fileID: 2100000, guid: 65df001a59e442a47aba7b0501bd99e4, type: 2}
+  Player1Colour: {fileID: 0}
+  Player2Colour: {fileID: 0}
+  PhysicalShieldSprite: {fileID: 8955789093480098335, guid: 530ed5ff0529da5449a715ba8c8c392f, type: 3}
+  PhysicalShieldClone: {fileID: 0}
+  PowerUpOverlays: {fileID: 8955789093480098335, guid: e9036be3610fbfd4fb5f8fcf0259abde, type: 3}
+  PowerUpOverlaysClone: {fileID: 0}
 --- !u!4 &418204528
 Transform:
   m_ObjectHideFlags: 0
@@ -1187,8 +1187,12 @@ PrefabInstance:
       value: P2InventorySlot
       objectReference: {fileID: 0}
     - target: {fileID: 2907401731025625513, guid: a47fc4716b264e646a553c9b66c06e9b, type: 3}
+      propertyPath: m_Color.b
+      value: 0.27358478
+      objectReference: {fileID: 0}
+    - target: {fileID: 2907401731025625513, guid: a47fc4716b264e646a553c9b66c06e9b, type: 3}
       propertyPath: m_Color.g
-      value: 0.9880383
+      value: 0.5772214
       objectReference: {fileID: 0}
     - target: {fileID: 2907401731025625513, guid: a47fc4716b264e646a553c9b66c06e9b, type: 3}
       propertyPath: m_Color.r
@@ -2387,6 +2391,8 @@ MonoBehaviour:
   - {fileID: 705535403}
   - {fileID: 903758348}
   allPowerUps: {fileID: 418204527}
+  PowerUPDescriptionP1: {fileID: 0}
+  PowerUPDescriptionP2: {fileID: 0}
 --- !u!4 &1483055532
 Transform:
   m_ObjectHideFlags: 0
@@ -3504,6 +3510,18 @@ PrefabInstance:
     - target: {fileID: 2216616461938409117, guid: a47fc4716b264e646a553c9b66c06e9b, type: 3}
       propertyPath: m_Name
       value: P1InventorySlot
+      objectReference: {fileID: 0}
+    - target: {fileID: 2907401731025625513, guid: a47fc4716b264e646a553c9b66c06e9b, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2907401731025625513, guid: a47fc4716b264e646a553c9b66c06e9b, type: 3}
+      propertyPath: m_Color.g
+      value: 0.7012578
+      objectReference: {fileID: 0}
+    - target: {fileID: 2907401731025625513, guid: a47fc4716b264e646a553c9b66c06e9b, type: 3}
+      propertyPath: m_Color.r
+      value: 0.93520045
       objectReference: {fileID: 0}
     - target: {fileID: 3895014429313098147, guid: a47fc4716b264e646a553c9b66c06e9b, type: 3}
       propertyPath: m_Pivot.x
