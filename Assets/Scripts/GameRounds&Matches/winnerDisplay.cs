@@ -6,18 +6,21 @@ using TMPro;
 
 public class winnerDisplay : MonoBehaviour
 {
-    public TextMeshProUGUI winnerDisplayText;
-    [SerializeField] RoundManager roundManagerAccess;
+    public TextMeshProUGUI winnerDisplayText; //for Victory scene
 
-    // Update is called once per frame
-    void Update()
+
+    private void Start()
     {
+        displayGameWinner();
+    }
 
-        if (roundManagerAccess.winningPlayer == 1)
+    private void displayGameWinner()
+    {
+        if (staticDataMatches.winningPlayerKeep == 1)
         {
             winnerDisplayText.text = "Player 1 wins the Game";
         }
-        else if (roundManagerAccess.winningPlayer == 2)
+        else if (staticDataMatches.winningPlayerKeep == 2)
         {
             winnerDisplayText.text = "Player 2 wins the Game";
         }
@@ -25,6 +28,6 @@ public class winnerDisplay : MonoBehaviour
         {
             winnerDisplayText.text = "Game was a tie";
         }
-
     }
+
 }
