@@ -46,6 +46,10 @@ public class PlayerController : MonoBehaviour
     public Sprite punchPose;
 
     public int PlayerIndex;
+    public GameObject pI;
+    private SpriteRenderer indicatorSprite;
+    public Sprite p1Sprite;
+    public Sprite p2Sprite;
 
     public bool Player1Trig = false;
     public bool Player2Trig = false;
@@ -80,6 +84,9 @@ public class PlayerController : MonoBehaviour
              gameObject.AddComponent<Player1Health>();//Add player 1 health script to player 1
 
             transform.position = new Vector3(-6, 0, 0);//player 1 starting position
+            pI = Instantiate(pI, new Vector3(-6, 3, 0), transform.rotation);
+            pI.transform.parent = gameObject.transform;
+            indicatorSprite.sprite = p1Sprite;
 
 
             AssignScripts.assigner.player1Prefab = gameObject;
@@ -94,9 +101,12 @@ public class PlayerController : MonoBehaviour
              gameObject.AddComponent<Player2Health>();//Add player 2 health script to player 2
 
             transform.position = new Vector3(7, 0, 0);//player 2 starting position
+            pI = Instantiate(pI, new Vector3(7, 3, 0), transform.rotation);
+            pI.transform.parent = gameObject.transform;
+            indicatorSprite.sprite = p2Sprite;
 
             //need to adjust animation accordingly
-        
+
 
             //Assigns player2prefab ins assignscripts as the player 2 game object
             AssignScripts.assigner.player2Prefab = gameObject;
