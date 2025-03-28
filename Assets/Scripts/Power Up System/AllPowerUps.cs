@@ -133,8 +133,8 @@ public class AllPowerUps : MonoBehaviour
         Player2ControllerAccess.Player2Trig = false;
 
         //set player damage amount back to normal
-        Player1HealthAccess.Player1DamageAmount = 1;
-        Player2HealthAccess.Player2DamageAmount = 1;
+        Player1HealthAccess.Player1DamageAmount = 0.5f;
+        Player2HealthAccess.Player2DamageAmount = 0.5f;
 
 
         Debug.Log("deactivated Glass Canon");
@@ -208,8 +208,8 @@ public class AllPowerUps : MonoBehaviour
         Player2ControllerAccess.Player2Trig = false;
 
         //set player damage amount back to normal
-        Player1HealthAccess.Player1DamageAmount = 1;
-        Player2HealthAccess.Player2DamageAmount = 1;
+        Player1HealthAccess.Player1DamageAmount = 0.5f;
+        Player2HealthAccess.Player2DamageAmount = 0.5f;
 
         Debug.Log("deactivate Beefed");
 
@@ -272,8 +272,8 @@ public class AllPowerUps : MonoBehaviour
         Player2ControllerAccess.Player2Trig = false;
 
         //set player damage amount back to normal
-        Player1HealthAccess.Player1DamageAmount = 1;
-        Player2HealthAccess.Player2DamageAmount = 1;
+        Player1HealthAccess.Player1DamageAmount = 0.5f;
+        Player2HealthAccess.Player2DamageAmount = 0.5f;
         Destroy(PhysicalShieldClone);//Destroy shield
         Debug.Log("deactivate Shield");
 
@@ -337,8 +337,8 @@ public class AllPowerUps : MonoBehaviour
         Player2ControllerAccess.moveSpeed = 10f;
 
         //set player damage amount back to normal
-        Player1HealthAccess.Player1DamageAmount = 1;
-        Player2HealthAccess.Player2DamageAmount = 1;
+        Player1HealthAccess.Player1DamageAmount = 0.5f;
+        Player2HealthAccess.Player2DamageAmount = 0.5f;
 
         Debug.Log("deactivate Speed");
 
@@ -402,8 +402,8 @@ public class AllPowerUps : MonoBehaviour
         Player2ControllerAccess.moveSpeed = 10f;
 
         //set player damage amount back to normal
-        Player1HealthAccess.Player1DamageAmount = 1;
-        Player2HealthAccess.Player2DamageAmount = 1;
+        Player1HealthAccess.Player1DamageAmount = 0.5f;
+        Player2HealthAccess.Player2DamageAmount = 0.5f;
 
         Debug.Log("deactivate Snail");
 
