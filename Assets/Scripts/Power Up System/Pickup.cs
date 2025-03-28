@@ -20,7 +20,6 @@ public class Pickup : MonoBehaviour
 
     void Start()
     {
-        //inventoryP1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<InventoryP1>();
     }
 
 

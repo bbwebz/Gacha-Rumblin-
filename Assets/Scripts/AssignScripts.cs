@@ -45,7 +45,7 @@ public class AssignScripts : MonoBehaviour
             if (!onetime)
             {
                 //Assign power ups to each player
-                //assignPowerUps.GetComponent<AssignPowerUps>().Generate();
+                assignPowerUps.GetComponent<AssignPowerUps>().Generate();//generates random nums to assign powerUps to players
                 assignPowerUps.GetComponent<AssignPowerUps>().Assign();
                 Debug.Log("AllpowerUps assigning");
                 onetime = true;
@@ -93,6 +93,8 @@ public class AssignScripts : MonoBehaviour
             //Giving PlayerController script access to players inventory
             player1Prefab.GetComponent<PlayerController>().inventoryP1 =  player1Inventory.GetComponent<InventoryP1>();
             player2Prefab.GetComponent<PlayerController>().inventoryP2 =  player2Inventory.GetComponent<InventoryP1>();
+
+            //AllPowerUpsAccess.Player1Colour
 
 
             //Game Over

@@ -666,6 +666,13 @@ MonoBehaviour:
   Inventory1: 0
   Inventory2: 0
   PhysicalShieldSprite: {fileID: 8955789093480098335, guid: 530ed5ff0529da5449a715ba8c8c392f, type: 3}
+  PhysicalShieldClone: {fileID: 0}
+  MoveUp: 0
+  PlayerObject: {fileID: 0}
+  GlassCanon: {fileID: 2100000, guid: df0bebd2984b45e45a5c9722fa5866ff, type: 2}
+  Beefed: {fileID: 2100000, guid: 67a6909e4a68ad849855205d79a3c1f0, type: 2}
+  Speed: {fileID: 2100000, guid: 1a0e201a410e9c541a9668a2ae17047b, type: 2}
+  Snail: {fileID: 2100000, guid: 65df001a59e442a47aba7b0501bd99e4, type: 2}
 --- !u!4 &418204528
 Transform:
   m_ObjectHideFlags: 0

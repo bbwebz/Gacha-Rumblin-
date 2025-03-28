@@ -50,7 +50,8 @@ public class PlayerController : MonoBehaviour
     public bool Player1Trig = false;
     public bool Player2Trig = false;
 
-
+    [SerializeField]
+    private bool touchingFloor = false;
 
     private void Awake()
     {
@@ -95,8 +96,8 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(7, 0, 0);//player 2 starting position
 
             //need to adjust animation accordingly
-            Quaternion rotation = Quaternion.Euler(0, 180, 0);
-            transform.rotation = rotation;//flips player 2 on start
+            //Quaternion rotation = Quaternion.Euler(0, 180, 0);
+            //transform.rotation = rotation;//flips player 2 on start
 
             //Assigns player2prefab ins assignscripts as the player 2 game object
             AssignScripts.assigner.player2Prefab = gameObject;
@@ -127,10 +128,18 @@ public class PlayerController : MonoBehaviour
         //falling//
         if (gameObject.transform.position.y > -3.7)
         {
+            //they are not on the floor
+            touchingFloor = false;
+
             anim.enabled = false;
             spriteRenderer.sprite = jumpPose;
         }
+        else
+        {
+            //they are on the floor
+            touchingFloor = true;
 
+        }
 
 
     }
@@ -150,10 +159,14 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        anim.enabled = false;
-        spriteRenderer.sprite = jumpPose;
-        //Debug.Log("you pressed jump");
+        //Player can only jump if they were touching the ground
+        if (touchingFloor == true)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            anim.enabled = false;
+            spriteRenderer.sprite = jumpPose;
+            //Debug.Log("you pressed jump");
+        }
     }
 
     public void OnAttack(InputAction.CallbackContext context)
@@ -325,6 +338,9 @@ public class PlayerController : MonoBehaviour
         {
             arePlayersColliding = false;
         }
+
+       
+
     }
 
 
