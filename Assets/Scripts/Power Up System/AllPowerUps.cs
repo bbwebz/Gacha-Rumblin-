@@ -3,11 +3,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
-using UnityEditor.ShaderGraph;
+//using UnityEditor.ShaderGraph;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using static UnityEditorInternal.ReorderableList;
+//using static UnityEditorInternal.ReorderableList;
 using static UnityEngine.InputSystem.HID.HID;
 
 
@@ -37,14 +37,7 @@ public class AllPowerUps : MonoBehaviour
     public SpriteRenderer Player2Colour;
 
     //Default Material
-    [SerializeField] Material Default;
 
-
-    //Material to add when player gets power up
-    [SerializeField] Material GlassCanon;
-    [SerializeField] Material Beefed;
-    [SerializeField] Material Speed;
-    [SerializeField] Material Snail;
 
 
 
