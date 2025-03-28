@@ -96,7 +96,9 @@ public class PlayerController : MonoBehaviour
 
             //need to adjust animation accordingly
             Quaternion rotation = Quaternion.Euler(0, 180, 0);
-            transform.rotation = rotation;//flips player 2 on start
+            //transform.rotation = rotation;//flips player 2 on start
+            //GetComponent<SpriteRenderer>().flipX = false;
+
 
             //Assigns player2prefab ins assignscripts as the player 2 game object
             AssignScripts.assigner.player2Prefab = gameObject;
