@@ -3,10 +3,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
-using UnityEditor.ShaderGraph;
+//using UnityEditor.ShaderGraph;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+//using static UnityEditorInternal.ReorderableList;
 using static UnityEngine.InputSystem.HID.HID;
 
 
@@ -25,16 +26,53 @@ public class AllPowerUps : MonoBehaviour
     public bool Inventory1 = false;
     public bool Inventory2 = false;
 
+    public GameObject PhysicalShieldSprite;
+    public GameObject PhysicalShieldClone;
 
-   
+    [SerializeField] int MoveUp;
+
+    public Renderer PlayerObject;
+
+    public SpriteRenderer Player1Colour;
+    public SpriteRenderer Player2Colour;
+
+    //Default Material
+
+
+
+
     //------------------------ Glass Canon ---------------------------------
     //On button clicked use powerUp
-
+    // id = 0
     public void Start()
     {
-            AssignScripts.assigner.AllPowerUpsAccess = gameObject;
-
+        AssignScripts.assigner.AllPowerUpsAccess = gameObject;
+        //Default.color = Color.white;
+        //GlassCanon.color = Color.white;
+        //Beefed.color = Color.blue;
+        //Speed.color = Color.green;
+        //Snail.color = Color.yellow;
     }
+
+
+    //public void Update()
+    //{
+    //    if (AssignScripts.assigner.player2Prefab != null)
+    //    {
+    //        if (!onetime)
+    //        {
+    //            Default.color = Color.white;
+    //            GlassCanon.color = Color.white;
+    //            Beefed.color = Color.blue;
+    //            Speed.color = Color.green;
+    //            Snail.color = Color.yellow;
+    //            onetime = true;
+    //        }
+
+    //    }
+    //}
+
+
     public void UseGlassCanon()//activate power up
     {
             StartCoroutine(GlassCanonSequence());
@@ -54,6 +92,8 @@ public class AllPowerUps : MonoBehaviour
 
             Debug.Log("Player 1 damage amount: " + Player1HealthAccess.Player1DamageAmount);
 
+            //Player1Colour.material.color = Color.gray;//Change player colour
+
             Destroy(assignPowerUps.powerUps[0].IconClone);//destroy power up button of the first item in the array
             yield return new WaitForSeconds(duration);//has powerup for 5 seconds
             DeactivateGlassCanon();//deactivate power up
@@ -64,6 +104,7 @@ public class AllPowerUps : MonoBehaviour
             Player2HealthAccess.health -= 1;//take away 1 health form p2
             Player2HealthAccess.Player2DamageAmount += 1;//Player 2 can now do an extra amount of damage
 
+            //Player2Colour.material.color = Color.gray;//Change player colour
 
             Destroy(assignPowerUps.powerUps[0].IconClone);//destroy power up button of the first item in the array
             yield return new WaitForSeconds(duration);//has powerup for 5 seconds
@@ -85,8 +126,8 @@ public class AllPowerUps : MonoBehaviour
         Player2ControllerAccess.Player2Trig = false;
 
         //set player damage amount back to normal
-        Player1HealthAccess.Player1DamageAmount = 1;
-        Player2HealthAccess.Player2DamageAmount = 1;
+        Player1HealthAccess.Player1DamageAmount = 0.5f;
+        Player2HealthAccess.Player2DamageAmount = 0.5f;
 
 
         Debug.Log("deactivated Glass Canon");
@@ -97,7 +138,7 @@ public class AllPowerUps : MonoBehaviour
 
 
     //------------------------ Beefed ---------------------------------
-
+    // id = 1
     public void UseBeefed()//activate power up
     {
         StartCoroutine(BeefedSequence());
@@ -115,13 +156,17 @@ public class AllPowerUps : MonoBehaviour
             if (Player1HealthAccess.health < 5)// add 1 health to p1 if health is < 5
             {
                 Player1HealthAccess.health += 1;
+                Debug.Log("increase player 2 health");
             }
 
             Player1HealthAccess.Player1DamageAmount -= 1;//Player 1 can now do less damage
 
             Debug.Log("Player 1 damage amount: " + Player1HealthAccess.Player1DamageAmount);
 
-            Destroy(assignPowerUps.powerUps[0].IconClone);//destroy power up button of the first item in the array
+            //Player1Colour.material.color = Color.blue;//Change player colour
+
+
+            Destroy(assignPowerUps.powerUps[1].IconClone);//destroy power up button of the first item in the array
             yield return new WaitForSeconds(duration);//has powerup for 5 seconds
             DeactivateBeefed();//deactivate power up
 
@@ -130,12 +175,15 @@ public class AllPowerUps : MonoBehaviour
         {
             if (Player2HealthAccess.health < 5)// add 1 health to p2 if health is < 5
             {
+                Debug.Log("increase player 2 health");
                 Player2HealthAccess.health += 1;
             }
             Player2HealthAccess.Player2DamageAmount -= 1;///Player 2 can now do less damage
 
+            //Player2Colour.material.color = Color.blue;//Change player colour
 
-            Destroy(assignPowerUps.powerUps[0].IconClone);//destroy power up button of the first item in the array
+
+            Destroy(assignPowerUps.powerUps[1].IconClone);//destroy power up button of the first item in the array
             yield return new WaitForSeconds(duration);//has powerup for 5 seconds
             DeactivateBeefed();//deactivate power up
 
@@ -153,8 +201,8 @@ public class AllPowerUps : MonoBehaviour
         Player2ControllerAccess.Player2Trig = false;
 
         //set player damage amount back to normal
-        Player1HealthAccess.Player1DamageAmount = 1;
-        Player2HealthAccess.Player2DamageAmount = 1;
+        Player1HealthAccess.Player1DamageAmount = 0.5f;
+        Player2HealthAccess.Player2DamageAmount = 0.5f;
 
         Debug.Log("deactivate Beefed");
 
@@ -164,7 +212,8 @@ public class AllPowerUps : MonoBehaviour
 
 
     //------------------------ Shield ---------------------------------
-
+    //Blocks attacks for  5 seconds but player cannot do dammage
+    // id = 2
     public void UseShield()//activate power up
     {
         StartCoroutine(ShieldSequence());
@@ -177,6 +226,7 @@ public class AllPowerUps : MonoBehaviour
         Debug.Log("Shield PowerUp");
 
         float duration = 5;
+        
         if (Player1ControllerAccess.Player1Trig == true)//If player 1 has the power up and is using it
         {
             //Will probably change it to be a barrier around player idk
@@ -184,7 +234,10 @@ public class AllPowerUps : MonoBehaviour
 
             Debug.Log("Player 1 damage amount: " + Player1HealthAccess.Player1DamageAmount);
 
-            Destroy(assignPowerUps.powerUps[0].IconClone);//destroy power up button of the first item in the array
+
+            PhysicalShieldClone = Instantiate(PhysicalShieldSprite, Player1ControllerAccess.transform, false);//Instantiate shield on top of player
+
+            Destroy(assignPowerUps.powerUps[2].IconClone);//destroy power up button of the  item in the array
             yield return new WaitForSeconds(duration);//has powerup for 5 seconds
             DeactivateShield();//deactivate power up
 
@@ -194,7 +247,7 @@ public class AllPowerUps : MonoBehaviour
             Player1HealthAccess.Player1DamageAmount = 0;///Disable Player 1's ability to do damage
 
 
-            Destroy(assignPowerUps.powerUps[0].IconClone);//destroy power up button of the first item in the array
+            Destroy(assignPowerUps.powerUps[2].IconClone);//destroy power up button of the first item in the array
             yield return new WaitForSeconds(duration);//has powerup for 5 seconds
             DeactivateShield();//deactivate power up
 
@@ -212,9 +265,9 @@ public class AllPowerUps : MonoBehaviour
         Player2ControllerAccess.Player2Trig = false;
 
         //set player damage amount back to normal
-        Player1HealthAccess.Player1DamageAmount = 1;
-        Player2HealthAccess.Player2DamageAmount = 1;
-
+        Player1HealthAccess.Player1DamageAmount = 0.5f;
+        Player2HealthAccess.Player2DamageAmount = 0.5f;
+        Destroy(PhysicalShieldClone);//Destroy shield
         Debug.Log("deactivate Shield");
 
     }
@@ -222,7 +275,7 @@ public class AllPowerUps : MonoBehaviour
 
 
     //------------------------ Speed ---------------------------------
-
+    // id = 3
     public void UseSpeed()//activate power up
     {
         StartCoroutine(SpeedSequence());
@@ -240,7 +293,10 @@ public class AllPowerUps : MonoBehaviour
             Player1ControllerAccess.moveSpeed = 20f;//Player is now faster
             Player2HealthAccess.Player2DamageAmount = 2;//gets more dmage if hit
 
-            Destroy(assignPowerUps.powerUps[0].IconClone);//destroy power up button of the first item in the array
+            //Player1Colour.material.color = Color.green;//Change player colour
+
+
+            Destroy(assignPowerUps.powerUps[3].IconClone);//destroy power up button of the first item in the array
             yield return new WaitForSeconds(duration);//has powerup for 10 seconds
             DeactivateSpeed();//deactivate power up
 
@@ -250,8 +306,9 @@ public class AllPowerUps : MonoBehaviour
             Player2ControllerAccess.moveSpeed = 20f;//Player is now faster
             Player1HealthAccess.Player1DamageAmount = 2;//gets more dmage if hit
 
+            //Player2Colour.material.color = Color.green;//Change player colour
 
-            Destroy(assignPowerUps.powerUps[0].IconClone);//destroy power up button of the first item in the array
+            Destroy(assignPowerUps.powerUps[3].IconClone);//destroy power up button of the first item in the array
             yield return new WaitForSeconds(duration);//has powerup for 5 seconds
             DeactivateSpeed();//deactivate power up
 
@@ -273,8 +330,8 @@ public class AllPowerUps : MonoBehaviour
         Player2ControllerAccess.moveSpeed = 10f;
 
         //set player damage amount back to normal
-        Player1HealthAccess.Player1DamageAmount = 1;
-        Player2HealthAccess.Player2DamageAmount = 1;
+        Player1HealthAccess.Player1DamageAmount = 0.5f;
+        Player2HealthAccess.Player2DamageAmount = 0.5f;
 
         Debug.Log("deactivate Speed");
 
@@ -283,7 +340,7 @@ public class AllPowerUps : MonoBehaviour
 
 
     //------------------------ Snail ---------------------------------
-
+    // id = 4
     public void UseSnail()//activate power up
     {
         StartCoroutine(SnailSequence());
@@ -301,7 +358,10 @@ public class AllPowerUps : MonoBehaviour
             Player1ControllerAccess.moveSpeed = 5f;//Player is now slower
             Player1HealthAccess.Player1DamageAmount = 2;// does more damage
 
-            Destroy(assignPowerUps.powerUps[0].IconClone);//destroy power up button of the first item in the array
+            //Player1Colour.material.color = Color.red;//Change player colour
+
+
+            Destroy(assignPowerUps.powerUps[4].IconClone);//destroy power up button of the first item in the array
             yield return new WaitForSeconds(duration);//has powerup for 10 seconds
             DeactivateSnail();//deactivate power up
 
@@ -311,8 +371,9 @@ public class AllPowerUps : MonoBehaviour
             Player2ControllerAccess.moveSpeed = 5f;//Player is now slower
             Player2HealthAccess.Player2DamageAmount = 2;//  does more damage
 
+            //Player1Colour.material.color = Color.red;//Change player colour
 
-            Destroy(assignPowerUps.powerUps[0].IconClone);//destroy power up button of the first item in the array
+            Destroy(assignPowerUps.powerUps[4].IconClone);//destroy power up button of the first item in the array
             yield return new WaitForSeconds(duration);//has powerup for 5 seconds
             DeactivateSnail();//deactivate power up
 
@@ -334,8 +395,8 @@ public class AllPowerUps : MonoBehaviour
         Player2ControllerAccess.moveSpeed = 10f;
 
         //set player damage amount back to normal
-        Player1HealthAccess.Player1DamageAmount = 1;
-        Player2HealthAccess.Player2DamageAmount = 1;
+        Player1HealthAccess.Player1DamageAmount = 0.5f;
+        Player2HealthAccess.Player2DamageAmount = 0.5f;
 
         Debug.Log("deactivate Snail");
 

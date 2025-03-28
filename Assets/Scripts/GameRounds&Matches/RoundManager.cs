@@ -22,7 +22,6 @@ public class RoundManager : MonoBehaviour
     private void Update()
     {
         nextRound();
-        Debug.Log("winningRoundPLayer: " + winningRoundPlayer);
     }
 
     private void nextRound()

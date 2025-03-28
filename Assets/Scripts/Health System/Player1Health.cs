@@ -20,6 +20,7 @@ public class Player1Health : MonoBehaviour
 
         Player1DamageAmount = 0.5f;
         rb = GetComponent<Rigidbody2D>();
+        Debug.Log("Start health");
 
     }
 

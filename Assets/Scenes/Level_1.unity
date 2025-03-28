@@ -122,11 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!95 &138999057 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 4054857910718390095, guid: 87de7343dd21e2d44abcd404d2dc8d8a, type: 3}
-  m_PrefabInstance: {fileID: 1291214247}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &172939875
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,6 +665,14 @@ MonoBehaviour:
   assignPowerUps: {fileID: 1483055531}
   Inventory1: 0
   Inventory2: 0
+  PhysicalShieldSprite: {fileID: 8955789093480098335, guid: 530ed5ff0529da5449a715ba8c8c392f, type: 3}
+  PhysicalShieldClone: {fileID: 0}
+  MoveUp: 0
+  PlayerObject: {fileID: 0}
+  GlassCanon: {fileID: 2100000, guid: df0bebd2984b45e45a5c9722fa5866ff, type: 2}
+  Beefed: {fileID: 2100000, guid: 67a6909e4a68ad849855205d79a3c1f0, type: 2}
+  Speed: {fileID: 2100000, guid: 1a0e201a410e9c541a9668a2ae17047b, type: 2}
+  Snail: {fileID: 2100000, guid: 65df001a59e442a47aba7b0501bd99e4, type: 2}
 --- !u!4 &418204528
 Transform:
   m_ObjectHideFlags: 0
@@ -1022,6 +1025,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryP1: {fileID: 2142036052}
   inventoryP2: {fileID: 238081928}
+  Player1Machine: {fileID: 0}
+  Player2Machine: {fileID: 0}
   powerUpIcon: {fileID: 7843923230817798948, guid: 9bf1a30f104a96b4bb7dfb0e9375f2cb, type: 3}
   IconClone: {fileID: 0}
 --- !u!4 &535547305
@@ -1071,6 +1076,7 @@ MonoBehaviour:
   timerControllerAccess: {fileID: 282018889}
   player1HealthAccess: {fileID: 0}
   player2HealthAccess: {fileID: 0}
+  winningPlayer: 0
 --- !u!4 &579418502
 Transform:
   m_ObjectHideFlags: 0
@@ -1309,6 +1315,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryP1: {fileID: 2142036052}
   inventoryP2: {fileID: 238081928}
+  Player1Machine: {fileID: 0}
+  Player2Machine: {fileID: 0}
   powerUpIcon: {fileID: 7843923230817798948, guid: 76a51b3fc8a688848b4ddcf3a4bf8ae1, type: 3}
   IconClone: {fileID: 0}
 --- !u!4 &705535404
@@ -1455,7 +1463,7 @@ MonoBehaviour:
   player1Inventory: {fileID: 2142036051}
   player2Inventory: {fileID: 238081927}
   assignPowerUps: {fileID: 1483055530}
-  AllPowerUpsAccess: {fileID: 0}
+  AllPowerUpsAccess: {fileID: 418204526}
   RoundManagerAccess: {fileID: 579418500}
 --- !u!1 &903758347
 GameObject:
@@ -1488,6 +1496,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryP1: {fileID: 2142036052}
   inventoryP2: {fileID: 238081928}
+  Player1Machine: {fileID: 0}
+  Player2Machine: {fileID: 0}
   powerUpIcon: {fileID: 8451277102805216918, guid: cd0f28b1412907f47bb81fc9fd3c65ac, type: 3}
   IconClone: {fileID: 0}
 --- !u!4 &903758349
@@ -1536,6 +1546,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryP1: {fileID: 2142036052}
   inventoryP2: {fileID: 238081928}
+  Player1Machine: {fileID: 0}
+  Player2Machine: {fileID: 0}
   powerUpIcon: {fileID: 8451277102805216918, guid: b3112c7ee1e9aab4bb5e7c57cee631c7, type: 3}
   IconClone: {fileID: 0}
 --- !u!4 &1090177894
@@ -1810,7 +1822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25461a46c8f4f0545bd3ccd45edbb300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transition: {fileID: 138999057}
+  transition: {fileID: 0}
 --- !u!1001 &1291214247
 PrefabInstance:
   m_ObjectHideFlags: 0

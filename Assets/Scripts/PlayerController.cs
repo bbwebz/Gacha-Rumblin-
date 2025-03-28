@@ -50,7 +50,8 @@ public class PlayerController : MonoBehaviour
     public bool Player1Trig = false;
     public bool Player2Trig = false;
 
-
+    [SerializeField]
+    private bool touchingFloor = false;
 
     private void Awake()
     {
@@ -95,18 +96,16 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(7, 0, 0);//player 2 starting position
 
             //need to adjust animation accordingly
-            Quaternion rotation = Quaternion.Euler(0, 180, 0);
-            //transform.rotation = rotation;//flips player 2 on start
-            //GetComponent<SpriteRenderer>().flipX = false;
-
+        
 
             //Assigns player2prefab ins assignscripts as the player 2 game object
             AssignScripts.assigner.player2Prefab = gameObject;
 
-
-
+            Debug.Log("StaticData.itemP1Keep" + StaticData.itemP1Keep);
+            Debug.Log("StaticData.itemP2Keep" + StaticData.itemP2Keep);
         }
 
+       
 
     }
     
@@ -128,10 +127,18 @@ public class PlayerController : MonoBehaviour
         //falling//
         if (gameObject.transform.position.y > -3.7)
         {
+            //they are not on the floor
+            touchingFloor = false;
+
             anim.enabled = false;
             spriteRenderer.sprite = jumpPose;
         }
+        else
+        {
+            //they are on the floor
+            touchingFloor = true;
 
+        }
 
 
     }
@@ -151,10 +158,14 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        anim.enabled = false;
-        spriteRenderer.sprite = jumpPose;
-        //Debug.Log("you pressed jump");
+        //Player can only jump if they were touching the ground
+        if (touchingFloor == true)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            anim.enabled = false;
+            spriteRenderer.sprite = jumpPose;
+            //Debug.Log("you pressed jump");
+        }
     }
 
     public void OnAttack(InputAction.CallbackContext context)
@@ -215,7 +226,7 @@ public class PlayerController : MonoBehaviour
             Player1Trig = true;
        
             Debug.Log("Player 1 trigger");
-            switch (assignPowerAccess.itemIdP1)
+            switch (StaticData.itemP1Keep)
             {
                 case 0:
                     allPowers.UseGlassCanon();
@@ -237,19 +248,21 @@ public class PlayerController : MonoBehaviour
                     allPowers.UseSnail();
                     break;
             }
-            assignPowerAccess.itemIdP1 = -1;//set item id to -1 so that power up fucntion will no longer be called
+            StaticData.itemP1Keep = -1;//set item id to -1 so that power up fucntion will no longer be called
 
             for (int i = 0; i < inventoryP1.slots.Length; i++)
             {
                 inventoryP1.isFull[i] = false;//inventory is now empty
             }
 
+
+
         }
 
         else if (PlayerIndex == 1)//if player 2 triggers power up 
         {
             Player2Trig = true;
-            switch (assignPowerAccess.itemIdP2)
+            switch (StaticData.itemP2Keep)
             {
                 case 0:
                     allPowers.UseGlassCanon();
@@ -273,7 +286,7 @@ public class PlayerController : MonoBehaviour
             }
             Debug.Log("Player 2 trigger");
 
-            assignPowerAccess.itemIdP2 = -1;//set item id to -1 so that power up fucntion will no longer be called
+            StaticData.itemP2Keep = -1;//set item id to -1 so that power up fucntion will no longer be called
 
             for (int i = 0; i < inventoryP2.slots.Length; i++)
             {
@@ -324,11 +337,9 @@ public class PlayerController : MonoBehaviour
         {
             arePlayersColliding = false;
         }
-    }
 
-    IEnumerator delaySeconds()
-    {
-        yield return new WaitForSeconds(2);
+       
+
     }
 
 

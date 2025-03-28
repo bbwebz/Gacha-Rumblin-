@@ -4,7 +4,7 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEditor.Experimental.GraphView.GraphView;
+//using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class HealthContainerManagerP1 : MonoBehaviour
 {
@@ -13,10 +13,11 @@ public class HealthContainerManagerP1 : MonoBehaviour
     List<Heart> hearts = new List<Heart>();
     bool shouldCreateHalf = false;
 
-    private void Update()
-    {
-        drawHearts();
-    }
+    //Called in assign scripts so it will wait till it gets player health
+    //private void Update()
+    //{
+    //    drawHearts();
+    //}
 
     public void drawHearts()
     {
