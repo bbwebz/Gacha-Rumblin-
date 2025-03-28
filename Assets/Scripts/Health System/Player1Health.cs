@@ -7,7 +7,7 @@ public class Player1Health : MonoBehaviour
     public float health;
     public float maxHealth;
     public Player2Health p2HealthAccess;
-    public int Player1DamageAmount;//amount of damage a player can do
+    public float Player1DamageAmount;//amount of damage a player can do
     private Rigidbody2D rb;
     public Vector2 knockBackForce;
     int knockForce = 30;
@@ -17,8 +17,10 @@ public class Player1Health : MonoBehaviour
     {
         maxHealth = 5;
         health = maxHealth;
-        Player1DamageAmount = 1;
+
+        Player1DamageAmount = 0.5f;
         rb = GetComponent<Rigidbody2D>();
+        Debug.Log("Start health");
 
     }
 

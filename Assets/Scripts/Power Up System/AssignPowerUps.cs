@@ -6,81 +6,144 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
-using static UnityEditor.Progress;
+//using static UnityEditor.Progress;
 //using static UnityEditor.Progress;
 
 public class AssignPowerUps : MonoBehaviour
 {
-    public int itemIdP1;
-    public int itemIdP2;
+    public  int itemIdP1;
+    public  int itemIdP2;
     public Pickup[] powerUps;
 
+    //public static int itemP1Keep;
+    //public static int itemP2Keep;
+
     public AllPowerUps allPowerUps;
+    List<int> itemIdlist = new List<int> { 0, 1, 2, 3, 4 };//list of number of powerups
+
 
 
     void Start()
     {
-        AssignScripts.assigner.assignPowerUps = gameObject;
-
-        //Debuging
-        //List<int> itemIdlist = new List<int> { 0, 1 };//list of number of powerups
-
-        //string result0 = " ";
-
-        //foreach (var item in itemIdlist)
-        //{
-        //    result0 += item.ToString() + ", ";
-        //}
-        //Debug.Log("OG List: "+ result0);
-
-
-
-        //itemIdP1 = Random.Range(0, itemIdlist.Count);//picks random num
-        //Debug.Log("itemIdP1: "+ itemIdP1);
-
-        //itemIdlist.Remove(itemIdP1);
-
-
-        //string result = " ";
-
-        //foreach (var item in itemIdlist)
-        //{
-        //    result += item.ToString() + ", ";
-        //}
-        //Debug.Log("New List1: "+ result);
-
-        //itemIdP2 = Random.Range(0, itemIdlist.Count);//picks random num
-        //Debug.Log("itemIdP2: "+ itemIdP2);
-
-        //string result2 = " ";
-
-        //foreach (var item in itemIdlist)
-        //{
-        //    result2 += item.ToString() + ", ";
-        //}
-        //Debug.Log("New List2: "+ result2);
+        //AssignScripts.assigner.assignPowerUps = gameObject;
 
     }
+
+    public void Generate()
+    {
+       
+
+
+        //Generate power up for player 1
+        itemIdP1 = itemIdlist[Random.Range(0, itemIdlist.Count)];//picks random num
+
+        itemIdlist.Remove(itemIdP1);//remove this option form the list
+
+
+        //Generate power up for player 2
+        itemIdP2 = itemIdlist[Random.Range(0, itemIdlist.Count)];//picks random num
+
+
+       
+        itemIdlist.Remove(itemIdP2);//remove this option form the list
+
+        //itemIdP1 = 2;
+        StaticData.itemP1Keep = itemIdP1;
+        //itemIdP2 = 0;
+        StaticData.itemP2Keep = itemIdP2;
+
+        Debug.Log(" Generate function StaticData.itemP1Keep" +  StaticData.itemP1Keep);
+        Debug.Log(" Generate Function StaticData.itemP2Keep" +  StaticData.itemP2Keep);
+
+
+
+    }
+
+
+    public void DisplayOnMachine()
+    {
+        //Debug.Log("Start  Machine function StaticData.itemP1Keep" +  StaticData.itemP1Keep);
+        //Debug.Log("  Start Machine Function StaticData.itemP2Keep" +  StaticData.itemP2Keep);
+        switch (itemIdP1)
+        {
+            case 0:
+                Debug.Log("Extra damage powerup");
+                powerUps[0].DisplayOnMachineP1();
+
+                break;
+
+            case 1:
+                Debug.Log("Second power up");
+                powerUps[1].DisplayOnMachineP1();
+
+                break;
+
+            case 2:
+                Debug.Log("Third power up");
+                powerUps[2].DisplayOnMachineP1();
+                break;
+
+            case 3:
+                Debug.Log("Forth power up");
+                powerUps[3].DisplayOnMachineP1();
+                break;
+
+            case 4:
+                Debug.Log("Fith power up");
+                powerUps[4].DisplayOnMachineP1();
+                break;
+        }
+
+
+        switch (itemIdP2)
+        {
+            case 0:
+                Debug.Log("Extra damage powerup");
+                powerUps[0].DisplayOnMachineP2();
+
+                break;
+
+            case 1:
+                Debug.Log("Second power up");
+                powerUps[1].DisplayOnMachineP2();
+
+                break;
+
+            case 2:
+                Debug.Log("Third power up");
+                powerUps[2].DisplayOnMachineP2();
+                break;
+
+            case 3:
+                Debug.Log("Forth power up");
+                powerUps[3].DisplayOnMachineP2();
+                break;
+
+            case 4:
+                Debug.Log("Fith power up");
+                powerUps[4].DisplayOnMachineP2();
+                break;
+        }
+        //Debug.Log(" Machine function StaticData.itemP1Keep" +  StaticData.itemP1Keep);
+        //Debug.Log(" Machine Function StaticData.itemP2Keep" +  StaticData.itemP2Keep);
+
+    }
+
+
 
     public void Assign()
     {
         //adding to assign script
 
-        List<int> itemIdlist = new List<int> { 0,1, 2, 3, 4 };//list of number of powerups
-
         //Adding power ups to player 1s inventory
-        itemIdP1 = Random.Range(0, itemIdlist.Count);//picks random num
         //itemIdP1 = 3;
-        Debug.Log("itemIdP1: "+ itemIdP1);
+        //Debug.Log("itemIdP1: "+ itemIdP1);
 
-        //string result = " ";
-        //foreach (var item in itemIdlist)
-        //{
-        //    Debug.Log("List: "+ item);
+        //Debug.Log(" Assign function StaticData.itemP1Keep" +  StaticData.itemP1Keep);
+        //Debug.Log(" Asssign Function StaticData.itemP2Keep" +  StaticData.itemP2Keep);
 
-        //}
 
-        switch (itemIdP1)
+        switch (StaticData.itemP1Keep)
             {
                 case 0:
                     Debug.Log("Extra damage powerup");
@@ -109,23 +172,12 @@ public class AssignPowerUps : MonoBehaviour
                 powerUps[4].AddPowerUpP1();
                 break;
         }
-        itemIdlist.Remove(itemIdP1);//remove this option form the list
 
 
-        //foreach (var item in itemIdlist)
-        //{
-        //    result += item.ToString() + ", ";
-        //}
-        //Debug.Log("New List1: "+ result);
+        //Debug.Log("itemIdP2: "+ itemIdP2);
 
 
-        //Adding power ups to player 2s inventory
-        itemIdP2 = Random.Range(0, itemIdlist.Count);//picks random num
-        //itemIdP2 = 1;
-        Debug.Log("itemIdP2: "+ itemIdP2);
-
-
-        switch (itemIdP2)
+        switch (StaticData.itemP2Keep)
         {
             case 0:
                 Debug.Log("Extra damage powerup");
@@ -153,13 +205,7 @@ public class AssignPowerUps : MonoBehaviour
                 break;
         }
 
-        //string result2 = " ";
-
-        //foreach (var item in itemIdlist)
-        //{
-        //    result2 += item.ToString() + ", ";
-        //}
-        //Debug.Log("New List2: "+ result2);
+      
 
 
 
