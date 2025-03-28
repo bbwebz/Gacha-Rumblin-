@@ -222,7 +222,6 @@ MonoBehaviour:
   timerControllerAccess: {fileID: 0}
   player1HealthAccess: {fileID: 0}
   player2HealthAccess: {fileID: 0}
-  winningPlayer: 1
 --- !u!4 &364866263
 Transform:
   m_ObjectHideFlags: 0
@@ -568,7 +567,6 @@ MonoBehaviour:
   timerControllerAccess: {fileID: 0}
   player1HealthAccess: {fileID: 0}
   player2HealthAccess: {fileID: 0}
-  winningPlayer: 0
 --- !u!114 &1157590877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -582,7 +580,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winnerDisplayText: {fileID: 1157590874}
-  roundManagerAccess: {fileID: 364866262}
 --- !u!1 &1664654121
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,8 +616,8 @@ Camera:
   m_GameObject: {fileID: 1664654121}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.9748427, g: 0.7961796, b: 0.16860472, a: 0}
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -778,7 +775,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0bf47148122d57f43978881ee9eac21b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 557bda5cc72f24d4c8ce240d71ecea67, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -798,8 +795,8 @@ Transform:
   m_GameObject: {fileID: 1730096736}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -960.0354, y: -539.975, z: 0}
-  m_LocalScale: {x: 4.421963, y: 4.9961796, z: 39.052338}
+  m_LocalPosition: {x: -960, y: -540.03, z: 0}
+  m_LocalScale: {x: 6.891711, y: 7.786638, z: 60.863785}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 436106587}
