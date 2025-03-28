@@ -56,6 +56,9 @@ public class PlayerController : MonoBehaviour
     public bool Player1Trig = false;
     public bool Player2Trig = false;
 
+    private GameObject pI;
+    private SpriteRenderer indicatorSprite;
+
 
     AudioManager audioManager;
 
@@ -79,6 +82,8 @@ public class PlayerController : MonoBehaviour
 
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        //indicatorSprite = GetComponent<pI>;
 
         rb.freezeRotation = true;
 
@@ -108,8 +113,12 @@ public class PlayerController : MonoBehaviour
 
             transform.position = new Vector3(7, 0, 0);//player 2 starting position
 
+            //pI = Instantiate(pI, new Vector3(7, 3, 0), transform.rotation);
+            //pI.transform.parent = gameObject.transform;
+            //indicatorSprite.sprite = p2Sprite;
+
             //need to adjust animation accordingly
-        
+
 
             //Assigns player2prefab ins assignscripts as the player 2 game object
             AssignScripts.assigner.player2Prefab = gameObject;
