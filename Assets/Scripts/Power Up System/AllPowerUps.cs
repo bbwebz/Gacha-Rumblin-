@@ -7,6 +7,7 @@ using UnityEditor.ShaderGraph;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using static UnityEditorInternal.ReorderableList;
 using static UnityEngine.InputSystem.HID.HID;
 
 
@@ -32,8 +33,12 @@ public class AllPowerUps : MonoBehaviour
 
     public Renderer PlayerObject;
 
-    //SpriteRenderer Player1Colour = AssignScripts.assigner.player1Prefab.GetComponent<SpriteRenderer>();
-    //SpriteRenderer Player2Colour = AssignScripts.assigner.player2Prefab.GetComponent<SpriteRenderer>();
+    public SpriteRenderer Player1Colour;
+    public SpriteRenderer Player2Colour;
+
+    //Default Material
+    [SerializeField] Material Default;
+
 
     //Material to add when player gets power up
     [SerializeField] Material GlassCanon;
@@ -48,9 +53,33 @@ public class AllPowerUps : MonoBehaviour
     // id = 0
     public void Start()
     {
-            AssignScripts.assigner.AllPowerUpsAccess = gameObject;
-
+        AssignScripts.assigner.AllPowerUpsAccess = gameObject;
+        //Default.color = Color.white;
+        //GlassCanon.color = Color.white;
+        //Beefed.color = Color.blue;
+        //Speed.color = Color.green;
+        //Snail.color = Color.yellow;
     }
+
+
+    //public void Update()
+    //{
+    //    if (AssignScripts.assigner.player2Prefab != null)
+    //    {
+    //        if (!onetime)
+    //        {
+    //            Default.color = Color.white;
+    //            GlassCanon.color = Color.white;
+    //            Beefed.color = Color.blue;
+    //            Speed.color = Color.green;
+    //            Snail.color = Color.yellow;
+    //            onetime = true;
+    //        }
+
+    //    }
+    //}
+
+
     public void UseGlassCanon()//activate power up
     {
             StartCoroutine(GlassCanonSequence());
@@ -70,7 +99,7 @@ public class AllPowerUps : MonoBehaviour
 
             Debug.Log("Player 1 damage amount: " + Player1HealthAccess.Player1DamageAmount);
 
-            //Player1Colour.material = GlassCanon;//Add material to player
+            //Player1Colour.material.color = Color.gray;//Change player colour
 
             Destroy(assignPowerUps.powerUps[0].IconClone);//destroy power up button of the first item in the array
             yield return new WaitForSeconds(duration);//has powerup for 5 seconds
@@ -82,7 +111,7 @@ public class AllPowerUps : MonoBehaviour
             Player2HealthAccess.health -= 1;//take away 1 health form p2
             Player2HealthAccess.Player2DamageAmount += 1;//Player 2 can now do an extra amount of damage
 
-            //Player2Colour.material = GlassCanon;//Add material to player
+            //Player2Colour.material.color = Color.gray;//Change player colour
 
             Destroy(assignPowerUps.powerUps[0].IconClone);//destroy power up button of the first item in the array
             yield return new WaitForSeconds(duration);//has powerup for 5 seconds
@@ -141,7 +170,7 @@ public class AllPowerUps : MonoBehaviour
 
             Debug.Log("Player 1 damage amount: " + Player1HealthAccess.Player1DamageAmount);
 
-            //Player1Colour.material = Beefed;//Add material to player
+            //Player1Colour.material.color = Color.blue;//Change player colour
 
 
             Destroy(assignPowerUps.powerUps[1].IconClone);//destroy power up button of the first item in the array
@@ -158,7 +187,7 @@ public class AllPowerUps : MonoBehaviour
             }
             Player2HealthAccess.Player2DamageAmount -= 1;///Player 2 can now do less damage
 
-            //Player2Colour.material = Beefed;//Add material to player
+            //Player2Colour.material.color = Color.blue;//Change player colour
 
 
             Destroy(assignPowerUps.powerUps[1].IconClone);//destroy power up button of the first item in the array
@@ -271,7 +300,7 @@ public class AllPowerUps : MonoBehaviour
             Player1ControllerAccess.moveSpeed = 20f;//Player is now faster
             Player2HealthAccess.Player2DamageAmount = 2;//gets more dmage if hit
 
-            //Player1Colour.material = Speed;//Add material to player
+            //Player1Colour.material.color = Color.green;//Change player colour
 
 
             Destroy(assignPowerUps.powerUps[3].IconClone);//destroy power up button of the first item in the array
@@ -284,7 +313,7 @@ public class AllPowerUps : MonoBehaviour
             Player2ControllerAccess.moveSpeed = 20f;//Player is now faster
             Player1HealthAccess.Player1DamageAmount = 2;//gets more dmage if hit
 
-            //Player2Colour.material = Speed;//Add material to player
+            //Player2Colour.material.color = Color.green;//Change player colour
 
             Destroy(assignPowerUps.powerUps[3].IconClone);//destroy power up button of the first item in the array
             yield return new WaitForSeconds(duration);//has powerup for 5 seconds
@@ -336,7 +365,7 @@ public class AllPowerUps : MonoBehaviour
             Player1ControllerAccess.moveSpeed = 5f;//Player is now slower
             Player1HealthAccess.Player1DamageAmount = 2;// does more damage
 
-            //Player1Colour.material = Snail;//Add material to player
+            //Player1Colour.material.color = Color.red;//Change player colour
 
 
             Destroy(assignPowerUps.powerUps[4].IconClone);//destroy power up button of the first item in the array
@@ -349,7 +378,7 @@ public class AllPowerUps : MonoBehaviour
             Player2ControllerAccess.moveSpeed = 5f;//Player is now slower
             Player2HealthAccess.Player2DamageAmount = 2;//  does more damage
 
-            //Player2Colour.material = Snail;//Add material to player
+            //Player1Colour.material.color = Color.red;//Change player colour
 
             Destroy(assignPowerUps.powerUps[4].IconClone);//destroy power up button of the first item in the array
             yield return new WaitForSeconds(duration);//has powerup for 5 seconds

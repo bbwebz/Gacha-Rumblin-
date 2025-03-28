@@ -1076,6 +1076,7 @@ MonoBehaviour:
   timerControllerAccess: {fileID: 282018889}
   player1HealthAccess: {fileID: 0}
   player2HealthAccess: {fileID: 0}
+  winningPlayer: 0
 --- !u!4 &579418502
 Transform:
   m_ObjectHideFlags: 0

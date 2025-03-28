@@ -7,32 +7,32 @@ public class HealthContainerManagerP2 : MonoBehaviour
     public GameObject heartPrefab;
     public Player2Health player2Health;
     List<Heart> hearts = new List<Heart>();
-
-    private void Update()
-    {
-        //Hearts are drawn/ displayed through the assign script
-
-        //drawHearts();
-    }
+    bool shouldCreateHalf = false;
 
     public void drawHearts()
     {
-        clearHearts(); // Clear previous hearts
-        float heartsToMake = player2Health.health;
+        clearHearts();
 
-        for (int i = 0; i < heartsToMake; i++)
+        int fullheartsToMake = (int)player2Health.health;
+
+        float halfHeartsToMake = player2Health.health - fullheartsToMake;
+        shouldCreateHalf = Mathf.Abs(halfHeartsToMake - 0.5f) < 0.001f;
+
+        int emptyHeartsToMake = (int)player2Health.maxHealth - fullheartsToMake - (shouldCreateHalf ? 1 : 0);
+
+        for (int i = 0; i < fullheartsToMake; i++)
         {
-            createFullHeart(); // Create full hearts for current health
+            createFullHeart();
         }
 
-        //draw empty hearts for the remaining health
-        float heartsToTake = player2Health.maxHealth - player2Health.health;
-        for (int i = 0; i < heartsToTake; i++)
+        if (shouldCreateHalf)
         {
-            if(player2Health.health > 0) //reminder to fix the hearts to stop going into negatives
-            {
-                createEmptyHeart();
-            }
+            createHalfHeart();
+        }
+
+        for (int i = 0; i < emptyHeartsToMake; i++)
+        {
+            createEmptyHeart();
         }
     }
     public void createFullHeart()
@@ -44,6 +44,17 @@ public class HealthContainerManagerP2 : MonoBehaviour
         heartComponent.setHeartImage(heartStatus.Full);
         hearts.Add(heartComponent);
     }
+
+    public void createHalfHeart()
+    {
+        GameObject newHeart = Instantiate(heartPrefab);
+        newHeart.transform.SetParent(transform);
+
+        Heart heartComponent = newHeart.GetComponent<Heart>();
+        heartComponent.setHeartImage(heartStatus.Half);
+        hearts.Add(heartComponent);
+    }
+
     public void createEmptyHeart()
     {
         GameObject newHeart = Instantiate(heartPrefab);

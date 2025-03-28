@@ -40,7 +40,7 @@ public class AssignPowerUps : MonoBehaviour
 
 
         //Generate power up for player 1
-        //itemIdP1 = itemIdlist[Random.Range(0, itemIdlist.Count)];//picks random num
+        itemIdP1 = itemIdlist[Random.Range(0, itemIdlist.Count)];//picks random num
 
         //itemIdlist.Remove(itemIdP1);//remove this option form the list
 
@@ -55,9 +55,9 @@ public class AssignPowerUps : MonoBehaviour
         //itemIdlist.Remove(itemIdP2);//remove this option form the list
         Debug.Log("itemIdP2: "+ itemIdP2);
 
-        itemIdP1 = 2;
+        //itemIdP1 = 2;
         StaticData.itemP1Keep = itemIdP1;
-        itemIdP2 = 0;
+        //itemIdP2 = 0;
         StaticData.itemP2Keep = itemIdP2;
 
         //Debug.Log(" Generate function StaticData.itemP1Keep" +  StaticData.itemP1Keep);

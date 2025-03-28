@@ -12,7 +12,6 @@ public class SwitchScenes : MonoBehaviour
     public void switchScenes(string sceneName)
     {
         transition.SetTrigger("Start");
-        //SceneManager.LoadScene(sceneName);
         StartCoroutine(delaySec(sceneName));
         Debug.Log("before calling coroutine");
     }

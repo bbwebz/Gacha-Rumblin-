@@ -96,8 +96,7 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(7, 0, 0);//player 2 starting position
 
             //need to adjust animation accordingly
-            //Quaternion rotation = Quaternion.Euler(0, 180, 0);
-            //transform.rotation = rotation;//flips player 2 on start
+        
 
             //Assigns player2prefab ins assignscripts as the player 2 game object
             AssignScripts.assigner.player2Prefab = gameObject;
