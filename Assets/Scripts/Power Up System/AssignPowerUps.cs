@@ -74,14 +74,14 @@ public class AssignPowerUps : MonoBehaviour
             case 0:
                 Debug.Log("Extra damage powerup");
                 powerUps[0].DisplayOnMachineP1();
-                PowerUPDescriptionP1.text = "Glass Canon";
+                PowerUPDescriptionP1.text = "Glass Canon: Do 2X the damage! Effect: Lose 1 Heart.";
 
                 break;
 
             case 1:
                 Debug.Log("Second power up");
                 powerUps[1].DisplayOnMachineP1();
-                PowerUPDescriptionP1.text = "Beefed";
+                PowerUPDescriptionP1.text = "Beefed: Get an extra Heart! \n Effect: Cannot attack for 10 secs";
 
                 break;
 
@@ -113,14 +113,14 @@ public class AssignPowerUps : MonoBehaviour
             case 0:
                 Debug.Log("Extra damage powerup");
                 powerUps[0].DisplayOnMachineP2();
-                PowerUPDescriptionP2.text = "Glass Canon: ";
+                PowerUPDescriptionP2.text = "Glass Canon: Do 2X the damage for 5 secs! \n Effect: Lose 1 Heart.";
 
                 break;
 
             case 1:
                 Debug.Log("Second power up");
                 powerUps[1].DisplayOnMachineP2();
-                PowerUPDescriptionP2.text = "Beefed";
+                PowerUPDescriptionP2.text = "Beefed: Get an extra Heart! \n Effect: Cannot attack for 10 secs.";
 
                 break;
 

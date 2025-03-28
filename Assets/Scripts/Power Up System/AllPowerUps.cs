@@ -69,7 +69,7 @@ public class AllPowerUps : MonoBehaviour
   
     IEnumerator GlassCanonSequence()
     {
-        float duration = 1;
+        float duration = 5;
        Debug.Log("Decrease Health power up");
 
         if (Player1ControllerAccess.Player1Trig == true)//If player 1 has the power up and is using it
@@ -137,7 +137,7 @@ public class AllPowerUps : MonoBehaviour
         StartCoroutine(BeefedSequence());
         Debug.Log("Beefed used");
     }
-
+    //+1 health, can do no
 
     IEnumerator BeefedSequence()
     {
@@ -152,7 +152,7 @@ public class AllPowerUps : MonoBehaviour
                 Debug.Log("increase player 2 health");
             }
 
-            Player1HealthAccess.Player1DamageAmount -= 1;//Player 1 can now do less damage
+            Player1HealthAccess.Player1DamageAmount = 0;//Player 1 can now do less damage
 
             Debug.Log("Player 1 damage amount: " + Player1HealthAccess.Player1DamageAmount);
 
@@ -172,7 +172,7 @@ public class AllPowerUps : MonoBehaviour
                 Debug.Log("increase player 2 health");
                 Player2HealthAccess.health += 1;
             }
-            Player2HealthAccess.Player2DamageAmount -= 1;///Player 2 can now do less damage
+            Player2HealthAccess.Player2DamageAmount = 0;///Player 2 can now do less damage
 
             //PowerUpOverlaysClone = Instantiate(PowerUpOverlays, Player2ControllerAccess.transform, false);//Instantiate shield on top of player
             //PowerUpOverlaysClone.GetComponent<SpriteRenderer>().color = Color.blue;
