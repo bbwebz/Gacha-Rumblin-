@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEditor.Rendering;
@@ -10,7 +11,12 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.SceneManagement;
 
+
+
+
 public class PlayerController : MonoBehaviour
+
+    
 {
     PlayerControls controls;
     public Player1Health Player1HealthAccess;
@@ -50,11 +56,17 @@ public class PlayerController : MonoBehaviour
     public bool Player1Trig = false;
     public bool Player2Trig = false;
 
+    AudioManager audioManager;
+
+
 
 
     private void Awake()
     {
         controls = new PlayerControls();
+
+        //----Audio----
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     void Start()
@@ -179,6 +191,8 @@ public class PlayerController : MonoBehaviour
                 timeAttackBttnPress = Time.time; //capture the time stamp of when the button was pressed
                 didAttack = true;
                 Debug.Log("you landed an attack");
+
+                audioManager.PlaySFX(audioManager.damage);
 
                 if (gameObject.CompareTag("Player1"))
                 {
