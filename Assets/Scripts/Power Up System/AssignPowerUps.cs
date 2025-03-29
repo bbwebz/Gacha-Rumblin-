@@ -65,6 +65,25 @@ public class AssignPowerUps : MonoBehaviour
     }
 
 
+    public void ReGenerateP1()
+    {
+
+        //Generate power up for player 1
+        itemIdP1 = itemIdlist[Random.Range(0, itemIdlist.Count)];//picks random num
+
+        itemIdlist.Remove(itemIdP1);//remove this option form the list
+
+        //itemIdP1 = 1;
+        StaticData.itemP1Keep = itemIdP1;
+        
+        Debug.Log(" Generate function StaticData.itemP1Keep" +  StaticData.itemP1Keep);
+        Debug.Log(" Generate Function StaticData.itemP2Keep" +  StaticData.itemP2Keep);
+
+
+
+    }
+
+
     public void DisplayOnMachine()
     {
         //Debug.Log("Start  Machine function StaticData.itemP1Keep" +  StaticData.itemP1Keep);

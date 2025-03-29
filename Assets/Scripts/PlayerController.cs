@@ -79,9 +79,6 @@ public class PlayerController : MonoBehaviour
 
              gameObject.AddComponent<Player1Health>();//Add player 1 health script to player 1
 
-            transform.position = new Vector3(-6, 0, 0);//player 1 starting position
-
-
             AssignScripts.assigner.player1Prefab = gameObject;
 
 
@@ -93,10 +90,6 @@ public class PlayerController : MonoBehaviour
 
              gameObject.AddComponent<Player2Health>();//Add player 2 health script to player 2
 
-            transform.position = new Vector3(7, 0, 0);//player 2 starting position
-
-            //need to adjust animation accordingly
-        
 
             //Assigns player2prefab ins assignscripts as the player 2 game object
             AssignScripts.assigner.player2Prefab = gameObject;

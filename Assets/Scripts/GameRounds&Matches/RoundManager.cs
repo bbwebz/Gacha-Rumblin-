@@ -19,10 +19,10 @@ public class RoundManager : MonoBehaviour
 
    
 
-    private void Update()
-    {
-        nextRound();
-    }
+    //private void Update()
+    //{
+    //    nextRound();
+    //}
 
     private void nextRound()
     {
