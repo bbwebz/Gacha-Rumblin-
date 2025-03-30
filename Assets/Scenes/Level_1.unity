@@ -1074,7 +1074,6 @@ MonoBehaviour:
   timerControllerAccess: {fileID: 282018889}
   player1HealthAccess: {fileID: 0}
   player2HealthAccess: {fileID: 0}
-  winningPlayer: 0
 --- !u!4 &579418502
 Transform:
   m_ObjectHideFlags: 0
@@ -1819,7 +1818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25461a46c8f4f0545bd3ccd45edbb300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transition: {fileID: 0}
+  transition: {fileID: 1291214248}
 --- !u!1001 &1291214247
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1877,6 +1876,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87de7343dd21e2d44abcd404d2dc8d8a, type: 3}
+--- !u!95 &1291214248 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4054857910718390095, guid: 87de7343dd21e2d44abcd404d2dc8d8a, type: 3}
+  m_PrefabInstance: {fileID: 1291214247}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1392216497
 GameObject:
   m_ObjectHideFlags: 0
@@ -2394,6 +2398,51 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5.61, y: -0.30999994, z: 0.043491}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1578416282
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1578416284}
+  - component: {fileID: 1578416283}
+  m_Layer: 0
+  m_Name: switchSceneForStart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1578416283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578416282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25461a46c8f4f0545bd3ccd45edbb300, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transition: {fileID: 1291214248}
+--- !u!4 &1578416284
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578416282}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -53.497345, y: 661.88165, z: -21.514868}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3704,3 +3753,4 @@ SceneRoots:
   - {fileID: 238081929}
   - {fileID: 1617741631}
   - {fileID: 579418502}
+  - {fileID: 1578416284}
