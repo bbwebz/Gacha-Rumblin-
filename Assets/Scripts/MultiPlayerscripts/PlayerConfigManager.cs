@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerConfigManager : MonoBehaviour
 {
-    private List<PlayerConfiguration> playerConfigs;
+    public List<PlayerConfiguration> playerConfigs;
     [SerializeField]
     private int MaxPlayers = 2;//there is a max of 2 players at once
 
@@ -56,10 +56,10 @@ public class PlayerConfigManager : MonoBehaviour
     }
 
     //public void SetPlayerSprite(int index, Sprite sprite)
-    public void SetPlayerSprite(int index, Sprite sprite)
+    public void SetPlayerCharacter(int index, GameObject sprite)
     {
-        //playerConfigs[index].PlayerSprite = sprite;
         playerConfigs[index].PlayerSprite = sprite;
+        StaticData.PlayerPrefab.Add(sprite);
     }
 
     //If both players clicked ready then load next scene
@@ -88,7 +88,7 @@ public class PlayerConfiguration
 
     //Player sprite that will me changed
     //public GameObject playerPrefab{get;set};
-    public Sprite PlayerSprite { get; set; }
+    public GameObject PlayerSprite { get; set; }
 
 
     ////Charcater options lsit

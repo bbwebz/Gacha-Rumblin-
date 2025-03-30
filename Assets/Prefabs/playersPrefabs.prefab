@@ -257,7 +257,7 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 336cf9de-e044-44d8-90b7-206f4c23cb16
     m_ActionName: Gameplay/Pause Game[/DualSenseGamepadHID/start,/XInputControllerWindows/start]
-  m_NeverAutoSwitchControlSchemes: 0
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
@@ -325,4 +325,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d99f4f027a663c41b087d36f168d30f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMesh: {fileID: 2004263738757517787}

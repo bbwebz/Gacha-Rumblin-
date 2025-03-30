@@ -37,11 +37,11 @@ public class PlayerSetupMenuController : MonoBehaviour
     }
 
     //Will set character/colour of player
-    public void SelectSprite(Sprite sprite)
+    public void SelectCharcater(GameObject IdlePose)
     {
         if (!inputEnabled) { return; }
 
-        PlayerConfigManager.Instance.SetPlayerSprite(playerIndex, sprite);//set player sprite
+        PlayerConfigManager.Instance.SetPlayerCharacter(playerIndex, IdlePose);//set player sprite
 
         readyPanel.SetActive(true);//turn on ready panel
         readyButton.interactable = true;//turn on ready button
