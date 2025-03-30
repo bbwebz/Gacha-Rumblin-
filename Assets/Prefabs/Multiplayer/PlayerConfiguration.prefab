@@ -57,7 +57,39 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: df352a4f-07bb-4e44-b3c8-ecc94b4d2de0
+    m_ActionName: Gameplay/Move[/DualSenseGamepadHID/leftStick,/XInputControllerWindows/leftStick,/DualSenseGamepadHID/leftStick/up,/XInputControllerWindows/leftStick/up,/DualSenseGamepadHID/leftStick/down,/XInputControllerWindows/leftStick/down,/DualSenseGamepadHID/leftStick/left,/XInputControllerWindows/leftStick/left,/DualSenseGamepadHID/leftStick/right,/XInputControllerWindows/leftStick/right]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 25988a0d-8c40-4de8-a7c3-f016a125505f
+    m_ActionName: Gameplay/Jump[/DualSenseGamepadHID/buttonNorth,/XInputControllerWindows/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e14889a4-ec93-4490-9c7e-e9ccdae2adf4
+    m_ActionName: Gameplay/Attack[/DualSenseGamepadHID/buttonEast,/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 980a3a77-f759-4d6c-b8f8-f0a6b4140907
+    m_ActionName: Gameplay/Use Powerup[/DualSenseGamepadHID/rightTrigger,/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f4a7ec4b-619e-48c9-bacd-715f09ab31a7
+    m_ActionName: Gameplay/Hot Bar Select (left direction)[/DualSenseGamepadHID/leftShoulder,/XInputControllerWindows/leftShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 777a10bd-bfb0-4ef7-9d29-fcf533ebc10c
+    m_ActionName: Gameplay/Hot Bar Select (right direction)[/DualSenseGamepadHID/rightShoulder,/XInputControllerWindows/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: de8f70ba-026b-4c03-99ad-e6afabc44728
+    m_ActionName: Gameplay/Crouch[/DualSenseGamepadHID/leftStick/down,/XInputControllerWindows/leftStick/down]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 336cf9de-e044-44d8-90b7-206f4c23cb16
+    m_ActionName: Gameplay/Pause Game[/DualSenseGamepadHID/start,/XInputControllerWindows/start]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Gameplay

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using System.Linq;
 using UnityEngine.SceneManagement;
@@ -9,9 +10,18 @@ public class PlayerConfigManager : MonoBehaviour
 {
     private List<PlayerConfiguration> playerConfigs;
     [SerializeField]
-    private int MaxPlayers = 2;
+    private int MaxPlayers = 2;//there is a max of 2 players at once
+
 
     public static PlayerConfigManager Instance { get; private set; }
+
+
+    ////Testin with vid
+    //[SerializeField]
+    //private PlayerConfiguration[] charcaters;
+    //[SerializeField]
+    //public PlayerConfiguration currentCharacter;
+    //public static PlayerConfigManager Instance { get;  set; }
 
     private void Awake()
     {
@@ -28,6 +38,7 @@ public class PlayerConfigManager : MonoBehaviour
 
     }
 
+ 
     public void HandlePlayerJoin(PlayerInput pi)
     {
         Debug.Log("player joined " + pi.playerIndex);
@@ -44,9 +55,11 @@ public class PlayerConfigManager : MonoBehaviour
         return playerConfigs;
     }
 
-    public void SetPlayerColour(int index, Material color)
+    //public void SetPlayerSprite(int index, Sprite sprite)
+    public void SetPlayerSprite(int index, Sprite sprite)
     {
-        playerConfigs[index].playerMaterial = color;
+        //playerConfigs[index].PlayerSprite = sprite;
+        playerConfigs[index].PlayerSprite = sprite;
     }
 
     //If both players clicked ready then load next scene
@@ -55,7 +68,7 @@ public class PlayerConfigManager : MonoBehaviour
         playerConfigs[index].isReady = true;
         if (playerConfigs.Count == MaxPlayers && playerConfigs.All(p => p.isReady == true))
         {
-            SceneManager.LoadScene("Level_1");
+            SceneManager.LoadScene("Level_1");//loead next scene when all players have clicked ready
         }
     }
 }
@@ -72,5 +85,18 @@ public class PlayerConfiguration
     public PlayerInput Input { get; private set; }
     public int PlayerIndex { get; private set; }
     public bool isReady { get; set; }
-    public Material playerMaterial { get; set; }
+
+    //Player sprite that will me changed
+    //public GameObject playerPrefab{get;set};
+    public Sprite PlayerSprite { get; set; }
+
+
+    ////Charcater options lsit
+
+    //public GameObject ChracterPrefab;
+    //public string name;
+    //public Sprite CharcaterIcon;
+
+
+
 }

@@ -12,6 +12,8 @@ public class LevelInitialiser : MonoBehaviour
 
     void Start()
     {
+        //playerPrefab = prefab that was selected in PlayerSetUpMenuController
+
         var playerConfigs = PlayerConfigManager.Instance.GetPlayerConfigs().ToArray();
         for (int i = 0; i< playerConfigs.Length; i++)
         {

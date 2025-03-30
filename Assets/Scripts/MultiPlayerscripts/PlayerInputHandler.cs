@@ -6,24 +6,28 @@ using static UnityEngine.InputSystem.InputAction;
 public class PlayerInputHandler : MonoBehaviour
 {
     private PlayerConfiguration playerConfig;
-    private PlayerController mover;
+    private PlayerController PlayerIdlePose;
 
-    [SerializeField]
-    private SpriteRenderer playerMesh;
+    //private PlayerController player;
 
     private PlayerControls controls;
 
     private void Awake()
     {
-        mover = GetComponent<PlayerController>();
+        PlayerIdlePose = GetComponent<PlayerController>();
         controls = new PlayerControls();
     }
 
-    //Sets player material
+    //Sets player Sprite
     public void InitializePlayer(PlayerConfiguration config)
     {
         playerConfig = config;
-        playerMesh.material = config.playerMaterial;
+
+        //set this instance of the player to this sprite
+        //PlayerSprite comes from PlayerConfigManager
+        PlayerIdlePose.idlePose = config.PlayerSprite;//seting idle pose
+        //player.idlePose = config.PlayerSprite
+
         //config.Input.onActionTriggered += Input_onActionTriggered;
     }
 

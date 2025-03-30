@@ -6,7 +6,6 @@ using UnityEngine.InputSystem.UI;
 
 public class SpawnPlayerSetupMenu : MonoBehaviour
 {
-
     public GameObject CharacterSelectMenuPrefab;
 
     private GameObject rootMenu;
@@ -17,7 +16,7 @@ public class SpawnPlayerSetupMenu : MonoBehaviour
         rootMenu = GameObject.FindGameObjectWithTag("MainLayout");
         if (rootMenu != null)
         {
-            //if the root exists instatiate the character select menu prefab
+            //create character select menu for each player
             var menu = Instantiate(CharacterSelectMenuPrefab, rootMenu.transform);
             input.uiInputModule = menu.GetComponentInChildren<InputSystemUIInputModule>();
             menu.GetComponent<PlayerSetupMenuController>().setPlayerIndex(input.playerIndex);

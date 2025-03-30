@@ -37,18 +37,20 @@ public class PlayerSetupMenuController : MonoBehaviour
     }
 
     //Will set character/colour of player
-    public void SelectColor(Material mat)
+    public void SelectSprite(Sprite sprite)
     {
         if (!inputEnabled) { return; }
 
-        PlayerConfigManager.Instance.SetPlayerColour(playerIndex, mat);
-        readyPanel.SetActive(true);
-        readyButton.interactable = true;
-        menuPanel.SetActive(false);
-        readyButton.Select();
+        PlayerConfigManager.Instance.SetPlayerSprite(playerIndex, sprite);//set player sprite
+
+        readyPanel.SetActive(true);//turn on ready panel
+        readyButton.interactable = true;//turn on ready button
+        menuPanel.SetActive(false);//turn off character select menu
+        readyButton.Select();//when both players choose select
 
     }
 
+    //Gets players to press ready button to continue to next scene
     public void ReadyPlayer()
     {
         if (!inputEnabled) { return; }

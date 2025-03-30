@@ -34,27 +34,27 @@ public class AssignPowerUps : MonoBehaviour
 
     }
 
+    //Called at the start of each round in gacha machine screen
     public void Generate()
     {
-       
 
+        List<int> itemIdlist = new List<int> { 0, 1, 2, 3, 4 };//list of number of powerups
 
         //Generate power up for player 1
-        //itemIdP1 = itemIdlist[Random.Range(0, itemIdlist.Count)];//picks random num
+        itemIdP1 = itemIdlist[Random.Range(0, itemIdlist.Count)];//picks random num
 
-        //itemIdlist.Remove(itemIdP1);//remove this option form the list
+        itemIdlist.Remove(itemIdP1);//remove this option form the list
 
 
         //Generate power up for player 2
-        //itemIdP2 = itemIdlist[Random.Range(0, itemIdlist.Count)];//picks random num
+        itemIdP2 = itemIdlist[Random.Range(0, itemIdlist.Count)];//picks random num
 
 
-       
         itemIdlist.Remove(itemIdP2);//remove this option form the list
 
-        itemIdP1 = 1;
+        //itemIdP1 = 1;
         StaticData.itemP1Keep = itemIdP1;
-        itemIdP2 = 2;
+        //itemIdP2 = 2;
         StaticData.itemP2Keep = itemIdP2;
 
         Debug.Log(" Generate function StaticData.itemP1Keep" +  StaticData.itemP1Keep);
@@ -64,7 +64,7 @@ public class AssignPowerUps : MonoBehaviour
 
     }
 
-
+    // --------------- Re Run powerUp assign function if player clicks button to do so ----------------------
     public void ReGenerateP1()
     {
 
@@ -78,10 +78,24 @@ public class AssignPowerUps : MonoBehaviour
         
         Debug.Log(" Generate function StaticData.itemP1Keep" +  StaticData.itemP1Keep);
         Debug.Log(" Generate Function StaticData.itemP2Keep" +  StaticData.itemP2Keep);
-
-
-
     }
+
+    public void ReGenerateP2()
+    {
+
+        //Generate power up for player 2
+        itemIdP2 = itemIdlist[Random.Range(0, itemIdlist.Count)];//picks random num
+
+        itemIdlist.Remove(itemIdP2);//remove this option form the list
+
+        //itemIdP2 = 1;
+        StaticData.itemP1Keep = itemIdP1;
+
+        Debug.Log(" Generate function StaticData.itemP1Keep" +  StaticData.itemP1Keep);
+        Debug.Log(" Generate Function StaticData.itemP2Keep" +  StaticData.itemP2Keep);
+    }
+    //--------------------------------------------------------------------------------------------------//
+
 
 
     public void DisplayOnMachine()
@@ -170,7 +184,7 @@ public class AssignPowerUps : MonoBehaviour
     }
 
 
-
+    //assign to player on level screen
     public void Assign()
     {
         //adding to assign script
