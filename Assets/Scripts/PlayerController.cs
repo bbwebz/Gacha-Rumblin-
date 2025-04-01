@@ -56,6 +56,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         controls = new PlayerControls();
+        anim = GetComponent<Animator>();
     }
 
     void Start()
@@ -64,7 +65,7 @@ public class PlayerController : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
 
-        anim = GetComponent<Animator>();
+       
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         rb.freezeRotation = true;
@@ -196,6 +197,7 @@ public class PlayerController : MonoBehaviour
                     Player2HealthAccess.dealDamageToP1();
                     Player1HealthAccess.dealKnockbackToSelf(isFacingLeft);
                 }
+                //Make IEnumerator to hold pose for a second
 
                 //reset to prepare for the next attack press
                 didAttack = false;
@@ -259,10 +261,12 @@ public class PlayerController : MonoBehaviour
             {
                 case 0:
                     allPowers.UseGlassCanon();
+
                     break;
 
                 case 1:
                     allPowers.UseBeefed();
+
                     break;
 
                 case 2:
@@ -334,7 +338,6 @@ public class PlayerController : MonoBehaviour
        
 
     }
-
 
 
     //Game over

@@ -23,22 +23,12 @@ public class AllPowerUps : MonoBehaviour
     public AssignPowerUps assignPowerUps;
 
 
-    public bool Inventory1 = false;
-    public bool Inventory2 = false;
-
-    [SerializeField] int MoveUp;
-
-    public Renderer PlayerObject;
-
-    public SpriteRenderer Player1Colour;
-    public SpriteRenderer Player2Colour;
+    public InventoryP1 Inventory1;
+    public InventoryP1 Inventory2;
 
     //Overlays
     public GameObject PhysicalShieldSprite;
     public GameObject PhysicalShieldClone;
-
-    public GameObject PowerUpOverlays;
-    public GameObject PowerUpOverlaysClone;
 
 
 
@@ -49,17 +39,13 @@ public class AllPowerUps : MonoBehaviour
     public void Start()
     {
         AssignScripts.assigner.AllPowerUpsAccess = gameObject;
-        //Default.color = Color.white;
-        //GlassCanon.color = Color.white;
-        //Beefed.color = Color.blue;
-        //Speed.color = Color.green;
-        //Snail.color = Color.yellow;
+
     }
 
 
     //Glass canon
     //Id = 0
-    //Loose 1 health but can 2 double the damage
+    //Loose 1 health but can do double the damage
     public void UseGlassCanon()//activate power up
     {
             StartCoroutine(GlassCanonSequence());
@@ -79,7 +65,7 @@ public class AllPowerUps : MonoBehaviour
 
             Debug.Log("Player 1 damage amount: " + Player1HealthAccess.Player1DamageAmount);
 
-            //Player1Colour.material.color = Color.gray;//Change player colour
+
 
             //PowerUpOverlaysClone = Instantiate(PowerUpOverlays, Player1ControllerAccess.transform, false);//Instantiate shield on top of player
 
@@ -93,6 +79,7 @@ public class AllPowerUps : MonoBehaviour
         {
             Player2HealthAccess.health -= 1;//take away 1 health form p2
             Player2HealthAccess.Player2DamageAmount += 1;//Player 2 can now do an extra amount of damage
+
 
             //Player2Colour.material.color = Color.gray;//Change player colour
 

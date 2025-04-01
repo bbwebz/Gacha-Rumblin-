@@ -43,6 +43,8 @@ public class PlayerSetupMenuController : MonoBehaviour
 
         PlayerConfigManager.Instance.SetPlayerCharacter(playerIndex, IdlePose);//set player sprite
 
+        Debug.Log("prefab: " + IdlePose);
+
         readyPanel.SetActive(true);//turn on ready panel
         readyButton.interactable = true;//turn on ready button
         menuPanel.SetActive(false);//turn off character select menu

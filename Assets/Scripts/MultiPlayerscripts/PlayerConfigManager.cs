@@ -10,7 +10,7 @@ public class PlayerConfigManager : MonoBehaviour
 {
     public List<PlayerConfiguration> playerConfigs;
     [SerializeField]
-    private int MaxPlayers = 2;//there is a max of 2 players at once
+    public int MaxPlayers = 2;//there is a max of 2 players at once
 
 
     public static PlayerConfigManager Instance { get; private set; }
@@ -68,8 +68,10 @@ public class PlayerConfigManager : MonoBehaviour
         playerConfigs[index].isReady = true;
         if (playerConfigs.Count == MaxPlayers && playerConfigs.All(p => p.isReady == true))
         {
+            //SceneManager.LoadScene("GachaMachine");//loead next scene when all players have clicked ready
             SceneManager.LoadScene("Level_1");//loead next scene when all players have clicked ready
         }
+        Debug.Log("Player: " +  playerConfigs[index] + "is ready.");
     }
 }
 
