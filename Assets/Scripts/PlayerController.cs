@@ -338,23 +338,6 @@ public class PlayerController : MonoBehaviour
             arePlayersColliding = false;
         }
 
-       
-
     }
-
-
-
-    //Game over
-    //Called in Assign scripts
-    //public void PlayerDied()
-    //{
-    //    //if a player dies game over
-    //    if (Player1HealthAccess.health == 0 || Player2HealthAccess.health == 0)
-    //    {
-    //        Debug.Log("Player died, Game over");
-    //        SceneManager.LoadScene("EndGame");
-    //    }
-    //}
-
 
 }
