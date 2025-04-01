@@ -17,6 +17,8 @@ public class TimerController : MonoBehaviour
     PlayerControls controls;
     public GameObject PauseMenu;
 
+    public PlayerController playerControllerAccess;
+
 
     private void Awake()
     {
@@ -29,10 +31,21 @@ public class TimerController : MonoBehaviour
         controls.Gameplay.Enable();
         controls.Gameplay.PauseGame.performed += OnPause;
         isGamePaused = false;
+
     }
 
     void Update()
     {
+        if (playerControllerAccess.PlayerIndex == 1 && playerControllerAccess.PlayerIndex == 2) //both players have been spawned in
+        {
+            Debug.Log("timer has now started");
+            timeLeft = gameTime; //start the timer once both players instantiate
+        }
+        else
+        {
+            Debug.Log("timer has NOT started yet");
+        }
+
         if (timeLeft > 0 && isGamePaused == false)
         {
             timeLeft -= Time.deltaTime;

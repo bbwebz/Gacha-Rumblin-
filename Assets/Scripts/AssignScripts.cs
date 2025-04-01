@@ -23,6 +23,8 @@ public class AssignScripts : MonoBehaviour
 
     public GameObject RoundManagerAccess;
 
+    public GameObject TimerControllerAccess;
+
 
     bool onetime = false;
 
@@ -108,6 +110,9 @@ public class AssignScripts : MonoBehaviour
             RoundManagerAccess.GetComponent<RoundManager>().player1HealthAccess = player1Prefab.GetComponent<Player1Health>();
             RoundManagerAccess.GetComponent<RoundManager>().player2HealthAccess = player2Prefab.GetComponent<Player2Health>();
 
+            //Timer
+            TimerControllerAccess.GetComponent<TimerController>().playerControllerAccess = player2Prefab.GetComponent<PlayerController>(); //both players have the script so it doesnt matter
+            
         }
 
 

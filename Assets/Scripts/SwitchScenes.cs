@@ -25,9 +25,9 @@ public class SwitchScenes : MonoBehaviour
     }
 
     public void switchScenesOverlay(string sceneName2)
-   {
+    {
         SceneManager.LoadScene(sceneName2, LoadSceneMode.Additive);
-   }
+    }
 
    public void OnExitClick()
    {
