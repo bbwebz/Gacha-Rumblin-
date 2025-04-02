@@ -16,13 +16,6 @@ public class PlayerConfigManager : MonoBehaviour
     public static PlayerConfigManager Instance { get; private set; }
 
 
-    ////Testin with vid
-    //[SerializeField]
-    //private PlayerConfiguration[] charcaters;
-    //[SerializeField]
-    //public PlayerConfiguration currentCharacter;
-    //public static PlayerConfigManager Instance { get;  set; }
-
     private void Awake()
     {
         if (Instance != null)
@@ -55,11 +48,11 @@ public class PlayerConfigManager : MonoBehaviour
         return playerConfigs;
     }
 
-    //public void SetPlayerSprite(int index, Sprite sprite)
-    public void SetPlayerCharacter(int index, GameObject sprite)
+    //Setting player prefab
+    public void SetPlayerCharacter(int index, GameObject prefab)
     {
-        playerConfigs[index].PlayerSprite = sprite;
-        StaticData.PlayerPrefab.Add(sprite);
+        playerConfigs[index].PlayerPrefab = prefab;
+        StaticData.PlayerPrefab.Add(prefab);
     }
 
     //If both players clicked ready then load next scene
@@ -88,16 +81,8 @@ public class PlayerConfiguration
     public int PlayerIndex { get; private set; }
     public bool isReady { get; set; }
 
-    //Player sprite that will me changed
-    //public GameObject playerPrefab{get;set};
-    public GameObject PlayerSprite { get; set; }
-
-
-    ////Charcater options lsit
-
-    //public GameObject ChracterPrefab;
-    //public string name;
-    //public Sprite CharcaterIcon;
+    //Player Prefab that will me changed
+    public GameObject PlayerPrefab { get; set; }
 
 
 

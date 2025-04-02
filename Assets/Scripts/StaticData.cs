@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public static class StaticData 
 {
@@ -12,7 +13,10 @@ public static class StaticData
     //Level initializer
     public static List<GameObject> PlayerPrefab = new List<GameObject>();
 
-    //PlayerPrefab.Add(Prefab1);
+    //Spawn player setup menu to player controller
+    //to save which device belongs to which player
+    public static int NewPlayerIndex;
+
 
 
 }

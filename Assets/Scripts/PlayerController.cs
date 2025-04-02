@@ -53,6 +53,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private bool touchingFloor = false;
 
+
+    InputDevice device;
+
+
     private void Awake()
     {
         controls = new PlayerControls();
@@ -81,7 +85,9 @@ public class PlayerController : MonoBehaviour
              gameObject.AddComponent<Player1Health>();//Add player 1 health script to player 1
 
             AssignScripts.assigner.player1Prefab = gameObject;
+            device = SpawnPlayerSetupMenu.device1;
 
+            Debug.Log("player 1 device; " + device);
 
         }
         else if (PlayerIndex == 1)//player 2
@@ -94,6 +100,11 @@ public class PlayerController : MonoBehaviour
 
             //Assigns player2prefab ins assignscripts as the player 2 game object
             AssignScripts.assigner.player2Prefab = gameObject;
+
+            //device = gameObject.GetComponent<PlayerInput>().devices[0];
+            device = SpawnPlayerSetupMenu.device2;
+
+            Debug.Log("player 2 device; " + device);
 
             Debug.Log("StaticData.itemP1Keep" + StaticData.itemP1Keep);
             Debug.Log("StaticData.itemP2Keep" + StaticData.itemP2Keep);
@@ -215,11 +226,11 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Trigger pressed used");
 
-        if (PlayerIndex == 0)//if player 1 triggers power up 
+        if (PlayerIndex == 0  && allPowers != null)//if player 1 triggers power up 
         {
             //if player 1 triggerd it player 1 trigger = true
             Player1Trig = true;
-       
+
             Debug.Log("Player 1 trigger");
             switch (StaticData.itemP1Keep)
             {
@@ -254,7 +265,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        else if (PlayerIndex == 1)//if player 2 triggers power up 
+        else if (PlayerIndex == 1 && allPowers != null)//if player 2 triggers power up 
         {
             Player2Trig = true;
             switch (StaticData.itemP2Keep)

@@ -124,7 +124,7 @@ public class AllPowerUps : MonoBehaviour
         StartCoroutine(BeefedSequence());
         Debug.Log("Beefed used");
     }
-    //+1 health, can do no
+    //+1 health, can do no damage
 
     IEnumerator BeefedSequence()
     {
