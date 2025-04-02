@@ -9,6 +9,7 @@ public class SpawnPlayerSetupMenu : MonoBehaviour
     public GameObject CharacterSelectMenuPrefab;
 
     private GameObject rootMenu;
+    private GameObject playerIN;
     private GameObject Position1;
     public PlayerInput input;
 
@@ -26,6 +27,11 @@ public class SpawnPlayerSetupMenu : MonoBehaviour
             input.uiInputModule = menu.GetComponentInChildren<InputSystemUIInputModule>();
 
             menu.GetComponent<PlayerSetupMenuController>().setPlayerIndex(input.playerIndex);
+
+            InputDevice test =  gameObject.GetComponent<PlayerInput>().devices[0];
+            //int test = 0;
+            Debug.Log("Devices: " +  test);
+
         }
 
     }
