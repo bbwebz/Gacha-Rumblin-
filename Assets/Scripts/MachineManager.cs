@@ -10,7 +10,9 @@ public class MachineManager : MonoBehaviour
 
     void Start()
     {
-        //shake = GameObject.FindGameObjectWithTag("ShakingManager").GetComponent<ShakeManager>();
+        shake = GameObject.FindGameObjectWithTag("ShakingManager").GetComponent<ShakeManager>();
+        shake.CameraShake();
+
         assignPowerUpsAccess.Generate();
         assignPowerUpsAccess.DisplayOnMachine();
 
