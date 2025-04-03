@@ -10,10 +10,6 @@ public class ShakeManager : MonoBehaviour
     {
         cameraAnimation.SetTrigger("Shake");
     }
-    public void CameraDown()
-    {
-        cameraAnimation.SetTrigger("GoDown");
-    }
 
 
 
