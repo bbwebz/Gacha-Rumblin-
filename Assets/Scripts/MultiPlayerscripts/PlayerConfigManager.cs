@@ -56,13 +56,14 @@ public class PlayerConfigManager : MonoBehaviour
     }
 
     //If both players clicked ready then load next scene
+    //On ready buttons
     public void ReadyPlayer(int index)
     {
         playerConfigs[index].isReady = true;
         if (playerConfigs.Count == MaxPlayers && playerConfigs.All(p => p.isReady == true))
         {
-            //SceneManager.LoadScene("GachaMachine");//loead next scene when all players have clicked ready
-            SceneManager.LoadScene("Level_1");//loead next scene when all players have clicked ready
+            SceneManager.LoadScene("GachaMachine");//loead next scene when all players have clicked ready
+            //SceneManager.LoadScene("Level_1");//loead next scene when all players have clicked ready
         }
         Debug.Log("Player: " +  playerConfigs[index] + "is ready.");
     }

@@ -11,12 +11,7 @@ public class PlayerInputHandler : MonoBehaviour
     private PlayerInput indexPlayer;
 
 
-
     private GameObject player;
-
-    private PlayerController mover;
-
-    private PlayerControls controls;
 
 
     //Sets player character

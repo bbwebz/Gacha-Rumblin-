@@ -236,22 +236,27 @@ public class PlayerController : MonoBehaviour
             {
                 case 0:
                     allPowers.UseGlassCanon();
+                    //gameObject.GetComponent<SpriteRenderer>().color = Color.green;
                     break;
 
                 case 1:
                     allPowers.UseBeefed();
+                    //gameObject.GetComponent<SpriteRenderer>().color = Color.green;
                     break;
 
                 case 2:
                     allPowers.UseShield();
+                    //gameObject.GetComponent<SpriteRenderer>().color = Color.green;
                     break;
 
                 case 3:
                     allPowers.UseSpeed();
+                    //gameObject.GetComponent<SpriteRenderer>().color = Color.green;
                     break;
 
                 case 4:
                     allPowers.UseSnail();
+                    //gameObject.GetComponent<SpriteRenderer>().color = Color.green;
                     break;
             }
             StaticData.itemP1Keep = -1;//set item id to -1 so that power up fucntion will no longer be called
@@ -272,23 +277,26 @@ public class PlayerController : MonoBehaviour
             {
                 case 0:
                     allPowers.UseGlassCanon();
-
+                    //gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
                     break;
 
                 case 1:
                     allPowers.UseBeefed();
-
+                    //gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
                     break;
 
                 case 2:
                     allPowers.UseShield();
+                    //gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
                     break;
                 case 3:
                     allPowers.UseSpeed();
+                    //gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
                     break;
 
                 case 4:
                     allPowers.UseSnail();
+                    //gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
                     break;
 
             }
@@ -351,6 +359,14 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    // --------------------------- Change player colours on power up use -----------------
+
+    //IEnumerator RunShaking()
+    //{
+
+    //    yield return new WaitForSeconds(duration);//wait a second before funning aniamtion and displayign the slots
+
+    //}
     //Game over
     //Called in Assign scripts
     //public void PlayerDied()

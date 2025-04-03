@@ -6,7 +6,9 @@ public class MachineManager : MonoBehaviour
 {
     public AssignPowerUps assignPowerUpsAccess;
 
-    private ShakeManager shake;
+    //private ShakeManager shake;
+
+    public Animator cameraAnimation;
 
     public Animator slotAnimations;
 
@@ -16,7 +18,7 @@ public class MachineManager : MonoBehaviour
 
     void Start()
     {
-        shake = GameObject.FindGameObjectWithTag("ShakingManager").GetComponent<ShakeManager>();
+        cameraAnimation = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Animator>();
         //shake.CameraShake();
 
         //assignPowerUpsAccess.Generate();
@@ -34,7 +36,7 @@ public class MachineManager : MonoBehaviour
         int duration = 4;
         Debug.Log("Start shake");
 
-        shake.CameraShake();
+        CameraShake();
 
         yield return new WaitForSeconds(duration);//wait a second before funning aniamtion and displayign the slots
         
@@ -56,6 +58,10 @@ public class MachineManager : MonoBehaviour
         slotAnimations.SetTrigger("Fade");
     }
 
+    public void CameraShake()
+    {
+        cameraAnimation.SetTrigger("Shake");
+    }
 
 
 
