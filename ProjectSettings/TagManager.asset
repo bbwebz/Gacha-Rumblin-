@@ -9,6 +9,7 @@ TagManager:
   - GlassCanon
   - Floor
   - MainLayout
+  - ShakingManager
   layers:
   - Default
   - TransparentFX

@@ -245,6 +245,54 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""UIMovement"",
+            ""id"": ""ae01d2fd-59d7-4f92-bb2c-8232b3ce9877"",
+            ""actions"": [
+                {
+                    ""name"": ""Left"",
+                    ""type"": ""Value"",
+                    ""id"": ""f55221df-1956-453a-9d3a-ff38322226c2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Submit"",
+                    ""type"": ""Button"",
+                    ""id"": ""b5cf3b29-1a86-4b29-a577-3065438268ba"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""7be45a42-257d-45e0-a09f-b619a97d7889"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3e93d2ba-0964-48b1-9291-71ac6d7cdbe5"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Submit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -271,6 +319,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Gameplay_HotBarSelectrightdirection = m_Gameplay.FindAction("Hot Bar Select (right direction)", throwIfNotFound: true);
         m_Gameplay_Crouch = m_Gameplay.FindAction("Crouch", throwIfNotFound: true);
         m_Gameplay_PauseGame = m_Gameplay.FindAction("Pause Game", throwIfNotFound: true);
+        // UIMovement
+        m_UIMovement = asset.FindActionMap("UIMovement", throwIfNotFound: true);
+        m_UIMovement_Left = m_UIMovement.FindAction("Left", throwIfNotFound: true);
+        m_UIMovement_Submit = m_UIMovement.FindAction("Submit", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -430,6 +482,60 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         }
     }
     public GameplayActions @Gameplay => new GameplayActions(this);
+
+    // UIMovement
+    private readonly InputActionMap m_UIMovement;
+    private List<IUIMovementActions> m_UIMovementActionsCallbackInterfaces = new List<IUIMovementActions>();
+    private readonly InputAction m_UIMovement_Left;
+    private readonly InputAction m_UIMovement_Submit;
+    public struct UIMovementActions
+    {
+        private @PlayerControls m_Wrapper;
+        public UIMovementActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Left => m_Wrapper.m_UIMovement_Left;
+        public InputAction @Submit => m_Wrapper.m_UIMovement_Submit;
+        public InputActionMap Get() { return m_Wrapper.m_UIMovement; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIMovementActions set) { return set.Get(); }
+        public void AddCallbacks(IUIMovementActions instance)
+        {
+            if (instance == null || m_Wrapper.m_UIMovementActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_UIMovementActionsCallbackInterfaces.Add(instance);
+            @Left.started += instance.OnLeft;
+            @Left.performed += instance.OnLeft;
+            @Left.canceled += instance.OnLeft;
+            @Submit.started += instance.OnSubmit;
+            @Submit.performed += instance.OnSubmit;
+            @Submit.canceled += instance.OnSubmit;
+        }
+
+        private void UnregisterCallbacks(IUIMovementActions instance)
+        {
+            @Left.started -= instance.OnLeft;
+            @Left.performed -= instance.OnLeft;
+            @Left.canceled -= instance.OnLeft;
+            @Submit.started -= instance.OnSubmit;
+            @Submit.performed -= instance.OnSubmit;
+            @Submit.canceled -= instance.OnSubmit;
+        }
+
+        public void RemoveCallbacks(IUIMovementActions instance)
+        {
+            if (m_Wrapper.m_UIMovementActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IUIMovementActions instance)
+        {
+            foreach (var item in m_Wrapper.m_UIMovementActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_UIMovementActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public UIMovementActions @UIMovement => new UIMovementActions(this);
     private int m_GamepadSchemeIndex = -1;
     public InputControlScheme GamepadScheme
     {
@@ -449,5 +555,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnHotBarSelectrightdirection(InputAction.CallbackContext context);
         void OnCrouch(InputAction.CallbackContext context);
         void OnPauseGame(InputAction.CallbackContext context);
+    }
+    public interface IUIMovementActions
+    {
+        void OnLeft(InputAction.CallbackContext context);
+        void OnSubmit(InputAction.CallbackContext context);
     }
 }

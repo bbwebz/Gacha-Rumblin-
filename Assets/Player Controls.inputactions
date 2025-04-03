@@ -223,6 +223,54 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "UIMovement",
+            "id": "ae01d2fd-59d7-4f92-bb2c-8232b3ce9877",
+            "actions": [
+                {
+                    "name": "Left",
+                    "type": "Value",
+                    "id": "f55221df-1956-453a-9d3a-ff38322226c2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Submit",
+                    "type": "Button",
+                    "id": "b5cf3b29-1a86-4b29-a577-3065438268ba",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "7be45a42-257d-45e0-a09f-b619a97d7889",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3e93d2ba-0964-48b1-9291-71ac6d7cdbe5",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
