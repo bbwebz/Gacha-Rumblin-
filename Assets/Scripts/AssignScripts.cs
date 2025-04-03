@@ -97,11 +97,6 @@ public class AssignScripts : MonoBehaviour
             player1Prefab.GetComponent<PlayerController>().inventoryP1 =  player1Inventory.GetComponent<InventoryP1>();
             player2Prefab.GetComponent<PlayerController>().inventoryP2 =  player2Inventory.GetComponent<InventoryP1>();
 
-            //Assigning all power ups colour to sprite renderer
-            AllPowerUpsAccess.GetComponent<AllPowerUps>().Player1Colour = player1Prefab.GetComponent<SpriteRenderer>();
-            AllPowerUpsAccess.GetComponent<AllPowerUps>().Player2Colour = player2Prefab.GetComponent<SpriteRenderer>();
-
-
             //Game Over
             //player1Prefab.GetComponent<PlayerController>().PlayerDied();
             //player2Prefab.GetComponent<PlayerController>().PlayerDied();
@@ -111,8 +106,7 @@ public class AssignScripts : MonoBehaviour
             RoundManagerAccess.GetComponent<RoundManager>().player2HealthAccess = player2Prefab.GetComponent<Player2Health>();
 
             //Timer
-            TimerControllerAccess.GetComponent<TimerController>().playerControllerAccess = player2Prefab.GetComponent<PlayerController>(); //both players have the script so it doesnt matter
-            
+            TimerControllerAccess.GetComponent<TimerController>().startTimer();
         }
 
 

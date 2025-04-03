@@ -16,13 +16,6 @@ public class PlayerConfigManager : MonoBehaviour
     public static PlayerConfigManager Instance { get; private set; }
 
 
-    ////Testin with vid
-    //[SerializeField]
-    //private PlayerConfiguration[] charcaters;
-    //[SerializeField]
-    //public PlayerConfiguration currentCharacter;
-    //public static PlayerConfigManager Instance { get;  set; }
-
     private void Awake()
     {
         if (Instance != null)
@@ -38,7 +31,7 @@ public class PlayerConfigManager : MonoBehaviour
 
     }
 
- 
+
     public void HandlePlayerJoin(PlayerInput pi)
     {
         Debug.Log("player joined " + pi.playerIndex);
@@ -48,7 +41,6 @@ public class PlayerConfigManager : MonoBehaviour
         {
             playerConfigs.Add(new PlayerConfiguration(pi));
         }
-        //Gamepad.all;
     }
 
     public List<PlayerConfiguration> GetPlayerConfigs()
@@ -56,21 +48,22 @@ public class PlayerConfigManager : MonoBehaviour
         return playerConfigs;
     }
 
-    //public void SetPlayerSprite(int index, Sprite sprite)
-    public void SetPlayerCharacter(int index, GameObject sprite)
+    //Setting player prefab
+    public void SetPlayerCharacter(int index, GameObject prefab)
     {
-        playerConfigs[index].PlayerSprite = sprite;
-        //StaticData.PlayerPrefab.Add(sprite);
+        playerConfigs[index].PlayerPrefab = prefab;
+        StaticData.PlayerPrefab.Add(prefab);
     }
 
     //If both players clicked ready then load next scene
+    //On ready buttons
     public void ReadyPlayer(int index)
     {
         playerConfigs[index].isReady = true;
         if (playerConfigs.Count == MaxPlayers && playerConfigs.All(p => p.isReady == true))
         {
-            //SceneManager.LoadScene("GachaMachine");//loead next scene when all players have clicked ready
-            SceneManager.LoadScene("Level_1");//loead next scene when all players have clicked ready
+            SceneManager.LoadScene("GachaMachine");//loead next scene when all players have clicked ready
+            //SceneManager.LoadScene("Level_1");//loead next scene when all players have clicked ready
         }
         Debug.Log("Player: " +  playerConfigs[index] + "is ready.");
     }
@@ -89,16 +82,8 @@ public class PlayerConfiguration
     public int PlayerIndex { get; private set; }
     public bool isReady { get; set; }
 
-    //Player sprite that will me changed
-    //public GameObject playerPrefab{get;set};
-    public GameObject PlayerSprite { get; set; }
-
-
-    ////Charcater options lsit
-
-    //public GameObject ChracterPrefab;
-    //public string name;
-    //public Sprite CharcaterIcon;
+    //Player Prefab that will me changed
+    public GameObject PlayerPrefab { get; set; }
 
 
 
