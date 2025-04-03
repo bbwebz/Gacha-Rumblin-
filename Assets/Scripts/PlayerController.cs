@@ -354,30 +354,6 @@ public class PlayerController : MonoBehaviour
             arePlayersColliding = false;
         }
 
-       
-
     }
-
-
-    // --------------------------- Change player colours on power up use -----------------
-
-    //IEnumerator RunShaking()
-    //{
-
-    //    yield return new WaitForSeconds(duration);//wait a second before funning aniamtion and displayign the slots
-
-    //}
-    //Game over
-    //Called in Assign scripts
-    //public void PlayerDied()
-    //{
-    //    //if a player dies game over
-    //    if (Player1HealthAccess.health == 0 || Player2HealthAccess.health == 0)
-    //    {
-    //        Debug.Log("Player died, Game over");
-    //        SceneManager.LoadScene("EndGame");
-    //    }
-    //}
-
 
 }

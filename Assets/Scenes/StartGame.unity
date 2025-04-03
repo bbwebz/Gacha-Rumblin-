@@ -151,7 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: addefb1e871878241952c78d3cd4d645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transition: {fileID: 4070662770825062011}
 --- !u!4 &227594179
 Transform:
   m_ObjectHideFlags: 0
@@ -663,7 +662,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: GachaMachine
+          m_StringArgument: CharacterSelect
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1050964390
