@@ -111,8 +111,7 @@ public class AssignScripts : MonoBehaviour
             RoundManagerAccess.GetComponent<RoundManager>().player2HealthAccess = player2Prefab.GetComponent<Player2Health>();
 
             //Timer
-            TimerControllerAccess.GetComponent<TimerController>().playerControllerAccess = player2Prefab.GetComponent<PlayerController>(); //both players have the script so it doesnt matter
-            
+            TimerControllerAccess.GetComponent<TimerController>().startTimer();
         }
 
 

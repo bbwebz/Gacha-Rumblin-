@@ -400,8 +400,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Continue...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 075662b6fa3c4754da205deb86383682, type: 2}
-  m_sharedMaterial: {fileID: 497526634631864333, guid: 075662b6fa3c4754da205deb86383682, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7504951f4150d2d499da8af0aaace148, type: 2}
+  m_sharedMaterial: {fileID: 2999948021667936103, guid: 7504951f4150d2d499da8af0aaace148, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -685,7 +685,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Level_1
+          m_StringArgument: Level
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1120022043

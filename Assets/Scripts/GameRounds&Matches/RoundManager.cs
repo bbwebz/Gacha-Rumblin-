@@ -21,17 +21,22 @@ public class RoundManager : MonoBehaviour
 
     private void Update()
     {
-        nextRound();
+        if (player1HealthAccess != null && player2HealthAccess != null && numOfRounds <= 3)
+        {
+            nextRound();
+        }
+
     }
 
-    private void nextRound()
+    public void nextRound()
     {
-        if (player1HealthAccess.health == 0 || player2HealthAccess.health == 0 || timerControllerAccess.timeLeft == 0)
+
+        if (player1HealthAccess.health == 0 || player2HealthAccess.health == 0 || timerControllerAccess.timeLeft < 0.01f)
         {
             numOfRounds++; //increase a round
             Debug.Log("number of rounds is now:" + numOfRounds);
 
-            if (numOfRounds < 3) //if still rounds remaining to play
+            if (numOfRounds <= 3) //if still rounds remaining to play
             {
                 if (player1HealthAccess.health == 0)
                 {
@@ -39,7 +44,7 @@ public class RoundManager : MonoBehaviour
                     winningRoundPlayer = 2;
                     staticDataMatches.winningRoundPlayerKeep = winningRoundPlayer;
                     Debug.Log("winningRoundPlayer is: " + winningRoundPlayer);
-                    Debug.Log("player2 numofwins is " + P2numOfWins);
+                    //Debug.Log("player2 numofwins is " + P2numOfWins);
                 }
                 else if (player2HealthAccess.health == 0)
                 {
@@ -47,28 +52,39 @@ public class RoundManager : MonoBehaviour
                     winningRoundPlayer = 1;
                     staticDataMatches.winningRoundPlayerKeep = winningRoundPlayer;
                     Debug.Log("winningRoundPlayer is: " + winningRoundPlayer);
-                    Debug.Log("player1 numofwins is " + P1numOfWins);
+                    //Debug.Log("player1 numofwins is " + P1numOfWins);
                 }
                 else
                 {
-                    //winningRoundPlayer = 0;
+                    winningRoundPlayer = 0;
+                    staticDataMatches.winningRoundPlayerKeep = winningRoundPlayer;
                     Debug.Log("winningRoundPlayer is: " + winningRoundPlayer);
-                    Debug.Log("Round was a tie");
+                    //Debug.Log("Round was a tie");
                 }
 
-                SceneManager.LoadScene("EndGame"); //so they can click "next round" button
+                if (numOfRounds < 3)
+                {
+                    Debug.Log("loading end game scene now");
+                    SceneManager.LoadScene("EndGame"); //so they can click "next round" button
+                }
             }
 
-            if(numOfRounds == 3) //all rounds are complete
+            if (numOfRounds == 3) //all rounds are complete
             {
+                Debug.Log("YOU HAVE ENETERD IF STATEMENT");
+                checkWinner(P1numOfWins, P2numOfWins);
+                Debug.Log("winner has been determined");
                 SceneManager.LoadScene("Victory"); //display which player won all rounds
-                checkWinner(P1numOfWins,P2numOfWins);
+                
                 //reset everything
-                numOfRounds = 0;
+                /*numOfRounds = 0;
                 P1numOfWins = 0;
-                P2numOfWins = 0;
-                //winningRoundPlayer = 0;
+                P2numOfWins = 0;*/
+                //staticDataMatches.winningRoundPlayerKeep = winningRoundPlayer = 0;
+                //staticDataMatches.winningPlayerKeep = winningPlayer = 0;
             }
+
+
         }
     }
 
