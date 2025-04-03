@@ -309,6 +309,9 @@ MonoBehaviour:
   jumpPose: {fileID: 21300000, guid: 722662a1df0e0ec40a447a8f5eefbca2, type: 3}
   punchPose: {fileID: 21300000, guid: 731d1b79a0b23ab488724af8d11d3ee2, type: 3}
   PlayerIndex: 0
+  pI: {fileID: 0}
+  p1Sprite: {fileID: 21300000, guid: 5d7e396693542ae439c03fc1274f76fa, type: 3}
+  p2Sprite: {fileID: 21300000, guid: 088587f1f6324d64f8a57c7f5e01ffe6, type: 3}
   Player1Trig: 0
   Player2Trig: 0
   touchingFloor: 0
