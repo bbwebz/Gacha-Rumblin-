@@ -53,9 +53,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private bool touchingFloor = false;
 
+
+    InputDevice device;
+
+
     private void Awake()
     {
         controls = new PlayerControls();
+        anim = GetComponent<Animator>();
     }
 
     void Start()
@@ -64,7 +69,7 @@ public class PlayerController : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
 
-        anim = GetComponent<Animator>();
+       
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         rb.freezeRotation = true;
@@ -79,11 +84,10 @@ public class PlayerController : MonoBehaviour
 
              gameObject.AddComponent<Player1Health>();//Add player 1 health script to player 1
 
-            transform.position = new Vector3(-6, 0, 0);//player 1 starting position
-
-
             AssignScripts.assigner.player1Prefab = gameObject;
+            device = SpawnPlayerSetupMenu.device1;
 
+            Debug.Log("player 1 device; " + device);
 
         }
         else if (PlayerIndex == 1)//player 2
@@ -93,13 +97,14 @@ public class PlayerController : MonoBehaviour
 
              gameObject.AddComponent<Player2Health>();//Add player 2 health script to player 2
 
-            transform.position = new Vector3(7, 0, 0);//player 2 starting position
-
-            //need to adjust animation accordingly
-        
 
             //Assigns player2prefab ins assignscripts as the player 2 game object
             AssignScripts.assigner.player2Prefab = gameObject;
+
+            //device = gameObject.GetComponent<PlayerInput>().devices[0];
+            device = SpawnPlayerSetupMenu.device2;
+
+            Debug.Log("player 2 device; " + device);
 
             Debug.Log("StaticData.itemP1Keep" + StaticData.itemP1Keep);
             Debug.Log("StaticData.itemP2Keep" + StaticData.itemP2Keep);
@@ -203,6 +208,7 @@ public class PlayerController : MonoBehaviour
                     Player2HealthAccess.dealDamageToP1();
                     Player1HealthAccess.dealKnockbackToSelf(isFacingLeft);
                 }
+                //Make IEnumerator to hold pose for a second
 
                 //reset to prepare for the next attack press
                 didAttack = false;
@@ -220,32 +226,37 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Trigger pressed used");
 
-        if (PlayerIndex == 0)//if player 1 triggers power up 
+        if (PlayerIndex == 0  && allPowers != null)//if player 1 triggers power up 
         {
             //if player 1 triggerd it player 1 trigger = true
             Player1Trig = true;
-       
+
             Debug.Log("Player 1 trigger");
             switch (StaticData.itemP1Keep)
             {
                 case 0:
                     allPowers.UseGlassCanon();
+                    //gameObject.GetComponent<SpriteRenderer>().color = Color.green;
                     break;
 
                 case 1:
                     allPowers.UseBeefed();
+                    //gameObject.GetComponent<SpriteRenderer>().color = Color.green;
                     break;
 
                 case 2:
                     allPowers.UseShield();
+                    //gameObject.GetComponent<SpriteRenderer>().color = Color.green;
                     break;
 
                 case 3:
                     allPowers.UseSpeed();
+                    //gameObject.GetComponent<SpriteRenderer>().color = Color.green;
                     break;
 
                 case 4:
                     allPowers.UseSnail();
+                    //gameObject.GetComponent<SpriteRenderer>().color = Color.green;
                     break;
             }
             StaticData.itemP1Keep = -1;//set item id to -1 so that power up fucntion will no longer be called
@@ -259,28 +270,33 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        else if (PlayerIndex == 1)//if player 2 triggers power up 
+        else if (PlayerIndex == 1 && allPowers != null)//if player 2 triggers power up 
         {
             Player2Trig = true;
             switch (StaticData.itemP2Keep)
             {
                 case 0:
                     allPowers.UseGlassCanon();
+                    //gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
                     break;
 
                 case 1:
                     allPowers.UseBeefed();
+                    //gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
                     break;
 
                 case 2:
                     allPowers.UseShield();
+                    //gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
                     break;
                 case 3:
                     allPowers.UseSpeed();
+                    //gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
                     break;
 
                 case 4:
                     allPowers.UseSnail();
+                    //gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
                     break;
 
             }

@@ -18,7 +18,6 @@ public class RoundManager : MonoBehaviour
     public static int winningRoundPlayer = 0; //1 or 2
 
    
-
     private void Update()
     {
         if (player1HealthAccess != null && player2HealthAccess != null && numOfRounds <= 3)
@@ -27,6 +26,7 @@ public class RoundManager : MonoBehaviour
         }
 
     }
+
 
     public void nextRound()
     {
