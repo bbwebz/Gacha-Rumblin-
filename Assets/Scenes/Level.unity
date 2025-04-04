@@ -1478,7 +1478,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &719955220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1486,7 +1486,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 719955219}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
   m_Name: 
@@ -1902,7 +1902,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1076588866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1910,7 +1910,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1076588865}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
   m_Name: 
@@ -2848,6 +2848,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1HealthAccess: {fileID: 0}
   player2HealthAccess: {fileID: 0}
+  pickupAccess: []
+  assignPowerUpsAccess: {fileID: 0}
+  allPowerUpsAccess: {fileID: 0}
   swapButtonP1: {fileID: 1461227017}
   swapButtonP2: {fileID: 2094612995}
   isUsedP1: 0
@@ -3249,6 +3252,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1HealthAccess: {fileID: 0}
   player2HealthAccess: {fileID: 0}
+  pickupAccess:
+  - {fileID: 484866532}
+  - {fileID: 535547304}
+  - {fileID: 1090177893}
+  - {fileID: 705535403}
+  - {fileID: 903758348}
+  assignPowerUpsAccess: {fileID: 1483055531}
+  allPowerUpsAccess: {fileID: 418204527}
   swapButtonP1: {fileID: 1461227017}
   swapButtonP2: {fileID: 2094612995}
   isUsedP1: 0
@@ -3972,7 +3983,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1956545514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3980,7 +3991,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1956545513}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b69ae746df9a5f449e182d9def3ca49, type: 3}
   m_Name: 
@@ -4436,6 +4447,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1HealthAccess: {fileID: 0}
   player2HealthAccess: {fileID: 0}
+  pickupAccess: []
+  assignPowerUpsAccess: {fileID: 0}
+  allPowerUpsAccess: {fileID: 0}
   swapButtonP1: {fileID: 1461227017}
   swapButtonP2: {fileID: 2094612995}
   isUsedP1: 0
@@ -4643,6 +4657,7 @@ SceneRoots:
   - {fileID: 740840876}
   - {fileID: 418204528}
   - {fileID: 1483055532}
+  - {fileID: 1639979317}
   - {fileID: 1279990581}
   - {fileID: 1815362777}
   - {fileID: 1672296224}
@@ -4658,4 +4673,3 @@ SceneRoots:
   - {fileID: 579418502}
   - {fileID: 1578416284}
   - {fileID: 1956545515}
-  - {fileID: 1639979317}

@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     public AllPowerUps allPowers;
     public InventoryP1 inventoryP1;
     public InventoryP1 inventoryP2;
+    public SwapButton swapButtonAccess;
 
 
     //for animation//
@@ -377,6 +378,64 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
+    public void OnGamble(InputAction.CallbackContext context)
+    {
+        if (PlayerIndex == 0 && allPowers != null)//if player 1 triggers power up 
+        {
+            Debug.Log("Playwer 1 gamble");
+            swapButtonAccess.assignNewPowerUp();
+            switch (StaticData.itemP1Keep)
+            {
+                case 0:
+                    allPowers.UseGlassCanon();
+                    //gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+                    break;
+
+                case 1:
+                    allPowers.UseBeefed();
+                    //gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+                    break;
+
+                case 2:
+                    allPowers.UseShield();
+                    //gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+                    break;
+
+                case 3:
+                    allPowers.UseSpeed();
+                    //gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+                    break;
+
+                case 4:
+                    allPowers.UseSnail();
+                    //gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+                    break;
+            }
+            StaticData.itemP1Keep = -1;//set item id to -1 so that power up fucntion will no longer be called
+
+            for (int i = 0; i < inventoryP1.slots.Length; i++)
+            {
+                inventoryP1.isFull[i] = false;//inventory is now empty
+            }
+
+        }
+        else if (PlayerIndex == 1 && allPowers != null)//if player 1 triggers power up 
+        {
+            Debug.Log("Playwer 2 gamble");
+
+        }
+
+        Debug.Log("right shoulder pressed for gamble use");
+
+
+
+
+    }
+
+
+
+
 
     //----------------------------------------------------------------------------//
 

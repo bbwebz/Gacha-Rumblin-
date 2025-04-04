@@ -98,6 +98,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Use Gamble"",
+                    ""type"": ""Button"",
+                    ""id"": ""3eccef3e-ec9a-40f3-b575-293375876424"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -243,6 +252,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Pause Game"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""81c638b8-461b-4fae-ad75-3c61a1155dc1"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Use Gamble"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -379,6 +399,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Gameplay_HotBarSelectrightdirection = m_Gameplay.FindAction("Hot Bar Select (right direction)", throwIfNotFound: true);
         m_Gameplay_Crouch = m_Gameplay.FindAction("Crouch", throwIfNotFound: true);
         m_Gameplay_PauseGame = m_Gameplay.FindAction("Pause Game", throwIfNotFound: true);
+        m_Gameplay_UseGamble = m_Gameplay.FindAction("Use Gamble", throwIfNotFound: true);
         // UIMovement
         m_UIMovement = asset.FindActionMap("UIMovement", throwIfNotFound: true);
         m_UIMovement_Left = m_UIMovement.FindAction("Left", throwIfNotFound: true);
@@ -455,6 +476,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_HotBarSelectrightdirection;
     private readonly InputAction m_Gameplay_Crouch;
     private readonly InputAction m_Gameplay_PauseGame;
+    private readonly InputAction m_Gameplay_UseGamble;
     public struct GameplayActions
     {
         private @PlayerControls m_Wrapper;
@@ -467,6 +489,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @HotBarSelectrightdirection => m_Wrapper.m_Gameplay_HotBarSelectrightdirection;
         public InputAction @Crouch => m_Wrapper.m_Gameplay_Crouch;
         public InputAction @PauseGame => m_Wrapper.m_Gameplay_PauseGame;
+        public InputAction @UseGamble => m_Wrapper.m_Gameplay_UseGamble;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -500,6 +523,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @PauseGame.started += instance.OnPauseGame;
             @PauseGame.performed += instance.OnPauseGame;
             @PauseGame.canceled += instance.OnPauseGame;
+            @UseGamble.started += instance.OnUseGamble;
+            @UseGamble.performed += instance.OnUseGamble;
+            @UseGamble.canceled += instance.OnUseGamble;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -528,6 +554,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @PauseGame.started -= instance.OnPauseGame;
             @PauseGame.performed -= instance.OnPauseGame;
             @PauseGame.canceled -= instance.OnPauseGame;
+            @UseGamble.started -= instance.OnUseGamble;
+            @UseGamble.performed -= instance.OnUseGamble;
+            @UseGamble.canceled -= instance.OnUseGamble;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -642,6 +671,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnHotBarSelectrightdirection(InputAction.CallbackContext context);
         void OnCrouch(InputAction.CallbackContext context);
         void OnPauseGame(InputAction.CallbackContext context);
+        void OnUseGamble(InputAction.CallbackContext context);
     }
     public interface IUIMovementActions
     {

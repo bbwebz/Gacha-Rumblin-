@@ -52,6 +52,7 @@ public class AssignScripts : MonoBehaviour
                 //Uncomment this if you are only working in Level 1 scene so you won't get an error
                 assignPowerUps.GetComponent<AssignPowerUps>().Generate();//generates random nums to assign powerUps to players
                 assignPowerUps.GetComponent<AssignPowerUps>().Assign();
+                assignPowerUps.GetComponent<AssignPowerUps>().AssignP2();
                 Debug.Log("AllpowerUps assigning");
                 onetime = true;
             }
@@ -114,6 +115,9 @@ public class AssignScripts : MonoBehaviour
             SwapButtonAccess.GetComponent<SwapButton>().player1HealthAccess = player1Prefab.GetComponent<Player1Health>();
             SwapButtonAccess.GetComponent<SwapButton>().player2HealthAccess = player2Prefab.GetComponent<Player2Health>();
             SwapButtonAccess.GetComponent<SwapButton>().setupSwapButton();
+            player1Prefab.GetComponent<PlayerController>().swapButtonAccess = SwapButtonAccess.GetComponent<SwapButton>();
+
+
         }
 
 
