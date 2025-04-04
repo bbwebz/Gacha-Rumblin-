@@ -257,6 +257,26 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 336cf9de-e044-44d8-90b7-206f4c23cb16
     m_ActionName: Gameplay/Pause Game[/DualSenseGamepadHID/start,/XInputControllerWindows/start]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f55221df-1956-453a-9d3a-ff38322226c2
+    m_ActionName: UIMovement/Left[/DualSenseGamepadHID/dpad/left,/XInputControllerWindows/dpad/left]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 81993d2a-a67d-4c34-b17c-28d891ee0662
+    m_ActionName: UIMovement/Right[/DualSenseGamepadHID/dpad/right,/XInputControllerWindows/dpad/right]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: beb9b114-11b0-4e8f-8185-a01007fab7b1
+    m_ActionName: UIMovement/Down[/DualSenseGamepadHID/dpad/down,/XInputControllerWindows/dpad/down]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b5cf3b29-1a86-4b29-a577-3065438268ba
+    m_ActionName: UIMovement/Submit[/DualSenseGamepadHID/buttonSouth,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f78e177d-81aa-406c-a196-6f936e4fba45
+    m_ActionName: UIMovement/Up[/DualSenseGamepadHID/dpad/up,/XInputControllerWindows/dpad/up]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Gameplay
@@ -306,13 +326,14 @@ MonoBehaviour:
   allPowers: {fileID: 0}
   inventoryP1: {fileID: 0}
   inventoryP2: {fileID: 0}
-  idlePose: {fileID: 21300000, guid: cb4ff93fa84e8504d8d7aea40cf500c2, type: 3}
+  idlePose: {fileID: 21300000, guid: 8425878c5bea6ff4b84e66b626b0ed5e, type: 3}
   jumpPose: {fileID: 21300000, guid: 7117c32407608064f85edda9457b6f43, type: 3}
   punchPose: {fileID: 21300000, guid: 06082ecf30492d745938c51887f43b3a, type: 3}
   PlayerIndex: 0
   Player1Trig: 0
   Player2Trig: 0
   touchingFloor: 0
+  attacking: 1
 --- !u!114 &7877183802135793232
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,12 +12,12 @@ public class PlayerConfigManager : MonoBehaviour
     [SerializeField]
     public int MaxPlayers = 2;//there is a max of 2 players at once
 
-
     public static PlayerConfigManager Instance { get; private set; }
 
 
     private void Awake()
     {
+
         if (Instance != null)
         {
             Debug.Log("[Singleton] Trying to instantiate a seccond instance of a singleton class.");
@@ -49,10 +49,13 @@ public class PlayerConfigManager : MonoBehaviour
     }
 
     //Setting player prefab
+    //public void SetPlayerCharacter(int index, GameObject prefab, InputDevice device)
     public void SetPlayerCharacter(int index, GameObject prefab)
     {
         playerConfigs[index].PlayerPrefab = prefab;
-        StaticData.PlayerPrefab.Add(prefab);
+        //playerConfigs[index].inputDevice = device ;
+        //StaticData.PlayerPrefab.Add(prefab);
+        StaticData.PlayerPrefab[index] = prefab;
     }
 
     //If both players clicked ready then load next scene
@@ -63,7 +66,7 @@ public class PlayerConfigManager : MonoBehaviour
         if (playerConfigs.Count == MaxPlayers && playerConfigs.All(p => p.isReady == true))
         {
             SceneManager.LoadScene("GachaMachine");//loead next scene when all players have clicked ready
-            //SceneManager.LoadScene("Level_1");//loead next scene when all players have clicked ready
+            //SceneManager.LoadScene("Level");//loead next scene when all players have clicked ready
         }
         Debug.Log("Player: " +  playerConfigs[index] + "is ready.");
     }
@@ -79,6 +82,7 @@ public class PlayerConfiguration
     }
 
     public PlayerInput Input { get; private set; }
+    //public InputDevice inputDevice { get; set; }
     public int PlayerIndex { get; private set; }
     public bool isReady { get; set; }
 

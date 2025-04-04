@@ -53,8 +53,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private bool touchingFloor = false;
 
+    public bool attacking = true;
 
-    InputDevice device;
+    InputDevice[] device = { SpawnPlayerSetupMenu.device1, SpawnPlayerSetupMenu.device2 };
+    //List<InputDevice> device = new List<InputDevice>();
+
 
 
     private void Awake()
@@ -82,12 +85,43 @@ public class PlayerController : MonoBehaviour
         if (PlayerIndex == 0) {
             gameObject.tag = "Player1";//give the first player to enter the player 1 tag
 
-             gameObject.AddComponent<Player1Health>();//Add player 1 health script to player 1
+            gameObject.AddComponent<Player1Health>();//Add player 1 health script to player 1
 
             AssignScripts.assigner.player1Prefab = gameObject;
-            device = SpawnPlayerSetupMenu.device1;
+            //device = SpawnPlayerSetupMenu.device1;
 
-            Debug.Log("player 1 device; " + device);
+            Debug.Log("SpawnPlayerSetupMenu.device1" + SpawnPlayerSetupMenu.device1);
+
+            //device[0] = SpawnPlayerSetupMenu.device1;
+            Debug.Log("device[0]" + device[0]);
+
+
+            Gamepad.all.ToArray();
+
+            for (int i = 0; i < Gamepad.all.Count; i++)
+            {
+                if (device[0] == Gamepad.all[i])
+                {
+                    Debug.Log("They have the same gamepad");
+                    gameObject.GetComponent<PlayerInput>().actions.devices = new InputDevice[] { Gamepad.all[i] };
+
+                }
+                else
+                {
+                    Debug.Log("They have different gamepad");
+
+                }
+            }
+
+            //gameObject.GetComponent<PlayerInput>().SwitchCurrentControlScheme("Gamepad", Gamepad.all[2]);
+
+
+            //Debug.Log("player 1 device; " + device + "Prefab: " + gameObject);
+            //Get list of all gamepads and compare it with SpawnPlayerSetupMenu.device1
+            //if they match that is the gamepad the player will use
+
+            
+
 
         }
         else if (PlayerIndex == 1)//player 2
@@ -102,15 +136,37 @@ public class PlayerController : MonoBehaviour
             AssignScripts.assigner.player2Prefab = gameObject;
 
             //device = gameObject.GetComponent<PlayerInput>().devices[0];
-            device = SpawnPlayerSetupMenu.device2;
+            //device = SpawnPlayerSetupMenu.device2;
 
-            Debug.Log("player 2 device; " + device);
+
+            //Debug.Log("player 2 device; " + device + "Prefab: " + gameObject);
 
             Debug.Log("StaticData.itemP1Keep" + StaticData.itemP1Keep);
             Debug.Log("StaticData.itemP2Keep" + StaticData.itemP2Keep);
+
+            Gamepad.all.ToArray();
+
+            for (int i = 0; i < Gamepad.all.Count; i++)
+            {
+                if (device[1] == Gamepad.all[i])
+                {
+                    Debug.Log("They have the same gamepad");
+                    gameObject.GetComponent<PlayerInput>().actions.devices = new InputDevice[] { Gamepad.all[i] };
+
+                }
+                else
+                {
+                    Debug.Log("They have different gamepad");
+
+                }
+            }
+
+            //gameObject.GetComponent<PlayerInput>().SwitchCurrentControlScheme("Gamepad", Gamepad.all[0]);
+
+
         }
 
-       
+
 
     }
     
@@ -171,6 +227,12 @@ public class PlayerController : MonoBehaviour
             spriteRenderer.sprite = jumpPose;
             //Debug.Log("you pressed jump");
         }
+        if (touchingFloor == true && attacking == true)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            anim.enabled = false;
+            spriteRenderer.sprite = punchPose;
+        }
     }
 
     public void OnAttack(InputAction.CallbackContext context)
@@ -178,6 +240,7 @@ public class PlayerController : MonoBehaviour
         //punch pose
         anim.enabled = false;
         spriteRenderer.sprite = punchPose;
+        attacking = true;
 
         Debug.Log("you pressed attack"); //player's touching + button pressed
 
@@ -212,6 +275,8 @@ public class PlayerController : MonoBehaviour
 
                 //reset to prepare for the next attack press
                 didAttack = false;
+                attacking = false;
+
             }
             else
             {
