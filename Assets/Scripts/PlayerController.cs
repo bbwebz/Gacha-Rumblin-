@@ -89,8 +89,8 @@ public class PlayerController : MonoBehaviour
              gameObject.AddComponent<Player1Health>();//Add player 1 health script to player 1
 
             transform.position = new Vector3(-6, 0, 0);//player 1 starting position
-            pI = Instantiate(pI, new Vector3(-6, 1, 0), transform.rotation); //player indicitaor initialization
-            pI.transform.parent = GameObject.FindGameObjectWithTag("Player2").transform;
+            pI = Instantiate(pI, new Vector3(-6, 2, 0), transform.rotation); //player indicitaor initialization
+            pI.transform.parent = gameObject.transform;
             indicatorSprite.sprite = p1Sprite;
 
 
@@ -109,8 +109,8 @@ public class PlayerController : MonoBehaviour
 
 
             transform.position = new Vector3(7, 0, 0);//player 2 starting position
-            pI = Instantiate(pI, new Vector3(7, 1, 0), transform.rotation); //player indicator object intitilization
-            pI.transform.parent = GameObject.FindGameObjectWithTag("Player2").transform;
+            pI = Instantiate(pI, new Vector3(7, 2, 0), transform.rotation); //player indicator object intitilization
+            pI.transform.parent = gameObject.transform;
             indicatorSprite.sprite = p2Sprite;
 
             //need to adjust animation accordingly
