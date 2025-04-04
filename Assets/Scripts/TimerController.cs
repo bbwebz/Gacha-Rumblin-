@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
+
 public class TimerController : MonoBehaviour
 {
     [SerializeField] TMPro.TextMeshProUGUI timerDisplay;
@@ -17,6 +18,9 @@ public class TimerController : MonoBehaviour
     PlayerControls controls;
     public GameObject PauseMenu;
 
+    public AssignScripts assignScriptsAccess;
+
+    bool oneTime = false;
 
     private void Awake()
     {
@@ -25,14 +29,31 @@ public class TimerController : MonoBehaviour
 
     void Start()
     {
-        timeLeft = gameTime;
+        //timeLeft = gameTime;
         controls.Gameplay.Enable();
         controls.Gameplay.PauseGame.performed += OnPause;
         isGamePaused = false;
+
     }
 
-    void Update()
+    public void startTimer()
     {
+        // if (playerControllerAccess.PlayerIndex == 1 && playerControllerAccess.PlayerIndex == 2) //both players have been spawned in
+
+        if (!oneTime)
+        {
+            if (assignScriptsAccess.player2Prefab != null)
+            {
+                Debug.Log("timer has now started");
+                timeLeft = gameTime; //start the timer once both players instantiate
+            }
+            else
+            {
+                Debug.Log("timer has NOT started yet");
+            }
+            oneTime = true;
+        }
+
         if (timeLeft > 0 && isGamePaused == false)
         {
             timeLeft -= Time.deltaTime;
@@ -55,12 +76,6 @@ public class TimerController : MonoBehaviour
             timerDisplay.text = "00:00";
         }
 
-
-        if(timeLeft == 0)
-        {
-            SceneManager.LoadScene("EndGame");
-        }
-
     }
 
     public void resumeTimer()
@@ -80,4 +95,6 @@ public class TimerController : MonoBehaviour
     {
         pauseTimer();
     }
+
+
 }
