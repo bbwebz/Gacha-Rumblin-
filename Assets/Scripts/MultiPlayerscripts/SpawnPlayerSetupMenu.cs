@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,16 +41,24 @@ public class SpawnPlayerSetupMenu : MonoBehaviour
             {
                 device1 = gameObject.GetComponent<PlayerInput>().devices[0];
                 Debug.Log("player 1 device; " + device1);
-
             }
             else if (PlayerIndex == 1)
             {
                 //Debug.Log("player 2");
                 device2 = gameObject.GetComponent<PlayerInput>().devices[0];
                 Debug.Log("player 2 device; " + device2);
-
-
+    
             }
+
+            for (int i = 0; i <  Gamepad.all.Count; i++)
+            {
+                Debug.Log("Gmapad all " + i + "; " + Gamepad.all[i]);
+            }
+
+        
+            //var gamepad = Gamepad.all[0];
+            //Debug.Log("gamepad" + gamepad);
+
 
 
         }

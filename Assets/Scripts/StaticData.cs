@@ -10,8 +10,12 @@ public static class StaticData
     public static int itemP2Keep;
 
 
-    //Level initializer
-    public static List<GameObject> PlayerPrefab = new List<GameObject>();
+    //player config manager to Level initializer
+    //public static List<GameObject> PlayerPrefab = new List<GameObject>();
+    public static GameObject obj1;
+    public static GameObject obj2;
+
+    public static GameObject[] PlayerPrefab = { obj1, obj2 };
 
     //Spawn player setup menu to player controller
     //to save which device belongs to which player
