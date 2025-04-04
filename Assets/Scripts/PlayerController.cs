@@ -60,11 +60,15 @@ public class PlayerController : MonoBehaviour
 
     InputDevice device;
 
+    AudioManager audioManager;
+
+    
 
     private void Awake()
     {
         controls = new PlayerControls();
         anim = GetComponent<Animator>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     void Start()
@@ -215,6 +219,7 @@ public class PlayerController : MonoBehaviour
                 timeAttackBttnPress = Time.time; //capture the time stamp of when the button was pressed
                 didAttack = true;
                 Debug.Log("you landed an attack");
+                audioManager.PlaySFX(audioManager.damage);
 
                 if (gameObject.CompareTag("Player1"))
                 {
@@ -246,6 +251,7 @@ public class PlayerController : MonoBehaviour
 
         if (PlayerIndex == 0  && allPowers != null)//if player 1 triggers power up 
         {
+            audioManager.PlaySFX(audioManager.powerUp);
             //if player 1 triggerd it player 1 trigger = true
             Player1Trig = true;
 
@@ -291,6 +297,8 @@ public class PlayerController : MonoBehaviour
         else if (PlayerIndex == 1 && allPowers != null)//if player 2 triggers power up 
         {
             Player2Trig = true;
+            audioManager.PlaySFX(audioManager.powerUp);
+
             switch (StaticData.itemP2Keep)
             {
                 case 0:

@@ -19,6 +19,10 @@ public class PlayerSetupMenuController : MonoBehaviour
 
     private float ignoreInputTime = 1.5f;
     private bool inputEnabled;
+
+
+
+    
     public void setPlayerIndex(int pi)
     {
         playerIndex = pi;

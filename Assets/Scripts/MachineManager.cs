@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 
 public class MachineManager : MonoBehaviour
@@ -15,6 +16,13 @@ public class MachineManager : MonoBehaviour
 
     [SerializeField]
     private GameObject Canvas;
+
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     void Start()
     {
@@ -33,8 +41,10 @@ public class MachineManager : MonoBehaviour
 
     IEnumerator RunShaking()
     {
-        int duration = 4;
+        int duration = 7;
         Debug.Log("Start shake");
+
+        audioManager.PlaySFX(audioManager.rouletteWheel);
 
         CameraShake();
 
