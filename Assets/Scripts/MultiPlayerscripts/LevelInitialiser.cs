@@ -12,9 +12,6 @@ public class LevelInitialiser : MonoBehaviour
     [SerializeField]
     private GameObject playerPrefab;
 
-    public PlayerInputManager playerInputManager;
-
-
 
     void Start()
     {

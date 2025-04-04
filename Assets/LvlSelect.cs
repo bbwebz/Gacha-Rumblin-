@@ -8,6 +8,6 @@ public class LvlSelect : MonoBehaviour
         //Once clicked, set the index to the new bg sprite's
         PlayerPrefs.SetInt("SelectedLevel", levelIndex);
         PlayerPrefs.Save();
-        SceneManager.LoadScene("GachaMachine");
+        SceneManager.LoadScene("GachaMachine");//go to the gacha machin
     }
 }

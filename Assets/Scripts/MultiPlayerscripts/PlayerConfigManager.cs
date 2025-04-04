@@ -65,8 +65,7 @@ public class PlayerConfigManager : MonoBehaviour
         playerConfigs[index].isReady = true;
         if (playerConfigs.Count == MaxPlayers && playerConfigs.All(p => p.isReady == true))
         {
-            SceneManager.LoadScene("GachaMachine");//loead next scene when all players have clicked ready
-            //SceneManager.LoadScene("Level");//loead next scene when all players have clicked ready
+            SceneManager.LoadScene("LevelSelect");//loead next scene when all players have clicked ready
         }
         Debug.Log("Player: " +  playerConfigs[index] + "is ready.");
     }
