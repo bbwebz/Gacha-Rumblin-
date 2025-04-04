@@ -23,20 +23,12 @@ public class AllPowerUps : MonoBehaviour
     public AssignPowerUps assignPowerUps;
 
 
-    public bool Inventory1 = false;
-    public bool Inventory2 = false;
+    public InventoryP1 Inventory1;
+    public InventoryP1 Inventory2;
 
+    //Overlays
     public GameObject PhysicalShieldSprite;
     public GameObject PhysicalShieldClone;
-
-    [SerializeField] int MoveUp;
-
-    public Renderer PlayerObject;
-
-    public SpriteRenderer Player1Colour;
-    public SpriteRenderer Player2Colour;
-
-    //Default Material
 
 
 
@@ -47,32 +39,13 @@ public class AllPowerUps : MonoBehaviour
     public void Start()
     {
         AssignScripts.assigner.AllPowerUpsAccess = gameObject;
-        //Default.color = Color.white;
-        //GlassCanon.color = Color.white;
-        //Beefed.color = Color.blue;
-        //Speed.color = Color.green;
-        //Snail.color = Color.yellow;
+
     }
 
 
-    //public void Update()
-    //{
-    //    if (AssignScripts.assigner.player2Prefab != null)
-    //    {
-    //        if (!onetime)
-    //        {
-    //            Default.color = Color.white;
-    //            GlassCanon.color = Color.white;
-    //            Beefed.color = Color.blue;
-    //            Speed.color = Color.green;
-    //            Snail.color = Color.yellow;
-    //            onetime = true;
-    //        }
-
-    //    }
-    //}
-
-
+    //Glass canon
+    //Id = 0
+    //Loose 1 health but can do double the damage
     public void UseGlassCanon()//activate power up
     {
             StartCoroutine(GlassCanonSequence());
@@ -92,7 +65,10 @@ public class AllPowerUps : MonoBehaviour
 
             Debug.Log("Player 1 damage amount: " + Player1HealthAccess.Player1DamageAmount);
 
-            //Player1Colour.material.color = Color.gray;//Change player colour
+            Player1ControllerAccess.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+
+            //PowerUpOverlaysClone = Instantiate(PowerUpOverlays, Player1ControllerAccess.transform, false);//Instantiate shield on top of player
+
 
             Destroy(assignPowerUps.powerUps[0].IconClone);//destroy power up button of the first item in the array
             yield return new WaitForSeconds(duration);//has powerup for 5 seconds
@@ -104,7 +80,13 @@ public class AllPowerUps : MonoBehaviour
             Player2HealthAccess.health -= 1;//take away 1 health form p2
             Player2HealthAccess.Player2DamageAmount += 1;//Player 2 can now do an extra amount of damage
 
+            Player2ControllerAccess.gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
+
+
             //Player2Colour.material.color = Color.gray;//Change player colour
+
+            //PowerUpOverlaysClone = Instantiate(PowerUpOverlays, Player2ControllerAccess.transform, false);//Instantiate shield on top of player
+
 
             Destroy(assignPowerUps.powerUps[0].IconClone);//destroy power up button of the first item in the array
             yield return new WaitForSeconds(duration);//has powerup for 5 seconds
@@ -130,6 +112,11 @@ public class AllPowerUps : MonoBehaviour
         Player2HealthAccess.Player2DamageAmount = 0.5f;
 
 
+        //set plyer colours back to normal
+        Player1ControllerAccess.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        Player2ControllerAccess.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+
+
         Debug.Log("deactivated Glass Canon");
 
 
@@ -144,7 +131,7 @@ public class AllPowerUps : MonoBehaviour
         StartCoroutine(BeefedSequence());
         Debug.Log("Beefed used");
     }
-
+    //+1 health, can do no damage
 
     IEnumerator BeefedSequence()
     {
@@ -159,11 +146,11 @@ public class AllPowerUps : MonoBehaviour
                 Debug.Log("increase player 2 health");
             }
 
-            Player1HealthAccess.Player1DamageAmount -= 1;//Player 1 can now do less damage
+            Player1HealthAccess.Player1DamageAmount = 0;//Player 1 can now do less damage
 
             Debug.Log("Player 1 damage amount: " + Player1HealthAccess.Player1DamageAmount);
 
-            //Player1Colour.material.color = Color.blue;//Change player colour
+            Player1ControllerAccess.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
 
 
             Destroy(assignPowerUps.powerUps[1].IconClone);//destroy power up button of the first item in the array
@@ -178,9 +165,8 @@ public class AllPowerUps : MonoBehaviour
                 Debug.Log("increase player 2 health");
                 Player2HealthAccess.health += 1;
             }
-            Player2HealthAccess.Player2DamageAmount -= 1;///Player 2 can now do less damage
-
-            //Player2Colour.material.color = Color.blue;//Change player colour
+            Player2HealthAccess.Player2DamageAmount = 0;///Player 2 can now do less damage
+            Player2ControllerAccess.gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
 
 
             Destroy(assignPowerUps.powerUps[1].IconClone);//destroy power up button of the first item in the array
@@ -203,6 +189,11 @@ public class AllPowerUps : MonoBehaviour
         //set player damage amount back to normal
         Player1HealthAccess.Player1DamageAmount = 0.5f;
         Player2HealthAccess.Player2DamageAmount = 0.5f;
+
+
+        //set plyer colours back to normal
+        Player1ControllerAccess.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        Player2ControllerAccess.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
 
         Debug.Log("deactivate Beefed");
 
@@ -233,9 +224,11 @@ public class AllPowerUps : MonoBehaviour
             Player2HealthAccess.Player2DamageAmount = 0;//Disable Player 2's ability to do damage
 
             Debug.Log("Player 1 damage amount: " + Player1HealthAccess.Player1DamageAmount);
+            Player1HealthAccess.health  -= 1;
 
 
-            PhysicalShieldClone = Instantiate(PhysicalShieldSprite, Player1ControllerAccess.transform, false);//Instantiate shield on top of player
+            PhysicalShieldClone = Instantiate(PhysicalShieldSprite, Player1ControllerAccess.gameObject.transform, false);//Instantiate shield on top of player
+            //PowerUpOverlaysClone.GetComponent<SpriteRenderer>().color = Color.cyan;
 
             Destroy(assignPowerUps.powerUps[2].IconClone);//destroy power up button of the  item in the array
             yield return new WaitForSeconds(duration);//has powerup for 5 seconds
@@ -245,6 +238,9 @@ public class AllPowerUps : MonoBehaviour
         else if (Player2ControllerAccess.Player2Trig == true)//If player 2 has the power up and is using it
         {
             Player1HealthAccess.Player1DamageAmount = 0;///Disable Player 1's ability to do damage
+
+            PhysicalShieldClone = Instantiate(PhysicalShieldSprite, Player2ControllerAccess.gameObject.transform, false);//Instantiate shield on top of player
+            Player2HealthAccess.health  -= 1;
 
 
             Destroy(assignPowerUps.powerUps[2].IconClone);//destroy power up button of the first item in the array
@@ -293,7 +289,7 @@ public class AllPowerUps : MonoBehaviour
             Player1ControllerAccess.moveSpeed = 20f;//Player is now faster
             Player2HealthAccess.Player2DamageAmount = 2;//gets more dmage if hit
 
-            //Player1Colour.material.color = Color.green;//Change player colour
+            Player1ControllerAccess.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
 
 
             Destroy(assignPowerUps.powerUps[3].IconClone);//destroy power up button of the first item in the array
@@ -306,7 +302,8 @@ public class AllPowerUps : MonoBehaviour
             Player2ControllerAccess.moveSpeed = 20f;//Player is now faster
             Player1HealthAccess.Player1DamageAmount = 2;//gets more dmage if hit
 
-            //Player2Colour.material.color = Color.green;//Change player colour
+            Player2ControllerAccess.gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
+
 
             Destroy(assignPowerUps.powerUps[3].IconClone);//destroy power up button of the first item in the array
             yield return new WaitForSeconds(duration);//has powerup for 5 seconds
@@ -333,6 +330,10 @@ public class AllPowerUps : MonoBehaviour
         Player1HealthAccess.Player1DamageAmount = 0.5f;
         Player2HealthAccess.Player2DamageAmount = 0.5f;
 
+        //set plyer colours back to normal
+        Player1ControllerAccess.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        Player2ControllerAccess.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+
         Debug.Log("deactivate Speed");
 
     }
@@ -340,11 +341,13 @@ public class AllPowerUps : MonoBehaviour
 
 
     //------------------------ Snail ---------------------------------
+    //Player is slower but does 2 damage
     // id = 4
     public void UseSnail()//activate power up
     {
         StartCoroutine(SnailSequence());
         Debug.Log("Snail used");
+
     }
 
 
@@ -358,7 +361,7 @@ public class AllPowerUps : MonoBehaviour
             Player1ControllerAccess.moveSpeed = 5f;//Player is now slower
             Player1HealthAccess.Player1DamageAmount = 2;// does more damage
 
-            //Player1Colour.material.color = Color.red;//Change player colour
+            Player1ControllerAccess.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
 
 
             Destroy(assignPowerUps.powerUps[4].IconClone);//destroy power up button of the first item in the array
@@ -371,7 +374,8 @@ public class AllPowerUps : MonoBehaviour
             Player2ControllerAccess.moveSpeed = 5f;//Player is now slower
             Player2HealthAccess.Player2DamageAmount = 2;//  does more damage
 
-            //Player1Colour.material.color = Color.red;//Change player colour
+            Player2ControllerAccess.gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
+
 
             Destroy(assignPowerUps.powerUps[4].IconClone);//destroy power up button of the first item in the array
             yield return new WaitForSeconds(duration);//has powerup for 5 seconds
@@ -397,6 +401,11 @@ public class AllPowerUps : MonoBehaviour
         //set player damage amount back to normal
         Player1HealthAccess.Player1DamageAmount = 0.5f;
         Player2HealthAccess.Player2DamageAmount = 0.5f;
+
+        //set plyer colours back to normal
+        Player1ControllerAccess.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        Player2ControllerAccess.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+
 
         Debug.Log("deactivate Snail");
 

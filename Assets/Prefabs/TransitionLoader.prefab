@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2286008705882874357}
-  - component: {fileID: 2243930897806507873}
   m_Layer: 0
   m_Name: TransitionLoader
   m_TagString: Untagged
@@ -33,19 +32,6 @@ Transform:
   - {fileID: 330054926482115696}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2243930897806507873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1008304813737440221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1141540f772a5e541ad69d340d021085, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  transition: {fileID: 4054857910718390095}
 --- !u!1 &1399406032292543758
 GameObject:
   m_ObjectHideFlags: 0
