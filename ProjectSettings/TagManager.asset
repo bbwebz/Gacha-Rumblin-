@@ -8,6 +8,8 @@ TagManager:
   - Player2
   - GlassCanon
   - Floor
+  - MainLayout
+  - ShakingManager
   layers:
   - Default
   - TransparentFX
