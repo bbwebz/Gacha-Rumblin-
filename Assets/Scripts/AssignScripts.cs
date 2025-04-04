@@ -25,6 +25,8 @@ public class AssignScripts : MonoBehaviour
 
     public GameObject TimerControllerAccess;
 
+    public GameObject SwapButtonAccess;
+
 
     bool onetime = false;
 
@@ -107,6 +109,11 @@ public class AssignScripts : MonoBehaviour
 
             //Timer
             TimerControllerAccess.GetComponent<TimerController>().startTimer();
+
+            //Gamble Swap Button
+            SwapButtonAccess.GetComponent<SwapButton>().player1HealthAccess = player1Prefab.GetComponent<Player1Health>();
+            SwapButtonAccess.GetComponent<SwapButton>().player2HealthAccess = player2Prefab.GetComponent<Player2Health>();
+            SwapButtonAccess.GetComponent<SwapButton>().setupSwapButton();
         }
 
 
