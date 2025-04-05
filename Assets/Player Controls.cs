@@ -258,6 +258,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Submit"",
+                    ""type"": ""Button"",
+                    ""id"": ""f759f25d-058c-4b55-8659-1abe7a4b46cd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -315,6 +324,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""04d6e0b5-95f3-4e85-8e47-6a69c04ec11d"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Submit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -346,6 +366,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         // UIMovement
         m_UIMovement = asset.FindActionMap("UIMovement", throwIfNotFound: true);
         m_UIMovement_Move = m_UIMovement.FindAction("Move", throwIfNotFound: true);
+        m_UIMovement_Submit = m_UIMovement.FindAction("Submit", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -510,11 +531,13 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_UIMovement;
     private List<IUIMovementActions> m_UIMovementActionsCallbackInterfaces = new List<IUIMovementActions>();
     private readonly InputAction m_UIMovement_Move;
+    private readonly InputAction m_UIMovement_Submit;
     public struct UIMovementActions
     {
         private @PlayerControls m_Wrapper;
         public UIMovementActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_UIMovement_Move;
+        public InputAction @Submit => m_Wrapper.m_UIMovement_Submit;
         public InputActionMap Get() { return m_Wrapper.m_UIMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -527,6 +550,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @Submit.started += instance.OnSubmit;
+            @Submit.performed += instance.OnSubmit;
+            @Submit.canceled += instance.OnSubmit;
         }
 
         private void UnregisterCallbacks(IUIMovementActions instance)
@@ -534,6 +560,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @Submit.started -= instance.OnSubmit;
+            @Submit.performed -= instance.OnSubmit;
+            @Submit.canceled -= instance.OnSubmit;
         }
 
         public void RemoveCallbacks(IUIMovementActions instance)
@@ -574,5 +603,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     public interface IUIMovementActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnSubmit(InputAction.CallbackContext context);
     }
 }

@@ -368,26 +368,26 @@ public class PlayerController : MonoBehaviour
             {
                 case 0:
                     allPowers.UseGlassCanon();
-                    //gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
+                    gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
                     break;
 
                 case 1:
                     allPowers.UseBeefed();
-                    //gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
+                    gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
                     break;
 
                 case 2:
                     allPowers.UseShield();
-                    //gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
+                    gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
                     break;
                 case 3:
                     allPowers.UseSpeed();
-                    //gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
+                    gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
                     break;
 
                 case 4:
                     allPowers.UseSnail();
-                    //gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
+                    gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
                     break;
 
             }

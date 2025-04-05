@@ -27,8 +27,16 @@ public class PlayerSetupMenuController : MonoBehaviour
     public void setPlayerIndex(int pi)
     {
         playerIndex = pi;
-        titleText.SetText("Player " + (pi + 1).ToString());//get player index
+        titleText.SetText("Player " + (pi + 1).ToString());//Displayer Player 1 or 2 depending on Index
         ignoreInputTime = Time.time + ignoreInputTime;
+        if (playerIndex == 1)
+        {
+            menuPanel.transform.localPosition = new Vector3(-633, -12, 0);//position of character select menu
+            menuPanel.transform.localScale = new Vector3(-1, 1, 1);//Flip on x Axis via scale
+
+            readyPanel.transform.localPosition = new Vector3(-633, -12, 0);//position of ready button
+
+        }
     }
 
 

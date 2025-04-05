@@ -34,6 +34,7 @@ public class AssignScripts : MonoBehaviour
         {
             assigner = this;
         }
+
     }
 
 
@@ -53,6 +54,7 @@ public class AssignScripts : MonoBehaviour
                 Debug.Log("AllpowerUps assigning");
                 onetime = true;
             }
+
 
             //players health containers
             //Add player healths to appropriate containers
