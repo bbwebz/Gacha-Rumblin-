@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     public InventoryP1 inventoryP1;
     public InventoryP1 inventoryP2;
     public SwapButton swapButtonAccess;
+    public Pickup pickupAccess;
 
 
     //for animation//
@@ -381,10 +382,18 @@ public class PlayerController : MonoBehaviour
 
     public void OnGamble(InputAction.CallbackContext context)
     {
-        if (PlayerIndex == 0 && allPowers != null)//if player 1 triggers power up 
+        Debug.Log("right shoulder pressed for gamble use");
+        //start running the following functions to constantly check
+        swapButtonAccess.setupSwapButton();
+        swapButtonAccess.assignNewPowerUp();
+
+        if (PlayerIndex == 0 && allPowers != null && context.performed)//if player 1 triggers power up 
         {
-            Debug.Log("Playwer 1 gamble");
-            swapButtonAccess.assignNewPowerUp();
+            Debug.Log("Player 1 gamble");
+            swapButtonAccess.isUsedP1 = true; //to hide the button
+           
+            
+            /*
             switch (StaticData.itemP1Keep)
             {
                 case 0:
@@ -418,15 +427,18 @@ public class PlayerController : MonoBehaviour
             {
                 inventoryP1.isFull[i] = false;//inventory is now empty
             }
+            */
 
         }
-        else if (PlayerIndex == 1 && allPowers != null)//if player 1 triggers power up 
+        
+        if (PlayerIndex == 1 && allPowers != null && context.performed)//if player 1 triggers power up 
         {
-            Debug.Log("Playwer 2 gamble");
+            Debug.Log("Player 2 gamble");
+
+            swapButtonAccess.isUsedP2 = true; //to hide the button
 
         }
 
-        Debug.Log("right shoulder pressed for gamble use");
 
 
 

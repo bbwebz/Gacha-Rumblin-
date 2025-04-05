@@ -28,6 +28,7 @@ public class AssignScripts : MonoBehaviour
     public GameObject SwapButtonAccess;
 
 
+
     bool onetime = false;
 
     private void Awake()
@@ -116,7 +117,7 @@ public class AssignScripts : MonoBehaviour
             SwapButtonAccess.GetComponent<SwapButton>().player2HealthAccess = player2Prefab.GetComponent<Player2Health>();
             SwapButtonAccess.GetComponent<SwapButton>().setupSwapButton();
             player1Prefab.GetComponent<PlayerController>().swapButtonAccess = SwapButtonAccess.GetComponent<SwapButton>();
-
+            player2Prefab.GetComponent<PlayerController>().swapButtonAccess = SwapButtonAccess.GetComponent<SwapButton>();
 
         }
 
