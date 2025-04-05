@@ -391,9 +391,11 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Player 1 gamble");
             swapButtonAccess.isUsedP1 = true; //to hide the button
-           
-            
+            Debug.Log("before waiting a few seconds");
+            StartCoroutine(delaySec()); //wait before automatically applying the new swapped power up
+
             /*
+            //automatically apply the new swapped power up
             switch (StaticData.itemP1Keep)
             {
                 case 0:
@@ -428,14 +430,14 @@ public class PlayerController : MonoBehaviour
                 inventoryP1.isFull[i] = false;//inventory is now empty
             }
             */
-
         }
         
         if (PlayerIndex == 1 && allPowers != null && context.performed)//if player 1 triggers power up 
         {
             Debug.Log("Player 2 gamble");
-
             swapButtonAccess.isUsedP2 = true; //to hide the button
+            Debug.Log("before waiting a few seconds");
+            StartCoroutine(delaySec()); //wait before automatically applying the new swapped power up
 
         }
 
@@ -443,6 +445,12 @@ public class PlayerController : MonoBehaviour
 
 
 
+    }
+
+    IEnumerator delaySec()
+    {
+        yield return new WaitForSeconds(3);
+        Debug.Log("after waiting a few seconds");
     }
 
 

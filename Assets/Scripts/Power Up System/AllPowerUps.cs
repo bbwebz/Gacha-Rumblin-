@@ -65,7 +65,7 @@ public class AllPowerUps : MonoBehaviour
 
             Debug.Log("Player 1 damage amount: " + Player1HealthAccess.Player1DamageAmount);
 
-            Player1ControllerAccess.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+            Player1ControllerAccess.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 0.647f, 0f); //orange
 
             //PowerUpOverlaysClone = Instantiate(PowerUpOverlays, Player1ControllerAccess.transform, false);//Instantiate shield on top of player
 
@@ -80,7 +80,7 @@ public class AllPowerUps : MonoBehaviour
             Player2HealthAccess.health -= 1;//take away 1 health form p2
             Player2HealthAccess.Player2DamageAmount += 1;//Player 2 can now do an extra amount of damage
 
-            Player2ControllerAccess.gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
+            Player2ControllerAccess.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 0.647f, 0f); //orange
 
 
             //Player2Colour.material.color = Color.gray;//Change player colour
@@ -166,7 +166,7 @@ public class AllPowerUps : MonoBehaviour
                 Player2HealthAccess.health += 1;
             }
             Player2HealthAccess.Player2DamageAmount = 0;///Player 2 can now do less damage
-            Player2ControllerAccess.gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
+            Player2ControllerAccess.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
 
 
             Destroy(assignPowerUps.powerUps[1].IconClone);//destroy power up button of the first item in the array
@@ -289,7 +289,7 @@ public class AllPowerUps : MonoBehaviour
             Player1ControllerAccess.moveSpeed = 20f;//Player is now faster
             Player2HealthAccess.Player2DamageAmount = 2;//gets more dmage if hit
 
-            Player1ControllerAccess.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+            Player1ControllerAccess.gameObject.GetComponent<SpriteRenderer>().color = Color.green; //green
 
 
             Destroy(assignPowerUps.powerUps[3].IconClone);//destroy power up button of the first item in the array
@@ -302,7 +302,7 @@ public class AllPowerUps : MonoBehaviour
             Player2ControllerAccess.moveSpeed = 20f;//Player is now faster
             Player1HealthAccess.Player1DamageAmount = 2;//gets more dmage if hit
 
-            Player2ControllerAccess.gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
+            Player2ControllerAccess.gameObject.GetComponent<SpriteRenderer>().color = Color.green; //green
 
 
             Destroy(assignPowerUps.powerUps[3].IconClone);//destroy power up button of the first item in the array
@@ -361,7 +361,7 @@ public class AllPowerUps : MonoBehaviour
             Player1ControllerAccess.moveSpeed = 5f;//Player is now slower
             Player1HealthAccess.Player1DamageAmount = 2;// does more damage
 
-            Player1ControllerAccess.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+            Player1ControllerAccess.gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
 
 
             Destroy(assignPowerUps.powerUps[4].IconClone);//destroy power up button of the first item in the array
