@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6163142180049270193}
   - component: {fileID: 5595479910025041052}
   - component: {fileID: 7257603313979277892}
+  - component: {fileID: 5873179392310671725}
   m_Layer: 7
   m_Name: playersPrefabs
   m_TagString: Player1
@@ -258,24 +259,8 @@ MonoBehaviour:
     m_ActionName: Gameplay/Pause Game[/DualSenseGamepadHID/start,/XInputControllerWindows/start]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: f55221df-1956-453a-9d3a-ff38322226c2
-    m_ActionName: UIMovement/Left
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 81993d2a-a67d-4c34-b17c-28d891ee0662
-    m_ActionName: UIMovement/Right
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: beb9b114-11b0-4e8f-8185-a01007fab7b1
-    m_ActionName: UIMovement/Down
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: b5cf3b29-1a86-4b29-a577-3065438268ba
-    m_ActionName: UIMovement/Submit
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: f78e177d-81aa-406c-a196-6f936e4fba45
-    m_ActionName: UIMovement/Up
+    m_ActionId: e9f722b5-1493-4c6b-9ce2-615316d546f2
+    m_ActionName: UIMovement/Move[/DualSenseGamepadHID/dpad/up,/XInputControllerWindows/dpad/up,/DualSenseGamepadHID/dpad/down,/XInputControllerWindows/dpad/down,/DualSenseGamepadHID/dpad/left,/XInputControllerWindows/dpad/left,/DualSenseGamepadHID/dpad/right,/XInputControllerWindows/dpad/right]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Gameplay
@@ -335,3 +320,16 @@ MonoBehaviour:
   Player1Trig: 0
   Player2Trig: 0
   touchingFloor: 0
+  attacking: 1
+--- !u!114 &5873179392310671725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961861736527330357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d99f4f027a663c41b087d36f168d30f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
