@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PlayerSetupMenuController : MonoBehaviour
@@ -47,7 +48,7 @@ public class PlayerSetupMenuController : MonoBehaviour
 
         PlayerConfigManager.Instance.SetPlayerCharacter(playerIndex, IdlePose);//set player sprite
 
-        Debug.Log("prefab: " + IdlePose);
+        Debug.Log("prefab: " + IdlePose + ", playerIndex: " + playerIndex);
 
         readyPanel.SetActive(true);//turn on ready panel
         readyButton.interactable = true;//turn on ready button

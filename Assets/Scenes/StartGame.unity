@@ -151,7 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: addefb1e871878241952c78d3cd4d645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transition: {fileID: 4070662770825062011}
 --- !u!4 &227594179
 Transform:
   m_ObjectHideFlags: 0
@@ -544,7 +543,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 473325c3b3d23534ea80aa79c8a59342, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c8f5ebfad9c7e7148baac78b3cad0fbe, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -12,13 +12,14 @@ public class LevelInitialiser : MonoBehaviour
     [SerializeField]
     private GameObject playerPrefab;
 
+
     void Start()
     {
         Debug.Log("start");
 
         //playerPrefab = prefab that was selected in PlayerSetUpMenuController
 
-        //InputDevice test = playerPrefab.GetComponent<PlayerInput>().devices[0];
+        //InputDevice test2 = playerPrefab.GetComponent<PlayerInput>().SwitchCurrentActionMap(Gamepad.all[1]);
 
 
         var playerConfigs = PlayerConfigManager.Instance.GetPlayerConfigs().ToArray();
@@ -31,11 +32,12 @@ public class LevelInitialiser : MonoBehaviour
             //then i = 0
 
             //Instantiate players at spawn point
-         
+
             var player = Instantiate(playerPrefab, playerSpawns[i].position, playerSpawns[i].rotation, gameObject.transform);
 
             player.GetComponent<PlayerInputHandler>().InitializePlayer(playerConfigs[i]);
-            
+
+
 
         }
     }
