@@ -72,5 +72,7 @@ public class PlayerSetupMenuController : MonoBehaviour
 
         PlayerConfigManager.Instance.ReadyPlayer(playerIndex);
         readyButton.gameObject.SetActive(false);
+
+        Debug.Log("Player " + playerIndex + "is ready.");
     }
 }
