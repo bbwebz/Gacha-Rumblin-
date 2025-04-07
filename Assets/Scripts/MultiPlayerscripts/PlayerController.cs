@@ -49,8 +49,6 @@ public class PlayerController : MonoBehaviour
 
     public int PlayerIndex;
 
-    public bool Player1Trig = false;
-    public bool Player2Trig = false;
 
     [SerializeField]
     private bool touchingFloor = false;
@@ -59,8 +57,6 @@ public class PlayerController : MonoBehaviour
 
     InputDevice[] device = { SpawnPlayerSetupMenu.device1, SpawnPlayerSetupMenu.device2 };
     //List<InputDevice> device = new List<InputDevice>();
-
-
 
     private void Awake()
     {
@@ -296,33 +292,32 @@ public class PlayerController : MonoBehaviour
         if (PlayerIndex == 0  && allPowers != null)//if player 1 triggers power up 
         {
             //if player 1 triggerd it player 1 trigger = true
-            Player1Trig = true;
 
             Debug.Log("Player 1 trigger");
             switch (StaticData.itemP1Keep)
             {
                 case 0:
-                    allPowers.UseGlassCanon();
+                    allPowers.UseGlassCanon(1);
                     //gameObject.GetComponent<SpriteRenderer>().color = Color.green;
                     break;
 
                 case 1:
-                    allPowers.UseBeefed();
+                    allPowers.UseBeefed(1);
                     //gameObject.GetComponent<SpriteRenderer>().color = Color.green;
                     break;
 
                 case 2:
-                    allPowers.UseShield();
+                    allPowers.UseShield(1);
                     //gameObject.GetComponent<SpriteRenderer>().color = Color.green;
                     break;
 
                 case 3:
-                    allPowers.UseSpeed();
+                    allPowers.UseSpeed(1);
                     //gameObject.GetComponent<SpriteRenderer>().color = Color.green;
                     break;
 
                 case 4:
-                    allPowers.UseSnail();
+                    allPowers.UseSnail(1);
                     //gameObject.GetComponent<SpriteRenderer>().color = Color.green;
                     break;
             }
@@ -339,35 +334,35 @@ public class PlayerController : MonoBehaviour
 
         else if (PlayerIndex == 1 && allPowers != null)//if player 2 triggers power up 
         {
-            Player2Trig = true;
+            Debug.Log("Player 2 trigger");
+
             switch (StaticData.itemP2Keep)
             {
                 case 0:
-                    allPowers.UseGlassCanon();
+                    allPowers.UseGlassCanon(2); //pass in an int representing the player number 1 or 2
                     //gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
                     break;
 
                 case 1:
-                    allPowers.UseBeefed();
+                    allPowers.UseBeefed(2);
                     //gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
                     break;
 
                 case 2:
-                    allPowers.UseShield();
+                    allPowers.UseShield(2);
                     //gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
                     break;
                 case 3:
-                    allPowers.UseSpeed();
+                    allPowers.UseSpeed(2);
                     //gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
                     break;
 
                 case 4:
-                    allPowers.UseSnail();
+                    allPowers.UseSnail(2);
                     //gameObject.GetComponent<SpriteRenderer>().color = Color.yellow;
                     break;
 
             }
-            Debug.Log("Player 2 trigger");
 
             StaticData.itemP2Keep = -1;//set item id to -1 so that power up fucntion will no longer be called
 
@@ -387,12 +382,13 @@ public class PlayerController : MonoBehaviour
         swapButtonAccess.setupSwapButton();
         swapButtonAccess.assignNewPowerUp();
 
-        if (PlayerIndex == 0 && allPowers != null && context.performed)//if player 1 triggers power up 
+        if (PlayerIndex == 0 && allPowers != null && context.performed && swapButtonAccess.isUsedP1 == false && swapButtonAccess.swapButtonP1.IsActive() == true) 
         {
             Debug.Log("Player 1 gamble");
             swapButtonAccess.isUsedP1 = true; //to hide the button
-            Debug.Log("before waiting a few seconds");
-            StartCoroutine(delaySec()); //wait before automatically applying the new swapped power up
+
+            //Debug.Log("before waiting a few seconds");
+            //StartCoroutine(delaySec()); //wait before automatically applying the new swapped power up
 
             /*
             //automatically apply the new swapped power up
@@ -432,12 +428,12 @@ public class PlayerController : MonoBehaviour
             */
         }
         
-        if (PlayerIndex == 1 && allPowers != null && context.performed)//if player 1 triggers power up 
+        if (PlayerIndex == 1 && allPowers != null && context.performed && swapButtonAccess.isUsedP2 == false && swapButtonAccess.swapButtonP2.IsActive() == true)
         {
             Debug.Log("Player 2 gamble");
             swapButtonAccess.isUsedP2 = true; //to hide the button
-            Debug.Log("before waiting a few seconds");
-            StartCoroutine(delaySec()); //wait before automatically applying the new swapped power up
+            //Debug.Log("before waiting a few seconds");
+            //StartCoroutine(delaySec()); //wait before automatically applying the new swapped power up
 
         }
 

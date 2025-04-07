@@ -664,7 +664,7 @@ MonoBehaviour:
   Player1ControllerAccess: {fileID: 0}
   Player2ControllerAccess: {fileID: 0}
   assignPowerUps: {fileID: 1483055531}
-  Inventory1: {fileID: 0}
+  Inventory1: {fileID: 2142036052}
   Inventory2: {fileID: 0}
   PhysicalShieldSprite: {fileID: 8955789093480098335, guid: 530ed5ff0529da5449a715ba8c8c392f, type: 3}
   PhysicalShieldClone: {fileID: 0}

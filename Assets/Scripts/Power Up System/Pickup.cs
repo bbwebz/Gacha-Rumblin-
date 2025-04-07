@@ -27,7 +27,7 @@ public class Pickup : MonoBehaviour
 
    public void AddPowerUpP1()
     {
-
+        
         Debug.Log("into slot");
         for (int i = 0; i < inventoryP1.slots.Length; i++)
         {

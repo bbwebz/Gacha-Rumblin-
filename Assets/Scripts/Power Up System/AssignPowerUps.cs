@@ -31,7 +31,7 @@ public class AssignPowerUps : MonoBehaviour
     void Start()
     {
         //AssignScripts.assigner.assignPowerUps = gameObject;
-         itemIdlist = new List<int> { 0, 1, 2, 3, 4 };//list of number of powerups
+         //itemIdlist = new List<int> { 0, 1, 2, 3, 4 };//list of number of powerups
 
 
     }
@@ -82,8 +82,8 @@ public class AssignPowerUps : MonoBehaviour
         Debug.Log("Reassign PowerUp  numer: " + StaticData.itemP1Keep);
 
 
-        //Debug.Log(" Generate function StaticData.itemP1Keep" +  StaticData.itemP1Keep);
-        //Debug.Log(" Generate Function StaticData.itemP2Keep" +  StaticData.itemP2Keep);
+        Debug.Log(" Generate function StaticData.itemP1Keep" +  StaticData.itemP1Keep);
+        Debug.Log(" Generate Function StaticData.itemP2Keep" +  StaticData.itemP2Keep);
     }
 
     public void ReGenerateP2()
@@ -95,7 +95,7 @@ public class AssignPowerUps : MonoBehaviour
         itemIdlist.Remove(itemIdP2);//remove this option form the list
 
         //itemIdP2 = 1;
-        StaticData.itemP1Keep = itemIdP1;
+        StaticData.itemP2Keep = itemIdP2;
 
         Debug.Log(" Generate function StaticData.itemP1Keep" +  StaticData.itemP1Keep);
         Debug.Log(" Generate Function StaticData.itemP2Keep" +  StaticData.itemP2Keep);

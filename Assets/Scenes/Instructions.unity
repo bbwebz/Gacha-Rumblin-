@@ -188,7 +188,7 @@ SpriteRenderer:
   m_Size: {x: 6.73, y: 4.47}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &2308919
@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 97711456}
   - component: {fileID: 97711455}
   m_Layer: 5
-  m_Name: PlayButton
+  m_Name: 'continue '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -242,8 +242,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 485, y: -370.6128}
-  m_SizeDelta: {x: 315.3512, y: 91.4178}
+  m_AnchoredPosition: {x: 517.90735, y: -371.52692}
+  m_SizeDelta: {x: 381.166, y: 93.246}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &97711455
 MonoBehaviour:
@@ -298,7 +298,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: StartGame
+          m_StringArgument: GambleInstructions
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &97711456
@@ -1278,7 +1278,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PLAY
+  m_text: continue...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 075662b6fa3c4754da205deb86383682, type: 2}
   m_sharedMaterial: {fileID: 497526634631864333, guid: 075662b6fa3c4754da205deb86383682, type: 2}
