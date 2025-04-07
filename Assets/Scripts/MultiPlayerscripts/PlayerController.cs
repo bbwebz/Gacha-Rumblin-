@@ -386,61 +386,13 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Player 1 gamble");
             swapButtonAccess.isUsedP1 = true; //to hide the button
-
-            //Debug.Log("before waiting a few seconds");
-            //StartCoroutine(delaySec()); //wait before automatically applying the new swapped power up
-
-            /*
-            //automatically apply the new swapped power up
-            switch (StaticData.itemP1Keep)
-            {
-                case 0:
-                    allPowers.UseGlassCanon();
-                    //gameObject.GetComponent<SpriteRenderer>().color = Color.green;
-                    break;
-
-                case 1:
-                    allPowers.UseBeefed();
-                    //gameObject.GetComponent<SpriteRenderer>().color = Color.green;
-                    break;
-
-                case 2:
-                    allPowers.UseShield();
-                    //gameObject.GetComponent<SpriteRenderer>().color = Color.green;
-                    break;
-
-                case 3:
-                    allPowers.UseSpeed();
-                    //gameObject.GetComponent<SpriteRenderer>().color = Color.green;
-                    break;
-
-                case 4:
-                    allPowers.UseSnail();
-                    //gameObject.GetComponent<SpriteRenderer>().color = Color.green;
-                    break;
-            }
-            StaticData.itemP1Keep = -1;//set item id to -1 so that power up fucntion will no longer be called
-
-            for (int i = 0; i < inventoryP1.slots.Length; i++)
-            {
-                inventoryP1.isFull[i] = false;//inventory is now empty
-            }
-            */
         }
         
         if (PlayerIndex == 1 && allPowers != null && context.performed && swapButtonAccess.isUsedP2 == false && swapButtonAccess.swapButtonP2.IsActive() == true)
         {
             Debug.Log("Player 2 gamble");
             swapButtonAccess.isUsedP2 = true; //to hide the button
-            //Debug.Log("before waiting a few seconds");
-            //StartCoroutine(delaySec()); //wait before automatically applying the new swapped power up
-
         }
-
-
-
-
-
     }
 
     IEnumerator delaySec()
