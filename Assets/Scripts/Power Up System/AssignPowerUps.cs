@@ -31,7 +31,6 @@ public class AssignPowerUps : MonoBehaviour
     void Start()
     {
         //AssignScripts.assigner.assignPowerUps = gameObject;
-         //itemIdlist = new List<int> { 0, 1, 2, 3, 4 };//list of number of powerups
 
 
     }
@@ -39,8 +38,6 @@ public class AssignPowerUps : MonoBehaviour
     //Called at the start of each round in gacha machine screen
     public void Generate()
     {
-
-        //List<int> itemIdlist = new List<int> { 0, 1, 2, 3, 4 };//list of number of powerups
 
         //Generate power up for player 1
         itemIdP1 = itemIdlist[Random.Range(0, itemIdlist.Count)];//picks random num
@@ -59,8 +56,8 @@ public class AssignPowerUps : MonoBehaviour
         //itemIdP2 = 0;
         StaticData.itemP2Keep = itemIdP2;
 
-        //Debug.Log(" Generate function StaticData.itemP1Keep" +  StaticData.itemP1Keep);
-        //Debug.Log(" Generate Function StaticData.itemP2Keep" +  StaticData.itemP2Keep);
+        Debug.Log(" Generate function StaticData.itemP1Keep" +  StaticData.itemP1Keep);
+        Debug.Log(" Generate Function StaticData.itemP2Keep" +  StaticData.itemP2Keep);
 
 
 
@@ -79,8 +76,6 @@ public class AssignPowerUps : MonoBehaviour
 
         //itemIdP1 = 1;
         StaticData.itemP1Keep = itemIdP1;
-        Debug.Log("Reassign PowerUp  numer: " + StaticData.itemP1Keep);
-
 
         Debug.Log(" Generate function StaticData.itemP1Keep" +  StaticData.itemP1Keep);
         Debug.Log(" Generate Function StaticData.itemP2Keep" +  StaticData.itemP2Keep);

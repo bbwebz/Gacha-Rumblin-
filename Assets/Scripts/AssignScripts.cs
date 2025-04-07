@@ -37,6 +37,7 @@ public class AssignScripts : MonoBehaviour
         {
             assigner = this;
         }
+
     }
 
 
@@ -51,12 +52,13 @@ public class AssignScripts : MonoBehaviour
             {
                 //Assign power ups to each player
                 //Uncomment this if you are only working in Level 1 scene so you won't get an error
-                assignPowerUps.GetComponent<AssignPowerUps>().Generate();//generates random nums to assign powerUps to players
+                //assignPowerUps.GetComponent<AssignPowerUps>().Generate();//generates random nums to assign powerUps to players
                 assignPowerUps.GetComponent<AssignPowerUps>().Assign();
                 assignPowerUps.GetComponent<AssignPowerUps>().AssignP2();
                 Debug.Log("AllpowerUps assigning");
                 onetime = true;
             }
+
 
             //players health containers
             //Add player healths to appropriate containers

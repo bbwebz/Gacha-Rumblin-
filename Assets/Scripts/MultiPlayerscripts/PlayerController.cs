@@ -42,12 +42,16 @@ public class PlayerController : MonoBehaviour
 
     //for animation//
     private Animator anim;
-    private SpriteRenderer spriteRenderer;
-    public Sprite idlePose;
-    public Sprite jumpPose;
-    public Sprite punchPose;
+    //private SpriteRenderer spriteRenderer;
+    //public Sprite idlePose;
+    //public Sprite jumpPose;
+    //public Sprite punchPose;
 
     public int PlayerIndex;
+    public GameObject pI;
+    private SpriteRenderer indicatorSprite;
+    public Sprite p1Sprite;
+    public Sprite p2Sprite;
 
 
     [SerializeField]
@@ -56,12 +60,16 @@ public class PlayerController : MonoBehaviour
     public bool attacking = true;
 
     InputDevice[] device = { SpawnPlayerSetupMenu.device1, SpawnPlayerSetupMenu.device2 };
-    //List<InputDevice> device = new List<InputDevice>();
+
+    AudioManager audioManager;
+
+    public double floorPos;
 
     private void Awake()
     {
         controls = new PlayerControls();
         anim = GetComponent<Animator>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     void Start()
@@ -69,11 +77,11 @@ public class PlayerController : MonoBehaviour
         controls.Gameplay.Enable();
 
         rb = GetComponent<Rigidbody2D>();
+        floorPos = -2;
 
-       
-        spriteRenderer = GetComponent<SpriteRenderer>();
 
-        rb.freezeRotation = true;
+
+    rb.freezeRotation = true;
 
         //--------------- Player multiplayer -------------------
 
@@ -84,6 +92,12 @@ public class PlayerController : MonoBehaviour
             gameObject.tag = "Player1";//give the first player to enter the player 1 tag
 
             gameObject.AddComponent<Player1Health>();//Add player 1 health script to player 1
+
+            //transform.position = new Vector3(-6, 0, 0);//player 1 starting position
+            //pI = Instantiate(pI, new Vector3(-6, 2, 0), transform.rotation); //player indicitaor initialization
+            //pI.transform.parent = gameObject.transform;
+            //indicatorSprite.sprite = p1Sprite;
+
 
             AssignScripts.assigner.player1Prefab = gameObject;
             //device = SpawnPlayerSetupMenu.device1;
@@ -128,6 +142,14 @@ public class PlayerController : MonoBehaviour
             gameObject.tag = "Player2";//give the second player to enter the player 2 tag
 
              gameObject.AddComponent<Player2Health>();//Add player 2 health script to player 2
+
+
+            //transform.position = new Vector3(7, 0, 0);//player 2 starting position
+            //pI = Instantiate(pI, new Vector3(7, 2, 0), transform.rotation); //player indicator object intitilization
+            //pI.transform.parent = gameObject.transform;
+            //indicatorSprite.sprite = p2Sprite;
+
+            //need to adjust animation accordingly
 
 
             //Assigns player2prefab ins assignscripts as the player 2 game object
@@ -182,20 +204,22 @@ public class PlayerController : MonoBehaviour
             GetComponent<SpriteRenderer>().flipX = false;
         }
 
-        
+
         //falling//
-        if (gameObject.transform.position.y > -3.7)
+        if (gameObject.transform.position.y > floorPos)
         {
             //they are not on the floor
             touchingFloor = false;
+            anim.SetBool("isJumping", true);
 
-            anim.enabled = false;
-            spriteRenderer.sprite = jumpPose;
+            //anim.enabled = false;
+            //spriteRenderer.sprite = jumpPose;
         }
         else
         {
             //they are on the floor
             touchingFloor = true;
+            anim.SetBool("isJumping", false);
 
         }
 
@@ -208,10 +232,13 @@ public class PlayerController : MonoBehaviour
         Vector2 moveInput = context.ReadValue<Vector2>();
         moveDirection = new Vector2(moveInput.x, 0f);
         horizontal = context.ReadValue<Vector2>().x;
-        if (gameObject.transform.position.y < -3.7)
+        if (gameObject.transform.position.y < floorPos)
         {
-            anim.enabled = true;
+            anim.SetFloat("Moving", Mathf.Abs(horizontal));
+            //anim.SetFloat("Moving", 1);
+
         }
+
         //Debug.Log(moveDirection);
     }
 
@@ -221,24 +248,29 @@ public class PlayerController : MonoBehaviour
         if (touchingFloor == true)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-            anim.enabled = false;
-            spriteRenderer.sprite = jumpPose;
-            //Debug.Log("you pressed jump");
+            Debug.Log("touching floor: " + touchingFloor);
+            anim.SetBool("isJumping", false);
+
+           
         }
-        if (touchingFloor == true && attacking == true)
+        else if (touchingFloor == false) 
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-            anim.enabled = false;
-            spriteRenderer.sprite = punchPose;
+            Debug.Log("touching floor: " + touchingFloor);
+            anim.SetBool("isJumping", true);
+
         }
+
     }
 
     public void OnAttack(InputAction.CallbackContext context)
     {
         //punch pose
-        anim.enabled = false;
-        spriteRenderer.sprite = punchPose;
+        //anim.enabled = false;
+        //spriteRenderer.sprite = punchPose;
         attacking = true;
+
+        anim.SetTrigger("OnAttack");
+        anim.SetBool("isJumping", false);
 
         Debug.Log("you pressed attack"); //player's touching + button pressed
 
@@ -258,6 +290,7 @@ public class PlayerController : MonoBehaviour
                 timeAttackBttnPress = Time.time; //capture the time stamp of when the button was pressed
                 didAttack = true;
                 Debug.Log("you landed an attack");
+                audioManager.PlaySFX(audioManager.damage);
 
                 if (gameObject.CompareTag("Player1"))
                 {
@@ -269,11 +302,13 @@ public class PlayerController : MonoBehaviour
                     Player2HealthAccess.dealDamageToP1();
                     Player1HealthAccess.dealKnockbackToSelf(isFacingLeft);
                 }
-                //Make IEnumerator to hold pose for a second
 
                 //reset to prepare for the next attack press
                 didAttack = false;
                 attacking = false;
+                //anim.SetBool("OnAttack", attacking);
+                //Debug.Log("attacking false" + attacking);
+
 
             }
             else
@@ -281,6 +316,8 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("you're on attack cooldown WAIT");
             }
         }
+        Debug.Log("attacking true??" + attacking);
+
     }
 
 
@@ -291,6 +328,7 @@ public class PlayerController : MonoBehaviour
 
         if (PlayerIndex == 0  && allPowers != null)//if player 1 triggers power up 
         {
+            audioManager.PlaySFX(audioManager.powerUp);
             //if player 1 triggerd it player 1 trigger = true
 
             Debug.Log("Player 1 trigger");
@@ -425,10 +463,12 @@ public class PlayerController : MonoBehaviour
         }
 
         //idle// i need this to check if the player is moving
-        if ((rb.velocity == Vector2.zero) && (gameObject.transform.position.y < -3.7))
+        if ((rb.velocity == Vector2.zero) && (gameObject.transform.position.y < -floorPos))
         {
-            anim.enabled = false;
-            spriteRenderer.sprite = idlePose;
+            //anim.SetFloat("Moving", 0)
+
+            //anim.enabled = false;
+            //spriteRenderer.sprite = idlePose;
         }
     }
 
@@ -446,6 +486,26 @@ public class PlayerController : MonoBehaviour
             arePlayersColliding = false;
         }
 
+
+
+        ////falling//
+        //if (collision.gameObject.CompareTag("Floor"))   
+        //{
+        //    //they are on the floor
+        //    touchingFloor = true;
+        //    Debug.Log("colliding floor: " + touchingFloor);
+        //    anim.SetBool("isJumping", false);
+        //}
+
+
     }
+
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    touchingFloor = false;
+    //    anim.SetBool("isJumping", true);
+
+    //    Debug.Log("touching floor false: " + touchingFloor);
+    //}
 
 }
