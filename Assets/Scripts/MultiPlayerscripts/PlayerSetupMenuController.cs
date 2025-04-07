@@ -21,9 +21,15 @@ public class PlayerSetupMenuController : MonoBehaviour
     private float ignoreInputTime = 1.5f;
     private bool inputEnabled;
 
+    [SerializeField]
+    private Image CharacterSpotDisplay;
+
+    public Animator SlideInAniamtion;
+
+    //public GameObject SelectedPanel;
 
 
-    
+
     public void setPlayerIndex(int pi)
     {
         playerIndex = pi;
@@ -31,10 +37,12 @@ public class PlayerSetupMenuController : MonoBehaviour
         ignoreInputTime = Time.time + ignoreInputTime;
         if (playerIndex == 1)
         {
-            menuPanel.transform.localPosition = new Vector3(-633, -12, 0);//position of character select menu
+            menuPanel.transform.localPosition = new Vector3(-633, -240, 0);//position of character select menu
             menuPanel.transform.localScale = new Vector3(-1, 1, 1);//Flip on x Axis via scale
 
-            readyPanel.transform.localPosition = new Vector3(-633, -12, 0);//position of ready button
+            readyPanel.transform.localPosition = new Vector3(-633, -240, 0);//position of Player num text
+
+            readyPanel.transform.localPosition = new Vector3(-633, -240, 0);//position of ready button
 
         }
     }
@@ -75,4 +83,25 @@ public class PlayerSetupMenuController : MonoBehaviour
 
         Debug.Log("Player " + playerIndex + "is ready.");
     }
+    //Attached to event trigger of each chracter button
+
+    public void OnSelected(Sprite characterIcon)
+    {
+        Debug.Log("button is selected");
+        CharacterSpotDisplay.sprite = characterIcon;
+
+        SlideInAniamtion.SetTrigger("Slide");
+        //SelectedPanel.SetActive(true);
+
+
+    }
+
+    public void OnDeSelected()
+    {
+        //SelectedPanel.SetActive(false);
+    }
+
+
+
+
 }

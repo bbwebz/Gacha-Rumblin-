@@ -261,6 +261,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: e9f722b5-1493-4c6b-9ce2-615316d546f2
     m_ActionName: UIMovement/Move[/DualSenseGamepadHID/dpad/up,/XInputControllerWindows/dpad/up,/DualSenseGamepadHID/dpad/down,/XInputControllerWindows/dpad/down,/DualSenseGamepadHID/dpad/left,/XInputControllerWindows/dpad/left,/DualSenseGamepadHID/dpad/right,/XInputControllerWindows/dpad/right]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f759f25d-058c-4b55-8659-1abe7a4b46cd
+    m_ActionName: UIMovement/Submit[/XInputControllerWindows/buttonSouth,/DualSenseGamepadHID1/buttonSouth]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Gameplay
@@ -276,10 +280,10 @@ Animator:
   m_GameObject: {fileID: 1961861736527330357}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e72145fb9c08a5743811f81a93f79482, type: 2}
+  m_Controller: {fileID: 9100000, guid: f4112b953f1935e46813163350bd5dec, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -310,9 +314,6 @@ MonoBehaviour:
   allPowers: {fileID: 0}
   inventoryP1: {fileID: 0}
   inventoryP2: {fileID: 0}
-  idlePose: {fileID: 21300000, guid: 8425878c5bea6ff4b84e66b626b0ed5e, type: 3}
-  jumpPose: {fileID: 21300000, guid: 722662a1df0e0ec40a447a8f5eefbca2, type: 3}
-  punchPose: {fileID: 21300000, guid: 731d1b79a0b23ab488724af8d11d3ee2, type: 3}
   PlayerIndex: 0
   pI: {fileID: 3916340982993292235, guid: d797bd697a15b9e4f836756080fedaba, type: 3}
   p1Sprite: {fileID: 21300000, guid: 5d7e396693542ae439c03fc1274f76fa, type: 3}
