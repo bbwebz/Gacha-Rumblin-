@@ -234,43 +234,6 @@ public class AssignPowerUps : MonoBehaviour
         }
         Debug.Log(" Assign PowerUp  numer: " + StaticData.itemP1Keep);
 
-
-        //Debug.Log("itemIdP2: "+ itemIdP2);
-
-
-        /* switch (StaticData.itemP2Keep)
-         {
-             case 0:
-                 Debug.Log("Extra damage powerup");
-                 powerUps[0].AddPowerUpP2();
-                 break;
-
-             case 1:
-                 Debug.Log("Second power up");
-                 powerUps[1].AddPowerUpP2();
-                 break;
-
-             case 2:
-                 Debug.Log("Third power up");
-                 powerUps[2].AddPowerUpP2();
-                 break;
-
-             case 3:
-                 Debug.Log("Forth power up");
-                 powerUps[3].AddPowerUpP2();
-                 break;
-
-             case 4:
-                 Debug.Log("Fith power up");
-                 powerUps[4].AddPowerUpP2();
-                 break;
-         }*/
-
-
-
-
-
-
     }
 
     public void AssignP2()

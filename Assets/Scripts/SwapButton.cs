@@ -132,13 +132,6 @@ public class SwapButton : MonoBehaviour
             }
         }
 
-
-       
-
-
-
     }
-
-
 
 }
