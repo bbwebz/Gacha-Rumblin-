@@ -31,7 +31,6 @@ public class AssignPowerUps : MonoBehaviour
     void Start()
     {
         //AssignScripts.assigner.assignPowerUps = gameObject;
-         itemIdlist = new List<int> { 0, 1, 2, 3, 4 };//list of number of powerups
 
 
     }
@@ -39,8 +38,6 @@ public class AssignPowerUps : MonoBehaviour
     //Called at the start of each round in gacha machine screen
     public void Generate()
     {
-
-        //List<int> itemIdlist = new List<int> { 0, 1, 2, 3, 4 };//list of number of powerups
 
         //Generate power up for player 1
         itemIdP1 = itemIdlist[Random.Range(0, itemIdlist.Count)];//picks random num
@@ -59,8 +56,8 @@ public class AssignPowerUps : MonoBehaviour
         //itemIdP2 = 0;
         StaticData.itemP2Keep = itemIdP2;
 
-        //Debug.Log(" Generate function StaticData.itemP1Keep" +  StaticData.itemP1Keep);
-        //Debug.Log(" Generate Function StaticData.itemP2Keep" +  StaticData.itemP2Keep);
+        Debug.Log(" Generate function StaticData.itemP1Keep" +  StaticData.itemP1Keep);
+        Debug.Log(" Generate Function StaticData.itemP2Keep" +  StaticData.itemP2Keep);
 
 
 
@@ -79,7 +76,7 @@ public class AssignPowerUps : MonoBehaviour
 
         //itemIdP1 = 1;
         StaticData.itemP1Keep = itemIdP1;
-        
+
         Debug.Log(" Generate function StaticData.itemP1Keep" +  StaticData.itemP1Keep);
         Debug.Log(" Generate Function StaticData.itemP2Keep" +  StaticData.itemP2Keep);
     }
@@ -93,7 +90,7 @@ public class AssignPowerUps : MonoBehaviour
         itemIdlist.Remove(itemIdP2);//remove this option form the list
 
         //itemIdP2 = 1;
-        StaticData.itemP1Keep = itemIdP1;
+        StaticData.itemP2Keep = itemIdP2;
 
         Debug.Log(" Generate function StaticData.itemP1Keep" +  StaticData.itemP1Keep);
         Debug.Log(" Generate Function StaticData.itemP2Keep" +  StaticData.itemP2Keep);
@@ -230,11 +227,12 @@ public class AssignPowerUps : MonoBehaviour
                 powerUps[4].AddPowerUpP1();
                 break;
         }
+        Debug.Log(" Assign PowerUp  numer: " + StaticData.itemP1Keep);
 
+    }
 
-        //Debug.Log("itemIdP2: "+ itemIdP2);
-
-
+    public void AssignP2()
+    {
         switch (StaticData.itemP2Keep)
         {
             case 0:
@@ -262,12 +260,6 @@ public class AssignPowerUps : MonoBehaviour
                 powerUps[4].AddPowerUpP2();
                 break;
         }
-
-      
-
-
-
-
     }
 
 

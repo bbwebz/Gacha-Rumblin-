@@ -259,24 +259,12 @@ MonoBehaviour:
     m_ActionName: Gameplay/Pause Game[/DualSenseGamepadHID/start,/XInputControllerWindows/start]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: f55221df-1956-453a-9d3a-ff38322226c2
-    m_ActionName: UIMovement/Left[/DualSenseGamepadHID/dpad/left,/XInputControllerWindows/dpad/left]
+    m_ActionId: e9f722b5-1493-4c6b-9ce2-615316d546f2
+    m_ActionName: UIMovement/Move[/DualSenseGamepadHID1/dpad/up,/XInputControllerWindows/dpad/up,/DualSenseGamepadHID1/dpad/down,/XInputControllerWindows/dpad/down,/DualSenseGamepadHID1/dpad/left,/XInputControllerWindows/dpad/left,/DualSenseGamepadHID1/dpad/right,/XInputControllerWindows/dpad/right]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 81993d2a-a67d-4c34-b17c-28d891ee0662
-    m_ActionName: UIMovement/Right[/DualSenseGamepadHID/dpad/right,/XInputControllerWindows/dpad/right]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: beb9b114-11b0-4e8f-8185-a01007fab7b1
-    m_ActionName: UIMovement/Down[/DualSenseGamepadHID/dpad/down,/XInputControllerWindows/dpad/down]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: b5cf3b29-1a86-4b29-a577-3065438268ba
-    m_ActionName: UIMovement/Submit[/DualSenseGamepadHID/buttonSouth,/XInputControllerWindows/buttonSouth]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: f78e177d-81aa-406c-a196-6f936e4fba45
-    m_ActionName: UIMovement/Up[/DualSenseGamepadHID/dpad/up,/XInputControllerWindows/dpad/up]
+    m_ActionId: f759f25d-058c-4b55-8659-1abe7a4b46cd
+    m_ActionName: UIMovement/Submit[/DualSenseGamepadHID1/buttonSouth,/XInputControllerWindows/buttonSouth]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Gameplay
@@ -295,7 +283,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: e72145fb9c08a5743811f81a93f79482, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -326,10 +314,10 @@ MonoBehaviour:
   allPowers: {fileID: 0}
   inventoryP1: {fileID: 0}
   inventoryP2: {fileID: 0}
-  idlePose: {fileID: 21300000, guid: 8425878c5bea6ff4b84e66b626b0ed5e, type: 3}
-  jumpPose: {fileID: 21300000, guid: 7117c32407608064f85edda9457b6f43, type: 3}
-  punchPose: {fileID: 21300000, guid: 06082ecf30492d745938c51887f43b3a, type: 3}
   PlayerIndex: 0
+  pI: {fileID: 0}
+  p1Sprite: {fileID: 0}
+  p2Sprite: {fileID: 0}
   Player1Trig: 0
   Player2Trig: 0
   touchingFloor: 0
