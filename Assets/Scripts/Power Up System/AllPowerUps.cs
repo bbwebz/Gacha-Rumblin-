@@ -252,11 +252,13 @@ public class AllPowerUps : MonoBehaviour
     //Deactivates any buffs given to the player
     private void DeactivateShield(int playerNum)
     {
+
         //return damage that player can do back to normal
         if (playerNum == 1)
         {
             Player1HealthAccess.Player1DamageAmount = 0.5f;
             Player1ControllerAccess.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+            Destroy(PhysicalShieldClone);
         }
         else if (playerNum == 2)
         {
@@ -264,6 +266,8 @@ public class AllPowerUps : MonoBehaviour
             Player2HealthAccess.Player2DamageAmount = 0.5f;
             //set plyer colours back to normal
             Player2ControllerAccess.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+            Destroy(PhysicalShieldClone);
+
         }
 
         Debug.Log("deactivate Shield");

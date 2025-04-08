@@ -424,12 +424,18 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Player 1 gamble");
             swapButtonAccess.isUsedP1 = true; //to hide the button
+            audioManager.PlaySFX(audioManager.powerUp);
+                Debug.Log("Player 1 trigger");
+
         }
         
         if (PlayerIndex == 1 && allPowers != null && context.performed && swapButtonAccess.isUsedP2 == false && swapButtonAccess.swapButtonP2.IsActive() == true)
         {
             Debug.Log("Player 2 gamble");
             swapButtonAccess.isUsedP2 = true; //to hide the button
+            audioManager.PlaySFX(audioManager.powerUp);
+            Debug.Log("Player 2 trigger");
+            
         }
     }
 
