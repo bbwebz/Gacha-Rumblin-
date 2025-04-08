@@ -2174,7 +2174,7 @@ MonoBehaviour:
   AllPowerUpsAccess: {fileID: 418204526}
   RoundManagerAccess: {fileID: 579418500}
   TimerControllerAccess: {fileID: 282018887}
-  SwapButtonAccess: {fileID: 0}
+  SwapButtonAccess: {fileID: 1525791261}
 --- !u!1 &903758347
 GameObject:
   m_ObjectHideFlags: 0
@@ -3344,13 +3344,13 @@ MonoBehaviour:
   player1HealthAccess: {fileID: 0}
   player2HealthAccess: {fileID: 0}
   pickupAccess:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  assignPowerUpsAccess: {fileID: 0}
-  allPowerUpsAccess: {fileID: 0}
+  - {fileID: 484866532}
+  - {fileID: 535547304}
+  - {fileID: 1090177893}
+  - {fileID: 705535403}
+  - {fileID: 903758348}
+  assignPowerUpsAccess: {fileID: 1483055531}
+  allPowerUpsAccess: {fileID: 418204527}
   swapButtonP1: {fileID: 1163635212}
   swapButtonP2: {fileID: 409379115}
   isUsedP1: 0

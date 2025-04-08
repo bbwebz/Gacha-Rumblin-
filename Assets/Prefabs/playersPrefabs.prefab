@@ -308,7 +308,7 @@ Animator:
   m_GameObject: {fileID: 1961861736527330357}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e72145fb9c08a5743811f81a93f79482, type: 2}
+  m_Controller: {fileID: 9100000, guid: f4112b953f1935e46813163350bd5dec, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -342,14 +342,15 @@ MonoBehaviour:
   allPowers: {fileID: 0}
   inventoryP1: {fileID: 0}
   inventoryP2: {fileID: 0}
-  idlePose: {fileID: 21300000, guid: 8425878c5bea6ff4b84e66b626b0ed5e, type: 3}
-  jumpPose: {fileID: 21300000, guid: 722662a1df0e0ec40a447a8f5eefbca2, type: 3}
-  punchPose: {fileID: 21300000, guid: 731d1b79a0b23ab488724af8d11d3ee2, type: 3}
+  swapButtonAccess: {fileID: 0}
+  pickupAccess: {fileID: 0}
   PlayerIndex: 0
-  Player1Trig: 0
-  Player2Trig: 0
+  pI: {fileID: 0}
+  p1Sprite: {fileID: 0}
+  p2Sprite: {fileID: 0}
   touchingFloor: 0
   attacking: 1
+  floorPos: 0
 --- !u!114 &7877183802135793232
 MonoBehaviour:
   m_ObjectHideFlags: 0
