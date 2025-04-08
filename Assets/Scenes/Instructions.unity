@@ -188,7 +188,7 @@ SpriteRenderer:
   m_Size: {x: 6.73, y: 4.47}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &2308919
@@ -349,7 +349,6 @@ GameObject:
   m_Component:
   - component: {fileID: 817602061}
   - component: {fileID: 817602060}
-  - component: {fileID: 817602059}
   - component: {fileID: 817602062}
   m_Layer: 0
   m_Name: Main Camera
@@ -358,14 +357,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &817602059
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 817602058}
-  m_Enabled: 1
 --- !u!20 &817602060
 Camera:
   m_ObjectHideFlags: 0
