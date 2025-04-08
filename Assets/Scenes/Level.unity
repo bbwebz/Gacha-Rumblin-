@@ -373,7 +373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 425555432}
   SFXSource: {fileID: 615890334}
-  background: {fileID: 8300000, guid: 6eab2306332c76b43b9ce97fe4747fd9, type: 3}
+  background: {fileID: 8300000, guid: 1f791df9d6adf724f85168bc0cca0021, type: 3}
   damage: {fileID: 8300000, guid: 908ff4aa3109bb346a9ccd8d312727b8, type: 3}
   powerUp: {fileID: 8300000, guid: cfed5a8438733df43b977a14bfb76b2a, type: 3}
   coin: {fileID: 8300000, guid: fe74b4feb147ed24bb303179ff592d72, type: 3}
@@ -1183,7 +1183,6 @@ GameObject:
   m_Component:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
-  - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
@@ -1192,14 +1191,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &519420029
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
 --- !u!114 &519420030
 MonoBehaviour:
   m_ObjectHideFlags: 0
